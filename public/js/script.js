@@ -17,7 +17,7 @@ foo()
 //console.log(localStorage.getItem('name'));
 //console.log(localStorage.getItem('name'));
 
-/*
+
 function init() {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
     wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
@@ -25,6 +25,7 @@ function init() {
             if (code) {
                 return;
             }
+            getMainInfo();
             setInterval(getMainInfo, 2000);
         });
 };
@@ -43,17 +44,13 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
-            arrayD = arr.slice(0, 10);
-            arrayT = arr.slice(10, 20);
+            arrayD = arr.slice(0, 12);
+            arrayT = arr.slice(12, 24);
             funcRandom(arrayD, arrayT);
             go(arrayD, arrayT);
-            return window['arrayD'] = arrayD, arrayT, arr
-        });*/
-
-const arrayD = [8, 9, 10, 4, 8, 5, 9, 8, 10, 11, 4, 9];
-const arrayT = [8, 9, 10, 4, 8, 5, 9, 8, 10, 11, 4, 2];
-
-
+            //return window['arrayD'] = arrayD, arrayT, arr
+        });
+}
 
 /*
     var flags = 1 + 8 + 1024 + 256
@@ -114,10 +111,10 @@ const objColor = {
     1: '#e03636',
     2: '#9ba805',
     3: '#3eb051'
-}
+}/*
 const time = document.querySelectorAll('.time');
 const stat = document.querySelectorAll('.bg_stat');
-time[0].textContent = getNowtime();
+time[0].textContent = getNowtime();*/
 const funcRandom = (el1, el2) => {
     //  arr733D = el1;
     // arr733T = el2;
@@ -125,20 +122,20 @@ const funcRandom = (el1, el2) => {
     //Объект 5
     const Obj733 = () => {
         logic733(el1, el2);
-        const statGal = () => {
-            stat[0].style.backgroundImage = "url(image/gal.png)";
-        }
-        const statEr = () => {
-            stat[0].style.backgroundImage = "url(image/er.png)";
-        }
-        if (el1[0] >= 8 && el1[0] <= 10 && el1[1] >= 8 && el1[1] <= 10 && el1[2] >= 8 && el1[2] <= 10 && el1[3] >= 8 && el1[3] <= 10 && el1[4] >= 8
-            && el1[4] <= 10 && el1[5] >= 8 && el1[5] <= 10 && el1[6] >= 8 && el1[6] <= 10 && el1[7] >= 8 && el1[7] <= 10 && el1[8] >= 8 && el1[8] <= 10 && el1[9] >= 8 && el1[9] <= 10 &&
-            el2[0] >= 20 && el2[0] <= 30 && el2[1] >= 20 && el2[1] <= 30 && el2[2] >= 20 && el2[2] <= 30 && el2[3] >= 20 && el2[3] <= 30 && el2[4] >= 20
-            && el2[4] <= 30 && el2[5] >= 20 && el2[5] <= 30 && el2[6] >= 20 && el2[6] <= 30 && el2[7] >= 20 && el2[7] <= 30 && el2[8] >= 20 && el2[8] <= 30 && el2[9] >= 20 && el2[9] <= 30) {
-            statGal();
-        } else {
-            statEr();
-        }
+        /* const statGal = () => {
+             stat[0].style.backgroundImage = "url(image/gal.png)";
+         }
+         const statEr = () => {
+             stat[0].style.backgroundImage = "url(image/er.png)";
+         }
+         if (el1[0] >= 8 && el1[0] <= 10 && el1[1] >= 8 && el1[1] <= 10 && el1[2] >= 8 && el1[2] <= 10 && el1[3] >= 8 && el1[3] <= 10 && el1[4] >= 8
+             && el1[4] <= 10 && el1[5] >= 8 && el1[5] <= 10 && el1[6] >= 8 && el1[6] <= 10 && el1[7] >= 8 && el1[7] <= 10 && el1[8] >= 8 && el1[8] <= 10 && el1[9] >= 8 && el1[9] <= 10 &&
+             el2[0] >= 20 && el2[0] <= 30 && el2[1] >= 20 && el2[1] <= 30 && el2[2] >= 20 && el2[2] <= 30 && el2[3] >= 20 && el2[3] <= 30 && el2[4] >= 20
+             && el2[4] <= 30 && el2[5] >= 20 && el2[5] <= 30 && el2[6] >= 20 && el2[6] <= 30 && el2[7] >= 20 && el2[7] <= 30 && el2[8] >= 20 && el2[8] <= 30 && el2[9] >= 20 && el2[9] <= 30) {
+             statGal();
+         } else {
+             statEr();
+         }*/
     }
     Obj733();
 
@@ -154,7 +151,7 @@ const logic733 = (el1, el2) => {
             // console.log(localStorage.getItem('name'));
         }
         else {
-            elem.textContent = parseFloat(el1[index].toFixed(1)) + '\nБар';
+            elem.textContent = parseFloat(el1[index]) + '\nБар';
             // localStorage.setItem('name', elem.textContent);
             // localStorage.getItem('name');
             //console.log(localStorage.getItem('name'));
@@ -203,7 +200,7 @@ function getNowtime() {
     let nowTime = (`${date}-${month}-${year}   ${hours}:${minutes}:${seconds}`);
     return nowTime;
 }
-funcRandom(arrayD, arrayT);
+
 //рандомная дата
 function randomDate(start, end) {
     return new Date(start.getTime()
@@ -395,7 +392,7 @@ function go(item1, item2) {
     return arrAll1, arrAll2
 }
 
-go(arrayD, arrayT);
+
 
 
 
@@ -424,3 +421,127 @@ function getSensorInfo() { // get and show information about selected Sensor
     console.log(result);
     msg(result);
 }*/
+
+
+
+function dashDav() {
+    const arrDall = arrayD;
+    countRed = 0;
+    countYellow = 0;
+    countGreen = 0;
+    arrDall.forEach((el) => {
+        if (el >= 8 && el <= 10) {
+            countGreen++
+        }
+        if (el >= 7 && el < 8 || el > 10 && el <= 11) {
+            countYellow++
+        }
+        if (el >= -1000 && el < 7 || el > 11 || el === -348201.3876) {
+            countRed++
+        }
+    })
+    resultRed = Math.round(countRed / arrDall.length * 100);
+    resultYellow = Math.round(countYellow / arrDall.length * 100);
+    resultGreen = Math.round(countGreen / arrDall.length * 100);
+    return arrDash = [resultRed, resultYellow, resultGreen];
+}
+
+
+Chart.register(ChartDataLabels);
+const ctx = document.getElementById('myChart').getContext('2d');
+chart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: [
+            'Большое отклонение',
+            'Незначительные отклонения',
+            'В Норме'
+        ],
+        datasets: [{
+            label: 'Дашбоард',
+            data: setInterval(dashDav, 2000),
+            backgroundColor: [
+                '#e03636',
+                '#9ba805',
+                '#3eb051'
+            ],
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        plugins: {
+            datalabels: {
+                color: '#423737',
+                textAlign: 'center',
+                font: {
+                    size: 20,
+                    lineHeight: 1.6
+                },
+                formatter: function (value) {
+                    return value + '%';
+                }
+            }
+        }
+    }
+});
+
+function dashDat() {
+    const arrDall = arrayT;
+    countJob = 0;
+    countError = 0;
+    arrDall.forEach((el) => {
+        if (el < -100) {
+            countError++
+        }
+        if (el > -30 && el < 50) {
+            countJob++
+        }
+    })
+    resultJob = Math.round(countJob / arrDall.length * 100);
+    resultError = Math.round(countError / arrDall.length * 100);
+    return arrDashdat = [resultError, resultJob];
+}
+
+const ctx2 = document.getElementById('myChart2').getContext('2d');
+const chart2 = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+        labels: [
+            'Нет данных от датчиков',
+            'Работающие датчики'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: setInterval(dashDat, 2000),
+            backgroundColor: [
+                'gray',
+                '#3eb051'
+            ],
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        plugins: {
+            datalabels: {
+                color: '#423737',
+                textAlign: 'center',
+                font: {
+                    size: 20,
+                    lineHeight: 1.6
+                },
+                formatter: function (value) {
+                    return value + '%';
+                }
+            }
+        }
+    }
+});
+
+const upRender = () => {
+    chart.data.datasets[0].data = arrDash;
+    chart2.data.datasets[0].data = arrDashdat;
+    chart.update();
+    chart2.update();
+}
+
+setInterval(upRender, 2000);

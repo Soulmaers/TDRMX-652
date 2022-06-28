@@ -157,7 +157,7 @@ td {
 }
 
 .card {
-  width: 250px;
+  width: 200px;
   height: 540px;
   margin: 5px 5px;
 
@@ -210,15 +210,15 @@ td {
   justify-content: space-between;
   height: 350px;
   background-image: url(../image/bg_shas3.png);
-  padding: 0 20px;
+  padding: 0 9px;
 }
 
 .container_2_4_4 {
   display: flex;
   flex-direction: column;
   height: 540px;
-  background-image: url(../image/car02.png);
-  padding: 0 12px;
+  background-image: url(../image/car03.png);
+  padding: 0 9px;
 }
 
 
@@ -249,7 +249,7 @@ td {
 }
 
 .tires_spark {
-  width: 54px;
+  width: 47px;
   display: flex;
   justify-content: space-between;
 }
@@ -279,7 +279,7 @@ td {
 
 .tiresD {
   box-sizing: border-box;
-  width: 25px;
+  width: 23px;
   height: 24px;
   border: 1px solid #000;
 
@@ -303,7 +303,7 @@ td {
 .tiresT {
   box-sizing: border-box;
 
-  width: 25px;
+  width: 23px;
   height: 24px;
   border: 1px solid #000;
 
@@ -441,4 +441,33 @@ td {
 
 .threeLow:nth-child(n+2) {
   margin-left: 7px;
+}
+
+
+/*дашборды*/
+.wrapper_right_dash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+}
+
+.dash_title {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-family: Roboto;
+  ;
+
+}
+
+.dash_card {
+  margin-top: 20px;
+}
+
+.dash_board {
+  width: 80%;
+  padding: 10px;
+
 }
