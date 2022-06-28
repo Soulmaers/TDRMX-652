@@ -44,16 +44,22 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
+            arrayDcor = [];
+            arr.forEach((el) => {
+                arrayDcor.push(el[0]) //el[2], el[1], el[9], el[8], el[7], el[6], el[3], el[5], el[4], el[25], el[26])
+            })
+
+
             arrayD = arr.slice(0, 12);
             arrayT = arr.slice(12, 24);
             funcRandom(arrayD, arrayT);
             // go(arrayD, arrayT);
             //return window['arrayD'] = arrayD, arrayT, arr
         });
-}
 
-/*
-    var flags = 1 + 8 + 1024 + 256
+
+
+    var flags = 1 + 4096
     var prms = {
         "spec": {
             "itemsType": "avl_unit",
@@ -66,8 +72,8 @@ function getMainInfo() {
         "from": 0,
         "to": 0
     };
- 
- 
+
+
     const remote1 = wialon.core.Remote.getInstance();
     remote1.remoteCall('core/search_items', prms,
         function (code, result) {
@@ -75,15 +81,15 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr1 = Object.values(result);
-            arrayD1 = arr.slice(0, 10);
-            arrayT1 = arr.slice(10, 20);
+            //arrayD1 = arr.slice(0, 10);
+            //arrayT1 = arr.slice(10, 20);
             // funcRandom(arrayD, arrayT);
             // go(arrayD, arrayT);
-            return window['arrayD'] = arrayD1, arrayT1, arr1
+            // return window['arrayD'] = arrayD1, arrayT1, arr1
         });
-       
+
 }
-*/
+
 
 //проверяем условия
 function gener(el) {
