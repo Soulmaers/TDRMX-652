@@ -459,7 +459,7 @@ chart = new Chart(ctx, {
         ],
         datasets: [{
             label: 'Дашбоард',
-            data: setInterval(dashDav, 2000),
+            data: setInterval(dashDav, 1500),
             backgroundColor: [
                 '#e03636',
                 '#9ba805',
@@ -512,7 +512,7 @@ const chart2 = new Chart(ctx2, {
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: setInterval(dashDat, 2000),
+            data: setInterval(dashDat, 1500),
             backgroundColor: [
                 'gray',
                 '#3eb051'
@@ -544,4 +544,4 @@ const upRender = () => {
     chart2.update();
 }
 
-setInterval(upRender, 2000);
+setInterval(upRender, 1500);
