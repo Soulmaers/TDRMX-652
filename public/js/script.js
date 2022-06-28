@@ -44,71 +44,83 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
-            arrayDcor = [];
-            arr.forEach((el) => {
-                arrayDcor.push(el[0]) //el[2], el[1], el[9], el[8], el[7], el[6], el[3], el[5], el[4], el[25], el[26])
-            })
+            arrayD = [];
+            arrayD.push(arr[0]); arrayD.push(arr[2]); arrayD.push(arr[1]); arrayD.push(arr[9]);
+            arrayD.push(arr[8]); arrayD.push(arr[7]); arrayD.push(arr[6]); arrayD.push(arr[3]);
+            arrayD.push(arr[5]); arrayD.push(arr[4]); arrayD.push(arr[25]); arrayD.push(arr[25]);
+            arrayT = [];
+            arrayT.push(arr[18]); arrayT.push(arr[17]); arrayT.push(arr[14]); arrayT.push(arr[16]);
+            arrayT.push(arr[13]); arrayT.push(arr[15]); arrayT.push(arr[10]); arrayT.push(arr[12]);
+            arrayT.push(arr[11]); arrayT.push(arr[19]); arrayT.push(arr[28]); arrayT.push(arr[27]);
 
-
-            arrayD = arr.slice(0, 12);
-            arrayT = arr.slice(12, 24);
             funcRandom(arrayD, arrayT);
             // go(arrayD, arrayT);
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 
 
-
-    var flags = 1 + 4096
-    var prms = {
-        "spec": {
-            "itemsType": "avl_unit",
-            "propName": "sys_name",
-            "propValueMask": "*",
-            "sortType": "sys_name"
-        },
-        "force": 1,
-        "flags": flags,
-        "from": 0,
-        "to": 0
-    };
-
-
-    const remote1 = wialon.core.Remote.getInstance();
-    remote1.remoteCall('core/search_items', prms,
-        function (code, result) {
-            if (code) {
-                console.log(wialon.core.Errors.getErrorText(code));
-            }
-            arr1 = Object.values(result);
-            //arrayD1 = arr.slice(0, 10);
-            //arrayT1 = arr.slice(10, 20);
-            // funcRandom(arrayD, arrayT);
-            // go(arrayD, arrayT);
-            // return window['arrayD'] = arrayD1, arrayT1, arr1
-        });
-
+    /*
+        var flags = 1 + 4096
+        var prms = {
+            "spec": {
+                "itemsType": "avl_unit",
+                "propName": "sys_name",
+                "propValueMask": "*",
+                "sortType": "sys_name"
+            },
+            "force": 1,
+            "flags": flags,
+            "from": 0,
+            "to": 0
+        };
+    
+    
+        const remote1 = wialon.core.Remote.getInstance();
+        remote1.remoteCall('core/search_items', prms,
+            function (code, result) {
+                if (code) {
+                    console.log(wialon.core.Errors.getErrorText(code));
+                }
+                arr1 = Object.values(result);
+                //arrayD1 = arr.slice(0, 10);
+                //arrayT1 = arr.slice(10, 20);
+                // funcRandom(arrayD, arrayT);
+                // go(arrayD, arrayT);
+                // return window['arrayD'] = arrayD1, arrayT1, arr1
+            });
+    */
 }
 
 
 //проверяем условия
-function gener(el) {
+function generFront(el) {
     let generatedValue;
-    if (el >= 8 && el <= 10)
+    if (el >= 8 && el <= 9)
         generatedValue = 3;
-    if (el >= 7 && el < 8 || el > 10 && el <= 11)
+    if (el >= 7.5 && el < 8 || el > 9 && el <= 13)
         generatedValue = 2;
-    if (el >= -1000 && el < 7 || el > 11)
+    if (el < 7.5 || el > 13)
         generatedValue = 1;
     return generatedValue;
 };
+function generRear(el) {
+    let generatedValue;
+    if (el >= 9 && el <= 12)
+        generatedValue = 3;
+    if (el > 8 && el < 9 || el > 12 && el <= 13)
+        generatedValue = 2;
+    if (el <= 8 || el > 13)
+        generatedValue = 1;
+    return generatedValue;
+};
+
 function generT(el) {
     let generatedValue;
-    if (el >= 20 && el <= 30)
+    if (el >= 33 && el <= 38)
         generatedValue = 3;
-    if (el >= 15 && el < 20 || el > 30 && el <= 32)
+    if (el >= 32 && el < 33 || el > 38 && el <= 39)
         generatedValue = 2;
-    if (el >= -100 && el < 15 || el > 32 && el <= 1000000)
+    if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876)
         generatedValue = 1;
     return generatedValue;
 };
@@ -122,47 +134,37 @@ const time = document.querySelectorAll('.time');
 const stat = document.querySelectorAll('.bg_stat');
 time[0].textContent = getNowtime();*/
 const funcRandom = (el1, el2) => {
-    //  arr733D = el1;
-    // arr733T = el2;
     //кладем значения в каждое колесо
-    //Объект 5
-    const Obj733 = () => {
-        logic733(el1, el2);
-        /* const statGal = () => {
-             stat[0].style.backgroundImage = "url(image/gal.png)";
-         }
-         const statEr = () => {
-             stat[0].style.backgroundImage = "url(image/er.png)";
-         }
-         if (el1[0] >= 8 && el1[0] <= 10 && el1[1] >= 8 && el1[1] <= 10 && el1[2] >= 8 && el1[2] <= 10 && el1[3] >= 8 && el1[3] <= 10 && el1[4] >= 8
-             && el1[4] <= 10 && el1[5] >= 8 && el1[5] <= 10 && el1[6] >= 8 && el1[6] <= 10 && el1[7] >= 8 && el1[7] <= 10 && el1[8] >= 8 && el1[8] <= 10 && el1[9] >= 8 && el1[9] <= 10 &&
-             el2[0] >= 20 && el2[0] <= 30 && el2[1] >= 20 && el2[1] <= 30 && el2[2] >= 20 && el2[2] <= 30 && el2[3] >= 20 && el2[3] <= 30 && el2[4] >= 20
-             && el2[4] <= 30 && el2[5] >= 20 && el2[5] <= 30 && el2[6] >= 20 && el2[6] <= 30 && el2[7] >= 20 && el2[7] <= 30 && el2[8] >= 20 && el2[8] <= 30 && el2[9] >= 20 && el2[9] <= 30) {
-             statGal();
-         } else {
-             statEr();
-         }*/
-    }
-    Obj733();
-
+    logic733(el1, el2);
 }
 const logic733 = (el1, el2) => {
+    arrTiresFront = el1.slice(0, 6);
+    arrTiresRear = el1.slice(6, 12);
     const alls = document.querySelectorAll('.tiresD733');
+    const allsRear = document.querySelectorAll('.tiresD7333');
     const allsT = document.querySelectorAll('.tiresT733');
     alls.forEach(function (elem, index) {
-        if (el1[index] === -348201.3876) {
+        if (arrTiresFront[index] === -348201.3876) {
             elem.textContent = '-';
             // localStorage.setItem('name', elem.textContent)
             // localStorage.getItem('name');
             // console.log(localStorage.getItem('name'));
         }
         else {
-            elem.textContent = parseFloat(el1[index]) + '\nБар';
+            elem.textContent = parseFloat(arrTiresFront[index]) + '\nБар';
             // localStorage.setItem('name', elem.textContent);
             // localStorage.getItem('name');
             //console.log(localStorage.getItem('name'));
         }
-        ;
+    });
+
+    allsRear.forEach(function (elem, index) {
+        if (arrTiresRear[index] === -348201.3876) {
+            elem.textContent = '-';
+        }
+        else {
+            elem.textContent = parseFloat(arrTiresRear[index]) + '\nБар';
+        }
     })
     allsT.forEach(function (elem, index) {
         if (el2[index] == -348201.3876 || el2[index] == -128) {
@@ -173,12 +175,18 @@ const logic733 = (el1, el2) => {
         }
     })
     alls.forEach(function (elem, index) {
-        elem.style.background = objColor[gener(el1[index])];
+        elem.style.background = objColor[generFront(arrTiresFront[index])];
+
+    })
+    allsRear.forEach(function (elem, index) {
+        elem.style.background = objColor[generRear(arrTiresRear[index])];
+
     })
     allsT.forEach(function (elem, index) {
         elem.style.background = objColor[generT(el2[index])];
     })
 }
+
 //текущее время
 function getNowtime() {
     let now = new Date();
@@ -261,9 +269,9 @@ arrTireslink.forEach(function (elem, index) {
         grafik = document.querySelector('.grafik');
         grafik.style.display = 'block';
     }
-
+ 
 });
-
+ 
 arrTireslink.forEach((elem, index) => {
     elem.addEventListener('click', tiresLinkfunc);
     function tiresLinkfunc() {
@@ -280,7 +288,7 @@ arrTireslink.forEach((elem, index) => {
             dataMade.textContent = elem;
         }
         dataMadefunc();
-
+ 
         function tiresGrafik() {
             elem = arrAll1[index];
             davl = elem;
@@ -294,7 +302,7 @@ arrTireslink.forEach((elem, index) => {
         chrt();
     }
 });
-
+ 
 function chrt() {
     Chart.register(ChartDataLabels);
     myChartg = new Chart(myChartg, {
@@ -359,7 +367,7 @@ function chrt() {
             },
         }
     });
-
+ 
     const upDia = () => {
         myChartg.data.datasets[0].data = davl;
         myChartg.data.datasets[1].data = davl2;
@@ -493,18 +501,18 @@ chart = new Chart(ctx, {
 });
 
 function dashDat() {
-    const arrDall = arrayD;
+    const arrDall = arrayT;
     countRed = 0;
     countYellow = 0;
     countGreen = 0;
     arrDall.forEach((el) => {
-        if (el >= 8 && el <= 10) {
+        if (el >= 33 && el <= 38) {
             countGreen++
         }
-        if (el >= 7 && el < 8 || el > 10 && el <= 11) {
+        if (el >= 32 && el < 33 || el > 38 && el <= 39) {
             countYellow++
         }
-        if (el >= -1000 && el < 7 || el > 11 || el === -348201.3876) {
+        if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876) {
             countRed++
         }
     })
