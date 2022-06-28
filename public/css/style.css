@@ -49,15 +49,15 @@ td {
 }
 
 .wrapper_left {
-  width: 30%;
+  width: 45%;
   min-height: 600px;
   border-right: 20px solid lightgray;
 }
 
 .wrapper_right {
-  width: 64.5%;
+  width: 80%;
   min-height: 600px;
-  padding: 30px;
+  padding: 20px;
 
 
 }
@@ -65,9 +65,6 @@ td {
 .wrapper_containt {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-
 }
 
 .check {
@@ -158,9 +155,13 @@ td {
 
 .card {
   width: 200px;
-  height: 540px;
+  height: 560px;
   margin: 5px 5px;
 
+}
+
+.profil {
+  margin-left: 20px;
 }
 
 .wrapper_containt_active {
@@ -449,7 +450,7 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+
 
 }
 
@@ -462,12 +463,10 @@ td {
 
 }
 
-.dash_card {
-  margin-top: 20px;
-}
+
 
 .dash_board {
-  width: 80%;
+  width: 95%;
   padding: 10px;
 
 }

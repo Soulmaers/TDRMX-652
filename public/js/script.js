@@ -47,7 +47,7 @@ function getMainInfo() {
             arrayD = arr.slice(0, 12);
             arrayT = arr.slice(12, 24);
             funcRandom(arrayD, arrayT);
-            go(arrayD, arrayT);
+            // go(arrayD, arrayT);
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 }
@@ -232,6 +232,7 @@ const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
 
 //проваливаемся в колесо
+/*
 arrTireslink.forEach(function (elem, index) {
     elem.addEventListener('click', tiresActive);
     function tiresActive() {
@@ -359,7 +360,7 @@ function chrt() {
         myChartg.update();
     }
     setInterval(upDia, 100);
-}
+}*/
 const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
 arrTime = [];
@@ -380,7 +381,7 @@ function getNowtime1() {
     let nowTime = (`${hours}:${minutes}:${seconds}`);
     return nowTime;
 }
-
+/*
 function go(item1, item2) {
     arrTime.push(getNowtime1());
     item1.forEach((el, index) => {
@@ -390,7 +391,7 @@ function go(item1, item2) {
         arrAll2[index].push(parseFloat(el.toFixed(0)));
     })
     return arrAll1, arrAll2
-}
+}*/
 
 
 
@@ -443,7 +444,7 @@ function dashDav() {
     resultRed = Math.round(countRed / arrDall.length * 100);
     resultYellow = Math.round(countYellow / arrDall.length * 100);
     resultGreen = Math.round(countGreen / arrDall.length * 100);
-    return arrDash = [resultRed, resultYellow, resultGreen];
+    return arrD = [resultRed, resultYellow, resultGreen];
 }
 
 
@@ -453,13 +454,13 @@ chart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: [
-            'Большое отклонение',
-            'Незначительные отклонения',
-            'В Норме'
+            'Критически',
+            'Повышенное/Пониженное',
+            'Норма'
         ],
         datasets: [{
             label: 'Дашбоард',
-            data: setInterval(dashDav, 1500),
+            data: setInterval(dashDav, 2000),
             backgroundColor: [
                 '#e03636',
                 '#9ba805',
@@ -474,7 +475,7 @@ chart = new Chart(ctx, {
                 color: '#423737',
                 textAlign: 'center',
                 font: {
-                    size: 20,
+                    size: 16,
                     lineHeight: 1.6
                 },
                 formatter: function (value) {
@@ -486,20 +487,25 @@ chart = new Chart(ctx, {
 });
 
 function dashDat() {
-    const arrDall = arrayT;
-    countJob = 0;
-    countError = 0;
+    const arrDall = arrayD;
+    countRed = 0;
+    countYellow = 0;
+    countGreen = 0;
     arrDall.forEach((el) => {
-        if (el < -100) {
-            countError++
+        if (el >= 8 && el <= 10) {
+            countGreen++
         }
-        if (el > -30 && el < 50) {
-            countJob++
+        if (el >= 7 && el < 8 || el > 10 && el <= 11) {
+            countYellow++
+        }
+        if (el >= -1000 && el < 7 || el > 11 || el === -348201.3876) {
+            countRed++
         }
     })
-    resultJob = Math.round(countJob / arrDall.length * 100);
-    resultError = Math.round(countError / arrDall.length * 100);
-    return arrDashdat = [resultError, resultJob];
+    resultRed = Math.round(countRed / arrDall.length * 100);
+    resultYellow = Math.round(countYellow / arrDall.length * 100);
+    resultGreen = Math.round(countGreen / arrDall.length * 100);
+    return arrT = [resultRed, resultYellow, resultGreen];
 }
 
 const ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -507,14 +513,16 @@ const chart2 = new Chart(ctx2, {
     type: 'doughnut',
     data: {
         labels: [
-            'Нет данных от датчиков',
-            'Работающие датчики'
+            'Критически',
+            'Повышенное/Пониженное',
+            'Норма'
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: setInterval(dashDat, 1500),
+            data: setInterval(dashDat, 2000),
             backgroundColor: [
-                'gray',
+                '#e03636',
+                '#9ba805',
                 '#3eb051'
             ],
             hoverOffset: 4
@@ -526,7 +534,7 @@ const chart2 = new Chart(ctx2, {
                 color: '#423737',
                 textAlign: 'center',
                 font: {
-                    size: 20,
+                    size: 16,
                     lineHeight: 1.6
                 },
                 formatter: function (value) {
@@ -538,10 +546,10 @@ const chart2 = new Chart(ctx2, {
 });
 
 const upRender = () => {
-    chart.data.datasets[0].data = arrDash;
-    chart2.data.datasets[0].data = arrDashdat;
+    chart.data.datasets[0].data = arrD;
+    chart2.data.datasets[0].data = arrT;
     chart.update();
     chart2.update();
 }
 
-setInterval(upRender, 1500);
+setInterval(upRender, 2000);
