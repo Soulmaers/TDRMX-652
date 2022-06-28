@@ -1,0 +1,444 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  font-family: Arial;
+}
+
+.username,
+td {
+  border: 1px solid #666;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 20px solid lightgray
+}
+
+.menu {
+  display: flex;
+  margin-left: 50px;
+  padding: 10px 0;
+}
+
+.list_menu {
+  display: flex;
+  list-style-type: none;
+}
+
+.list_item_menu:nth-child(n+2) {
+  margin-left: 15px;
+
+}
+
+.link_menu {
+  text-decoration: none;
+  font-family: Roboto;
+  color: lightgray;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.main {
+  display: flex;
+  max-width: 1700px;
+
+}
+
+.wrapper_left {
+  width: 30%;
+  min-height: 600px;
+  border-right: 20px solid lightgray;
+}
+
+.wrapper_right {
+  width: 64.5%;
+  min-height: 600px;
+  padding: 30px;
+
+
+}
+
+.wrapper_containt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.check {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.lft729 {
+  width: 30px;
+  height: 40px;
+  border: 3px solid orangered;
+}
+
+.card_hidden {
+  display: none;
+}
+
+.check_box {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Roboto;
+  padding: 5px 10px;
+
+}
+
+.header_table {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 11px;
+  margin-top: 10px;
+
+}
+
+.table {
+  text-align: center;
+  width: 100%;
+  padding: 0 10px;
+  table-layout: fixed;
+
+}
+
+.table_data {
+  text-align: center;
+  margin: 5px;
+  table-layout: fixed;
+  width: 259px;
+}
+
+.title_table {
+  border: 1px solid gray;
+  width: 33%;
+  text-align: center;
+  padding: 5px;
+  font-family: Roboto;
+  font-weight: 500;
+  color: gray;
+  background-color: lightgray;
+}
+
+.td {
+  height: 20px;
+  background-color: #dfe7edf8;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.tdd {
+  height: 20px;
+  background-color: #dfe7edf8;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0 5px;
+}
+
+.bg_stat {
+  width: 100%;
+  height: 50px;
+
+  background-repeat: no-repeat;
+  background-position: center
+}
+
+.card {
+  width: 250px;
+  height: 540px;
+  margin: 5px 5px;
+
+}
+
+.wrapper_containt_active {
+  justify-content: left;
+}
+
+.grafik {
+  display: none;
+  width: 800px;
+
+  background-color: #fff;
+  border: 1px solid gray;
+  margin: 5px 5px;
+}
+
+
+.container_2_4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  background-image: url(../image/bg_shas.png);
+  padding: 0 20px;
+}
+
+.container_3_6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  background-image: url(../image/bg_shas3.png);
+  padding: 0 20px;
+}
+
+.container_2_4_2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  background-image: url(../image/bg_shas3.png);
+  padding: 0 12px;
+}
+
+.container_2_2_4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  background-image: url(../image/bg_shas3.png);
+  padding: 0 20px;
+}
+
+.container_2_4_4 {
+  display: flex;
+  flex-direction: column;
+  height: 540px;
+  background-image: url(../image/car02.png);
+  padding: 0 12px;
+}
+
+
+
+
+.title {
+  font-size: 1rem;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.title_two {
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.front_axle {
+  display: flex;
+  justify-content: space-between;
+  margin: 22px 0;
+}
+
+.front_center {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 72px;
+}
+
+.tires_spark {
+  width: 54px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rear {
+  margin-top: 122px;
+}
+
+.rear_axle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3px;
+
+}
+
+.tires {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tires_link {
+  text-decoration: none;
+
+}
+
+.tiresD {
+  box-sizing: border-box;
+  width: 25px;
+  height: 24px;
+  border: 1px solid #000;
+
+  border-radius: 30% 30% 0 0;
+  color: #fff;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+.num {
+  font-size: 0.8rem;
+}
+
+.tiresT {
+  box-sizing: border-box;
+
+  width: 25px;
+  height: 24px;
+  border: 1px solid #000;
+
+  border-radius: 0 0 30% 30%;
+  color: #fff;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.time {
+  font-size: 0.75rem;
+
+}
+
+.value_tires {
+  display: flex;
+  width: 259px;
+  justify-content: center;
+  margin: 5px;
+
+}
+
+.dataActive {
+  display: none;
+}
+
+.title_table_data {
+  width: 126.5px;
+  font-size: 1rem;
+  border: 1px solid gray;
+  text-align: center;
+  padding: 5px;
+  font-family: Roboto;
+  font-weight: 500;
+  color: gray;
+  background-color: lightgray;
+}
+
+.dataInstall {
+  border: 2px solid lightgray;
+  padding: 5px;
+  text-align: center;
+}
+
+.tiresActiveT {
+  width: 30px;
+  height: 40px;
+  border: 5px solid #fa0707d8;
+  border-radius: 0 0 30% 30%;
+  color: #fff;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  border-top: 1px solid #fa0707d8;
+}
+
+.tiresActiveD {
+  width: 30px;
+  height: 40px;
+  border: 5px solid #fa0707d8;
+  border-radius: 30% 30% 0 0;
+  color: #fff;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid #fa0707d8;
+}
+
+
+
+.bigDiv {
+  width: 540px;
+  height: 151px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-image: url(../image/car01.png);
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.lowDiv {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3px;
+
+
+}
+
+.imgDiv {
+  width: 23px;
+  height: 23px;
+}
+
+.img {
+  width: 23px;
+  height: 23px;
+}
+
+.oneLow {
+  margin-left: 29px;
+}
+
+.twoLow {
+  margin-left: 100px;
+}
+
+.three {
+  width: 29%;
+  display: flex;
+  margin-left: 129px;
+
+
+}
+
+.threeLow:nth-child(n+2) {
+  margin-left: 7px;
+}
