@@ -99,7 +99,7 @@ function generFront(el) {
         generatedValue = 3;
     if (el >= 7.5 && el < 8 || el > 9 && el <= 13)
         generatedValue = 2;
-    if (el < 7.5 || el > 13)
+    if (el > -100 && el < 7.5 || el > 13)
         generatedValue = 1;
     return generatedValue;
 };
@@ -109,7 +109,7 @@ function generRear(el) {
         generatedValue = 3;
     if (el > 8 && el < 9 || el > 12 && el <= 13)
         generatedValue = 2;
-    if (el <= 8 || el > 13)
+    if (el > -100 && el < 8 || el > 13)
         generatedValue = 1;
     return generatedValue;
 };
@@ -120,7 +120,7 @@ function generT(el) {
         generatedValue = 3;
     if (el >= 32 && el < 33 || el > 38 && el <= 39)
         generatedValue = 2;
-    if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876)
+    if (el >= -1000 && el < 32 || el > 39)
         generatedValue = 1;
     return generatedValue;
 };
@@ -137,12 +137,13 @@ const funcRandom = (el1, el2) => {
     //кладем значения в каждое колесо
     logic733(el1, el2);
 }
+const alls = document.querySelectorAll('.tiresD733');
+const allsRear = document.querySelectorAll('.tiresD7333');
+const allsT = document.querySelectorAll('.tiresT733');
 const logic733 = (el1, el2) => {
     arrTiresFront = el1.slice(0, 6);
     arrTiresRear = el1.slice(6, 12);
-    const alls = document.querySelectorAll('.tiresD733');
-    const allsRear = document.querySelectorAll('.tiresD7333');
-    const allsT = document.querySelectorAll('.tiresT733');
+
     alls.forEach(function (elem, index) {
         if (arrTiresFront[index] === -348201.3876) {
             elem.textContent = '-';
@@ -151,7 +152,7 @@ const logic733 = (el1, el2) => {
             // console.log(localStorage.getItem('name'));
         }
         else {
-            elem.textContent = parseFloat(arrTiresFront[index]) + '\nБар';
+            elem.textContent = parseFloat(elem[index]) + '\nБар';
             // localStorage.setItem('name', elem.textContent);
             // localStorage.getItem('name');
             //console.log(localStorage.getItem('name'));
@@ -163,7 +164,7 @@ const logic733 = (el1, el2) => {
             elem.textContent = '-';
         }
         else {
-            elem.textContent = parseFloat(arrTiresRear[index]) + '\nБар';
+            elem.textContent = parseFloat(elem[index]) + '\nБар';
         }
     })
     allsT.forEach(function (elem, index) {
