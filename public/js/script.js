@@ -55,7 +55,7 @@ function getMainInfo() {
 
             funcRandom(arrayD, arrayT);
             tiresOs(arrayD);
-            // go(arrayD, arrayT);
+            go(arrayD, arrayT);
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 
@@ -446,8 +446,8 @@ function chrt() {
     }
     setInterval(upDia, 100);
 }
-const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
-const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
+const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
+const arrAll2 = [[], [], [], [], [], [], [], [], [], [], [], []];
 arrTime = [];
 function getNowtime1() {
     let now = new Date();
