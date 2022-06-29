@@ -271,12 +271,17 @@ td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
+
+
 
 .tires_link {
   text-decoration: none;
 
 }
+
+
 
 .tiresD {
   box-sizing: border-box;
