@@ -15,18 +15,19 @@ td {
 
 .header {
   width: 100%;
-  border-bottom: 20px solid lightgray
+  border-bottom: 15px solid lightgray
 }
 
 .menu {
   display: flex;
   margin-left: 50px;
-  padding: 10px 0;
+
 }
 
 .list_menu {
   display: flex;
   list-style-type: none;
+  margin: 10px 0;
 }
 
 .list_item_menu:nth-child(n+2) {
@@ -44,18 +45,18 @@ td {
 
 .main {
   display: flex;
-  max-width: 1700px;
-
+  max-width: 100%;
+  border-bottom: 15px solid lightgray
 }
 
 .wrapper_left {
-  width: 45%;
+  width: 35%;
   min-height: 600px;
   border-right: 20px solid lightgray;
 }
 
 .wrapper_right {
-  width: 80%;
+  width: 65%;
   min-height: 600px;
   padding: 20px;
 
@@ -206,6 +207,7 @@ td {
 }
 
 .container_2_2_4 {
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -215,6 +217,7 @@ td {
 }
 
 .container_2_4_4 {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 540px;
@@ -360,9 +363,7 @@ td {
 }
 
 .tiresActiveT {
-  width: 30px;
-  height: 40px;
-  border: 5px solid #fa0707d8;
+  border: 3px solid #1f1cc7;
   border-radius: 0 0 30% 30%;
   color: #fff;
   background-color: gray;
@@ -370,16 +371,12 @@ td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 700;
   text-align: center;
-  border-top: 1px solid #fa0707d8;
+
 }
 
 .tiresActiveD {
-  width: 30px;
-  height: 40px;
-  border: 5px solid #fa0707d8;
+  border: 3px solid #1f1cc7;
   border-radius: 30% 30% 0 0;
   color: #fff;
   background-color: gray;
@@ -387,12 +384,9 @@ td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 700;
   text-align: center;
-  border-bottom: 1px solid #fa0707d8;
-}
 
+}
 
 
 .bigDiv {
@@ -410,6 +404,7 @@ td {
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  border: 1px solid #000;
   background-color: #000;
   display: flex;
   justify-content: center;
@@ -434,7 +429,7 @@ td {
 }
 
 .twoLow {
-  margin-left: 100px;
+  margin-left: 95px;
 }
 
 .three {
@@ -446,7 +441,7 @@ td {
 }
 
 .threeLow:nth-child(n+2) {
-  margin-left: 7px;
+  margin-left: 5px;
 }
 
 
@@ -468,10 +463,43 @@ td {
 
 }
 
-
+.dash_card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .dash_board {
-  width: 95%;
-  padding: 10px;
+  width: 65%;
 
+
+}
+
+
+
+.tires:hover span,
+span:hover {
+  opacity: 1;
+}
+
+span {
+  display: block;
+  opacity: 0;
+  color: gray;
+  font-size: 0.8rem;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: bold;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+  position: absolute;
+  height: 40px;
+  width: 80px;
+  top: 50%;
+  left: 30%;
+  background-color: #fff;
+  visibility: visible;
+  border-radius: 5px;
+  border: 1px solid #000;
 }
