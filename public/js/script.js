@@ -256,7 +256,7 @@ const logic733 = (el1, el2) => {
             elem.textContent = '-';
         }
         else {
-            elem.textContent = el2[index] + '°C';
+            elem.textContent = el2[index] + '°';
         }
     })
     alls.forEach(function (elem, index) {
@@ -347,10 +347,10 @@ arrTireslink.forEach(function (elem, index) {
         elem = tT[index].classList.toggle('tiresActiveT');
         //check = document.querySelector('.check')
         //check.style.display = 'none';
-        /*dataActive = document.querySelector('.dataActive')
-        dataActive.style.display = 'block';
-        wCA = document.querySelector('.wrapper_containt')
-        wCA.classList.add('wrapper_containt_active')*/
+        wrapperDash = document.querySelector('.wrapper_right_dash')
+        wrapperDash.style.display = 'none';
+        /* wCA = document.querySelector('.wrapper_containt')
+         wCA.classList.add('wrapper_containt_active')*/
         grafik = document.querySelector('.grafik');
         grafik.style.display = 'block';
     }
@@ -399,7 +399,7 @@ function chrt() {
                 legend: {
                     labels: {
                         font: {
-                            size: 20,
+                            size: 12,
                         },
                         color: 'gray'
                     }
@@ -413,7 +413,7 @@ function chrt() {
                     max: 12,
                     ticks: {
                         font: {
-                            size: 18,
+                            size: 15,
                         }
                     }
                 },
@@ -424,14 +424,14 @@ function chrt() {
                     max: 50,
                     ticks: {
                         font: {
-                            size: 18,
+                            size: 15,
                         }
                     }
                 },
                 x: {
                     ticks: {
                         font: {
-                            size: 10
+                            size: 8
                         }
                     }
                 }
