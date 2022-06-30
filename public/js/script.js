@@ -250,6 +250,7 @@ const funcRandom = (el1, el2) => {
 const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
 
+
 //проваливаемся в колесо
 arrTireslink.forEach(function (elem, index) {
     elem.addEventListener('click', tiresActive);
@@ -291,6 +292,7 @@ function local() {
         el.value = localStorage.getItem(id);
     })
 }
+
 //добавляем значения в график давления и темп и запускаем график
 function tiresLinkfunc(elem, index) {
     function tiresGrafik() {
@@ -298,13 +300,15 @@ function tiresLinkfunc(elem, index) {
         davl = elem;
         elem = arrAll2[index];
         davl2 = elem;
-        return davl, davl2
+        return davl, davl2;
     }
     tiresGrafik(arrAll1)
     tiresGrafik(arrAll2)
     //графики
     chrt();
 }
+
+
 
 function chrt() {
     Chart.register(ChartDataLabels);
@@ -382,6 +386,7 @@ function chrt() {
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], [], [], []];
 arrTime = [];
+
 function getNowtime1() {
     let now = new Date();
     let hours = now.getHours();
@@ -400,14 +405,16 @@ function getNowtime1() {
     return nowTime;
 }
 function go(item1, item2) {
+
     arrTime.push(getNowtime1());
+    //arrDate = arrTime.slice(-10);
     item1.forEach((el, index) => {
         arrAll1[index].push(parseFloat(el.toFixed(0)));
     })
     item2.forEach((el, index) => {
         arrAll2[index].push(parseFloat(el.toFixed(0)));
     })
-    return arrAll1, arrAll2
+    return arrAll1, arrAll2;
 }
 
 function dashDav() {
