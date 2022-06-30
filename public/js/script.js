@@ -664,3 +664,21 @@ const upRender = () => {
 }
 
 setInterval(upRender, 2000);
+
+
+
+
+function local() {
+    const inp = document.querySelectorAll('.techInput')
+
+    inp.forEach(function (e) {
+        if (e.value === '') e.value = window.sessionStorage.getItem(e.name, e.value);
+
+        e.addEventListener('input', function () {
+
+            window.sessionStorage.setItem(e.name, e.value);
+        })
+    })
+
+}
+local()

@@ -59,8 +59,6 @@ td {
   width: 65%;
   min-height: 600px;
   padding: 20px;
-
-
 }
 
 .wrapper_containt {
@@ -149,7 +147,6 @@ td {
 .bg_stat {
   width: 100%;
   height: 50px;
-
   background-repeat: no-repeat;
   background-position: center
 }
@@ -158,62 +155,58 @@ td {
   width: 200px;
   height: 560px;
   margin: 5px 5px;
-
 }
 
 .profil {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.wrapper_containt_active {
-  justify-content: left;
+.techInfo {
+  border: 1px solid green;
+}
+
+.techTitle {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.tth {
+  display: flex;
+
+
+}
+
+.techForm {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+
+}
+
+.techInput {
+  margin-top: 13px;
+}
+
+.techButton {
+  width: 90px;
+  height: 30px;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.techInfo_list {
+  list-style: none;
+  margin: 0;
 }
 
 .grafik {
   display: none;
-
-
   background-color: #fff;
   border: 1px solid gray;
   margin: 5px 5px;
-}
-
-
-.container_2_4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-  background-image: url(../image/bg_shas.png);
-  padding: 0 20px;
-}
-
-.container_3_6 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-  background-image: url(../image/bg_shas3.png);
-  padding: 0 20px;
-}
-
-.container_2_4_2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-  background-image: url(../image/bg_shas3.png);
-  padding: 0 12px;
-}
-
-.container_2_2_4 {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-  background-image: url(../image/bg_shas3.png);
-  padding: 0 9px;
 }
 
 .container_2_4_4 {
@@ -224,9 +217,6 @@ td {
   background-image: url(../image/car03.png);
   padding: 0 9px;
 }
-
-
-
 
 .title {
   font-size: 1rem;
@@ -266,7 +256,6 @@ td {
   display: flex;
   justify-content: space-between;
   margin-top: 3px;
-
 }
 
 .tires {
@@ -277,14 +266,9 @@ td {
 
 }
 
-
-
 .tires_link {
   text-decoration: none;
-
 }
-
-
 
 .tiresD {
   box-sizing: border-box;
