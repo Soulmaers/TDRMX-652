@@ -59,9 +59,9 @@ function getMainInfo() {
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 
-
     /*
-        var flags = 1 + 4096
+    
+        var flags = 1 + 1025
         var prms = {
             "spec": {
                 "itemsType": "avl_unit",
@@ -83,6 +83,7 @@ function getMainInfo() {
                     console.log(wialon.core.Errors.getErrorText(code));
                 }
                 arr1 = Object.values(result);
+                check = arr1[5][1].lmsg.p.pwr_ext;
                 //arrayD1 = arr.slice(0, 10);
                 //arrayT1 = arr.slice(10, 20);
                 // funcRandom(arrayD, arrayT);
