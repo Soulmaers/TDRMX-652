@@ -58,7 +58,7 @@ td {
 .wrapper_right {
   width: 65%;
   min-height: 600px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .wrapper_containt {
@@ -152,20 +152,23 @@ td {
 }
 
 .card {
-  width: 200px;
-  height: 560px;
+  width: 220px;
+
   margin: 5px 5px;
 }
 
 .profil {
-  margin-left: 20px;
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .techInfo {
-  border: 1px solid green;
+  border: 1px solid gray;
+  display: none;
+  margin-bottom: 8px;
+
 }
 
 .techTitle {
@@ -180,10 +183,17 @@ td {
 }
 
 .techForm {
-  display: flex;
+  display: none;
   flex-direction: column;
   margin-left: 30px;
 
+}
+
+.techForm_active {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-bottom: 8px;
 }
 
 .techInput {
@@ -213,8 +223,8 @@ td {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 540px;
-  background-image: url(../image/car03.png);
+  height: 594px;
+  background-image: url(../image/car04.png);
   padding: 0 9px;
 }
 
@@ -233,23 +243,23 @@ td {
 .front_axle {
   display: flex;
   justify-content: space-between;
-  margin: 22px 0;
+  margin: 23px 0;
 }
 
 .front_center {
   display: flex;
   justify-content: space-between;
-  margin-top: 72px;
+  margin-top: 75px;
 }
 
 .tires_spark {
-  width: 47px;
+  width: 51px;
   display: flex;
   justify-content: space-between;
 }
 
 .rear {
-  margin-top: 122px;
+  margin-top: 131px;
 }
 
 .rear_axle {
@@ -272,8 +282,8 @@ td {
 
 .tiresD {
   box-sizing: border-box;
-  width: 23px;
-  height: 24px;
+  width: 25px;
+  height: 28px;
   border: 1px solid #000;
 
   border-radius: 30% 30% 0 0;
@@ -296,8 +306,8 @@ td {
 .tiresT {
   box-sizing: border-box;
 
-  width: 23px;
-  height: 24px;
+  width: 25px;
+  height: 28px;
   border: 1px solid #000;
 
   border-radius: 0 0 30% 30%;

@@ -93,28 +93,6 @@ function getMainInfo() {
 }
 
 //подсветка оси
-/*
-function tiresOs(arr) {
-    oneLow = document.querySelectorAll('.oneLow');
-    twoLow = document.querySelectorAll('.twoLow');
-    threeLow = document.querySelectorAll('.threeLow');
-    arrFront = arr.slice(0, 2);
-    arrCenter = arr.slice(2, 6);
-    arrRear1 = arr.slice(6, 8);
-    arrRear2 = arr.slice(8, 10);
-    arrRear3 = arr.slice(10, 12);
-    oneLow.forEach(function (elem, index) {
-        elem.style.background = objColor[generFront(arrFront[index])];
-    })
-    twoLow.forEach(function (elem, index) {
-        elem.style.background = objColor[generFront(arrCenter[index])];
-    })
-    threeLow.forEach(function (elem, index) {
-        elem.style.background = objColor[generRear(arrRear1[index])];
-    })
-
-}*/
-
 function tiresOs(arr) {
     arrFront = arr.slice(0, 2);
     arrCenter = arr.slice(2, 6);
@@ -176,7 +154,7 @@ function tiresTest(arr1, arr2, arr3, arr4, arr5) {
     }
 
 }
-
+//условия для подсветки шин D и T
 function generFront(el) {
     let generatedValue;
     if (el >= 8 && el <= 9)
@@ -213,18 +191,16 @@ const objColor = {
     1: '#e03636',
     2: '#9ba805',
     3: '#3eb051'
-}/*
-const time = document.querySelectorAll('.time');
-const stat = document.querySelectorAll('.bg_stat');
-time[0].textContent = getNowtime();*/
-const funcRandom = (el1, el2) => {
-    //кладем значения в каждое колесо
-    logic733(el1, el2);
 }
-const alls = document.querySelectorAll('.tiresD733');
-const allsRear = document.querySelectorAll('.tiresD7333');
-const allsT = document.querySelectorAll('.tiresT733');
-const logic733 = (el1, el2) => {
+//кладем значения в каждое колесо
+
+const funcRandom = (el1, el2) => {
+    const alls = document.querySelectorAll('.tiresD733');
+    const allsRear = document.querySelectorAll('.tiresD7333');
+    const allsT = document.querySelectorAll('.tiresT733');
+    // logic733(el1, el2);
+
+    //const logic733 = (el1, el2) => {
     arrTiresFront = el1.slice(0, 6);
     arrTiresRear = el1.slice(6, 12);
 
@@ -242,7 +218,6 @@ const logic733 = (el1, el2) => {
             //console.log(localStorage.getItem('name'));
         }
     });
-
     allsRear.forEach(function (elem, index) {
         if (arrTiresRear[index] === -348201.3876) {
             elem.textContent = '-';
@@ -272,66 +247,10 @@ const logic733 = (el1, el2) => {
     })
 }
 
-//текущее время
-function getNowtime() {
-    let now = new Date();
-    let year = now.getFullYear();
-    let month = now.getMonth();
-    if (now.getMonth() < 10) {
-        month = "0" + month;
-    }
-    let date = now.getDate();
-    if (now.getDate() < 10) {
-        date = "0" + date;
-    }
-    let hours = now.getHours();
-    if (now.getHours() < 10) {
-        hours = "0" + hours;
-    }
-    let minutes = now.getMinutes();
-    if (now.getMinutes() < 10) {
-        minutes = "0" + minutes;
-    }
-    let seconds = now.getSeconds();
-    if (now.getSeconds() < 10) {
-        seconds = "0" + seconds;
-    }
-    let nowTime = (`${date}-${month}-${year}   ${hours}:${minutes}:${seconds}`);
-    return nowTime;
-}
-
-//рандомная дата
-function randomDate(start, end) {
-    return new Date(start.getTime()
-        + Math.random() * (end.getTime() - start.getTime()));
-}
-const date01 = randomDate(new Date(2010, 0, 1), new Date()); const date02 = randomDate(new Date(2010, 0, 1), new Date());
-const date03 = randomDate(new Date(2010, 0, 1), new Date()); const date04 = randomDate(new Date(2010, 0, 1), new Date());
-const date05 = randomDate(new Date(2010, 0, 1), new Date()); const date06 = randomDate(new Date(2010, 0, 1), new Date());
-const date07 = randomDate(new Date(2010, 0, 1), new Date()); const date08 = randomDate(new Date(2010, 0, 1), new Date());
-const date09 = randomDate(new Date(2010, 0, 1), new Date()); const date10 = randomDate(new Date(2010, 0, 1), new Date());
-
-const arrDates = [date01, date02, date03, date04, date05, date06, date07, date08, date09, date10];
-
-function dataVunc() {
-    arData = [];
-    arrDates.forEach((elem) => {
-        ar = (`${elem.getFullYear()}-${('0' + (elem.getMonth() + 1)).slice(-2)}-${('0' + elem.getDate()).slice(-2)}`);
-        arData.push(ar);
-        return arData;
-    })
-}
-dataVunc()
-
-function runTires() {
-    return Math.floor(Math.random() * 10000);
-}
-
 const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
 
 //проваливаемся в колесо
-
 arrTireslink.forEach(function (elem, index) {
     elem.addEventListener('click', tiresActive);
     function tiresActive() {
@@ -340,39 +259,52 @@ arrTireslink.forEach(function (elem, index) {
             tT = document.querySelectorAll('.tiresT');
             elem = tD[index].classList.remove('tiresActiveD');
             elem = tT[index].classList.remove('tiresActiveT');
+            inp = document.querySelectorAll('.techForm')
+            elem = inp[index].classList.remove('techForm_active');
         })
+        inpInfo = document.querySelector('.techInfo')
+        inpInfo.style.display = 'block';
+        inp = document.querySelectorAll('.techForm')
+        elem = inp[index].classList.toggle('techForm_active');
         tD = document.querySelectorAll('.tiresD');
         tT = document.querySelectorAll('.tiresT');
         elem = tD[index].classList.toggle('tiresActiveD');
         elem = tT[index].classList.toggle('tiresActiveT');
-        //check = document.querySelector('.check')
-        //check.style.display = 'none';
         wrapperDash = document.querySelector('.wrapper_right_dash')
         wrapperDash.style.display = 'none';
-        /* wCA = document.querySelector('.wrapper_containt')
-         wCA.classList.add('wrapper_containt_active')*/
         grafik = document.querySelector('.grafik');
         grafik.style.display = 'block';
+        tiresLinkfunc(elem, index);
     }
-
+    local();
 });
 
-arrTireslink.forEach((elem, index) => {
-    elem.addEventListener('click', tiresLinkfunc);
-    function tiresLinkfunc() {
-        function tiresGrafik() {
-            elem = arrAll1[index];
-            davl = elem;
-            elem = arrAll2[index];
-            davl2 = elem;
-            return davl, davl2
+//сохраняем изменения в localstorage
+function local() {
+    const inpInput = document.querySelectorAll('.techInput')
+    inpInput.forEach(el => {
+        el.addEventListener('input', checkValidity)
+        function checkValidity() {
+            localStorage.setItem(id, el.value);
         }
-        tiresGrafik(arrAll1)
-        tiresGrafik(arrAll2)
-        //графики
-        chrt();
+        const id = el.getAttribute('id');
+        el.value = localStorage.getItem(id);
+    })
+}
+//добавляем значения в график давления и темп и запускаем график
+function tiresLinkfunc(elem, index) {
+    function tiresGrafik() {
+        elem = arrAll1[index];
+        davl = elem;
+        elem = arrAll2[index];
+        davl2 = elem;
+        return davl, davl2
     }
-});
+    tiresGrafik(arrAll1)
+    tiresGrafik(arrAll2)
+    //графики
+    chrt();
+}
 
 function chrt() {
     Chart.register(ChartDataLabels);
@@ -446,6 +378,7 @@ function chrt() {
     }
     setInterval(upDia, 100);
 }
+
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], [], [], []];
 arrTime = [];
@@ -466,7 +399,6 @@ function getNowtime1() {
     let nowTime = (`${hours}:${minutes}:${seconds}`);
     return nowTime;
 }
-
 function go(item1, item2) {
     arrTime.push(getNowtime1());
     item1.forEach((el, index) => {
@@ -477,38 +409,6 @@ function go(item1, item2) {
     })
     return arrAll1, arrAll2
 }
-
-
-
-
-
-/*
-function getSensors() { // construct sensors Select list for selected unit
-    if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
-    $("#sensors").html("<option></option>"); // add first empty element
-    var sess = wialon.core.Session.getInstance(); // get instance of current Session
-    var unit = sess.getItem($("#units").val()); // get unit by id
-    var sens = unit.getSensors(); // get unit's sensors
-    for (var i in sens) // construct select list
-        $("#sensors").append("<option value='" + sens[i].id + "'>" + sens[i].n + "</option>");
-}
-let result;
-function getSensorInfo() { // get and show information about selected Sensor
-    if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
-    if (!$("#sensors").val()) return; // exit if no unit selected
-    var sess = wialon.core.Session.getInstance(); // get instance of current Session
-    var unit = sess.getItem($("#units").val()); // get unit by id
-    var sens = unit.getSensors($("#sensors").val()); // get sensor by id
-    // calculate sensor value
-    let result = unit.calculateSensorValue(sens, unit.getLastMessage());
-    if (result == -348201.3876) result = "N/A"; // compare result with invalid sensor value constant
-    // print result message
-    console.log(sens);
-    console.log(result);
-    msg(result);
-}*/
-
-
 
 function dashDav() {
     const arrTiresFront = arrayD.slice(0, 6);
@@ -668,17 +568,7 @@ setInterval(upRender, 2000);
 
 
 
-function local() {
-    const inp = document.querySelectorAll('.techInput')
 
-    inp.forEach(function (e) {
-        if (e.value === '') e.value = window.sessionStorage.getItem(e.name, e.value);
 
-        e.addEventListener('input', function () {
 
-            window.sessionStorage.setItem(e.name, e.value);
-        })
-    })
 
-}
-local()
