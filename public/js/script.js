@@ -18,6 +18,8 @@ foo()
 //console.log(localStorage.getItem('name'));
 
 
+
+
 function init() {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
     wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
@@ -163,7 +165,7 @@ function generFront(el) {
         generatedValue = 3;
     if (el >= 7.5 && el < 8 || el > 9 && el <= 13)
         generatedValue = 2;
-    if (el > -100 && el < 7.5 || el > 13)
+    if (el > -100 && el < 7.5 || el > 13 || el === -348201.3876)
         generatedValue = 1;
     return generatedValue;
 };
@@ -173,7 +175,7 @@ function generRear(el) {
         generatedValue = 3;
     if (el > 8 && el < 9 || el > 12 && el <= 13)
         generatedValue = 2;
-    if (el > -100 && el < 8 || el > 13)
+    if (el > -100 && el < 8 || el > 13 || el === -348201.3876)
         generatedValue = 1;
     return generatedValue;
 };
@@ -184,7 +186,7 @@ function generT(el) {
         generatedValue = 3;
     if (el >= 32 && el < 33 || el > 38 && el <= 39)
         generatedValue = 2;
-    if (el >= -1000 && el < 32 || el > 39)
+    if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876)
         generatedValue = 1;
     return generatedValue;
 };
@@ -248,6 +250,33 @@ const funcRandom = (el1, el2) => {
         elem.style.background = objColor[generT(el2[index])];
     })
 }
+
+
+/*
+function math() {
+    return Math.floor(Math.random() * 13);
+}
+
+arrtests = [[], [], [], [], [], []];
+const alls = document.querySelectorAll('.tiresD733');
+function got() {
+    arrDDD = Array(6).fill(0).map(math);
+    arrDDD.forEach((el, index) => {
+        arrtests[index].push(el);
+    })
+    alls.forEach(function (elem, index) {
+        if (arrtests[index][arrtests[index].length - 1] === 5 && arrtests[index][arrtests[index].length - 2] !== 5) {
+            elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 2])];
+        } else {
+            elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 1])];
+        }
+    })
+
+    return console.log(arrtests[0]);
+}
+//setInterval(got, 500);
+got();
+*/
 
 const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
@@ -406,18 +435,22 @@ function getNowtime1() {
     let nowTime = (`${hours}:${minutes}:${seconds}`);
     return nowTime;
 }
-function go(item1, item2) {
 
+
+
+function go(item1, item2) {
     arrTime.push(getNowtime1());
     //arrDate = arrTime.slice(-10);
     item1.forEach((el, index) => {
         arrAll1[index].push(parseFloat(el.toFixed(0)));
     })
     item2.forEach((el, index) => {
-        arrAll2[index].push(parseFloat(el.toFixed(0)));
+        arrAll1[index].push(parseFloat(el.toFixed(0)));
     })
     return arrAll1, arrAll2;
 }
+
+
 
 function dashDav() {
     const arrTiresFront = arrayD.slice(0, 6);
@@ -573,9 +606,6 @@ const upRender = () => {
 }
 
 setInterval(upRender, 2000);
-
-
-
 
 
 
