@@ -59,40 +59,41 @@ function getMainInfo() {
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 
-    /*
-    
-        var flags = 1 + 1025
-        var prms = {
-            "spec": {
-                "itemsType": "avl_unit",
-                "propName": "sys_name",
-                "propValueMask": "*",
-                "sortType": "sys_name"
-            },
-            "force": 1,
-            "flags": flags,
-            "from": 0,
-            "to": 0
-        };
-    
-    
-        const remote1 = wialon.core.Remote.getInstance();
-        remote1.remoteCall('core/search_items', prms,
-            function (code, result) {
-                if (code) {
-                    console.log(wialon.core.Errors.getErrorText(code));
-                }
-                arr1 = Object.values(result);
-                check = arr1[5][1].lmsg.p.pwr_ext;
-                //arrayD1 = arr.slice(0, 10);
-                //arrayT1 = arr.slice(10, 20);
-                // funcRandom(arrayD, arrayT);
-                // go(arrayD, arrayT);
-                // return window['arrayD'] = arrayD1, arrayT1, arr1
-            });
-    */
+    const flags = 1 + 1025
+    const prms = {
+        "spec": {
+            "itemsType": "avl_unit",
+            "propName": "sys_name",
+            "propValueMask": "*",
+            "sortType": "sys_name"
+        },
+        "force": 1,
+        "flags": flags,
+        "from": 0,
+        "to": 0
+    };
+
+    const remote1 = wialon.core.Remote.getInstance();
+    remote1.remoteCall('core/search_items', prms,
+        function (code, result) {
+            if (code) {
+                console.log(wialon.core.Errors.getErrorText(code));
+            }
+            arr1 = Object.values(result);
+            check = arr1[5][1].lmsg.p.pwr_ext;
+            chekOut = check.toFixed(1);
+            akb(chekOut);
+        });
+
 }
 
+//выводим бортовое питание
+function akb(elem) {
+    akbVt = document.querySelector('.akbText');
+    akbVt.textContent = elem + 'V';
+
+
+}
 //подсветка оси
 function tiresOs(arr) {
     arrFront = arr.slice(0, 2);

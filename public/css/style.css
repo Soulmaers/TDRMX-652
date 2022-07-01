@@ -226,7 +226,35 @@ td {
   height: 594px;
   background-image: url(../image/car04.png);
   padding: 0 9px;
+  z-index: 0;
 }
+
+
+
+.akb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  width: 90px;
+  height: 50px;
+  background-image: url(../image/akb.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 23px;
+  left: 28%;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.akbText {
+  color: darkblue;
+  padding-top: 10px;
+}
+
+
 
 .title {
   font-size: 1rem;
