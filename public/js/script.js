@@ -452,7 +452,7 @@ function go(item1, item2) {
         arrAll1[index].push(parseFloat(el.toFixed(0)));
     })
     item2.forEach((el, index) => {
-        arrAll1[index].push(parseFloat(el.toFixed(0)));
+        arrAll2[index].push(parseFloat(el.toFixed(0)));
     })
     return arrAll1, arrAll2;
 }
