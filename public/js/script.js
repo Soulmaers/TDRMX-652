@@ -254,10 +254,11 @@ const funcRandom = (el1, el2) => {
 
 /*
 function math() {
-    return Math.floor(Math.random() * 13);
+    return Math.floor(Math.random() * 11);
 }
 
 arrtests = [[], [], [], [], [], []];
+
 const alls = document.querySelectorAll('.tiresD733');
 function got() {
     arrDDD = Array(6).fill(0).map(math);
@@ -265,18 +266,24 @@ function got() {
         arrtests[index].push(el);
     })
     alls.forEach(function (elem, index) {
-        if (arrtests[index][arrtests[index].length - 1] === 5 && arrtests[index][arrtests[index].length - 2] !== 5) {
+        if (arrtests[index][arrtests[index].length - 1] === 8 && arrtests[index][arrtests[index].length - 2] !== 8) {
             elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 2])];
-        } else {
+        } if (arrtests[index][arrtests[index].length - 1] !== 8 && arrtests[index][arrtests[index].length - 2] === 8) {
             elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 1])];
+        }
+        if (arrtests[index][arrtests[index].length - 1] !== 8 && arrtests[index][arrtests[index].length - 2] !== 8) {
+            elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 1])];
+        } if (arrtests[index][arrtests[index].length - 1] === 8 && arrtests[index][arrtests[index].length - 2] === 8) {
+            return false
         }
     })
 
     return console.log(arrtests[0]);
 }
-//setInterval(got, 500);
 got();
+//setInterval(got, 2000);
 */
+
 
 const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
