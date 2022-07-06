@@ -88,6 +88,50 @@ function getMainInfo() {
             akb(chekOut);
         });
 
+    /*
+    
+        const prms2 = {
+            "itemId": 25594204,
+            "timeFrom": 165708300,
+            "timeTo": 1657083600,
+            "flags": 4026,
+            "flagsMask": 65281,
+            "loadCount": 20
+    
+        };
+    
+        const remote2 = wialon.core.Remote.getInstance();
+        remote2.remoteCall('messages/load_interval', prms2,
+            function (code, result) {
+                if (code) {
+                    console.log(wialon.core.Errors.getErrorText(code));
+                }
+                arr2 = Object.values(result);
+    
+            });
+    
+    
+    
+        const prms3 = {
+            "source": "",
+            "indexFrom": 0,
+            "indexTo": 20,
+            "unitId": 25594204,
+            "sensorId": 0,
+            "width": 20
+    
+        };
+    
+        const remote3 = wialon.core.Remote.getInstance();
+        remote3.remoteCall('unit/calc_sensor', prms3,
+            function (code, result) {
+                if (code) {
+                    console.log(wialon.core.Errors.getErrorText(code));
+                }
+                arr3 = Object.values(result);
+    
+            });
+            */
 }
 
 //выводим бортовое питание
@@ -440,8 +484,9 @@ function chrt() {
     });
 
     const upDia = () => {
-        myChartg.data.datasets[0].data = davl;
-        myChartg.data.datasets[1].data = davl2;
+        myChartg.data.datasets[0].data = davl.slice(-10);
+        myChartg.data.datasets[1].data = davl2.slice(-10);
+        myChartg.data.labels = arrTime.slice(-10);
         myChartg.update();
     }
     setInterval(upDia, 100);
@@ -470,9 +515,9 @@ function getNowtime1() {
 }
 
 
-
 function go(item1, item2) {
     arrTime.push(getNowtime1());
+
     //arrDate = arrTime.slice(-10);
     item1.forEach((el, index) => {
         arrAll1[index].push(parseFloat(el.toFixed(0)));
@@ -483,7 +528,6 @@ function go(item1, item2) {
     got(arrAll1, arrAll2)
     return arrAll1, arrAll2;
 }
-
 
 
 function dashDav() {
