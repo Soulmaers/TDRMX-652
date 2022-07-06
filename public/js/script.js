@@ -253,55 +253,39 @@ const funcRandom = (el1, el2) => {
     arrTiresFront = el1.slice(0, 6);
     arrTiresRear = el1.slice(6, 12);
 
-    alls.forEach(function (elem, index) {
-        if (arrTiresFront[index] === -348201.3876) {
-            elem.textContent = '-';
-            // localStorage.setItem('name', elem.textContent)
-            // localStorage.getItem('name');
-            // console.log(localStorage.getItem('name'));
+    alls.forEach((elem, index) => {
+        if (arrTiresFront[index] !== -348201.3876) {
+            elem.style.background = objColor[generFront(arrTiresFront[index])];
+            localStorage.setItem('id', elem.style.background);
+            elem.textContent = parseFloat(arrTiresFront[index]) + '\nБар';
         }
         else {
-            elem.textContent = parseFloat(arrTiresFront[index]) + '\nБар';
-            // localStorage.setItem('name', elem.textContent);
-            // localStorage.getItem('name');
-            //console.log(localStorage.getItem('name'));
+            elem.textContent = '-';
+            elem.style.background = localStorage.getItem('id');
         }
-    });
+    })
+
     allsRear.forEach(function (elem, index) {
         if (arrTiresRear[index] === -348201.3876) {
+            elem.style.background = localStorage.getItem('id1');
             elem.textContent = '-';
         }
         else {
+            elem.style.background = objColor[generRear(arrTiresRear[index])];
+            localStorage.setItem('id1', elem.style.background);
             elem.textContent = parseFloat(arrTiresRear[index]) + '\nБар';
         }
     })
     allsT.forEach(function (elem, index) {
         if (el2[index] == -348201.3876 || el2[index] == -128) {
+            elem.style.background = localStorage.getItem('id2');
             elem.textContent = '-';
         }
         else {
+            elem.style.background = objColor[generT(el2[index])];
+            localStorage.setItem('id2', elem.style.background);
             elem.textContent = el2[index] + '°';
         }
-    })
-    alls.forEach(function (elem, index) {
-        elem.style.background = objColor[generFront(arrTiresFront[index])];
-        localStorage.setItem('id', elem.style.background);
-        elem.style.background = localStorage.getItem('id');
-
-
-        
-
-    })
-    allsRear.forEach(function (elem, index) {
-        elem.style.background = objColor[generRear(arrTiresRear[index])];
-        localStorage.setItem('id1', elem.style.background);
-        elem.style.background = localStorage.getItem('id1');
-
-    })
-    allsT.forEach(function (elem, index) {
-        elem.style.background = objColor[generT(el2[index])];
-        localStorage.setItem('id2', elem.style.background);
-        elem.style.background = localStorage.getItem('id2');
     })
 }
 
@@ -313,13 +297,10 @@ function math() {
 
 //arrtests = [[], [], [], [], [], [], [], [], [], [], [], []];
 
-const alls = document.querySelectorAll('.tiresD733');
-const allsRear = document.querySelectorAll('.tiresD7333');
-const allsT = document.querySelectorAll('.tiresT733');
 
 
 //arTTT = [[2, 3, 4, 5, 5, 5], [2, 3, 5, 2], [2, 3, 5, 4], [2, 5, 5, 3], [4, 5, 6, 7], [6, 7, 5, 4]]
-function got(item1, item2) {
+/*function got(item1, item2) {
 
     //arrDDD = Array(12).fill(0).map(math);
     arrD = item1.slice(0, 6);
@@ -395,7 +376,7 @@ function got(item1, item2) {
     })
 
 }
-
+*/
 
 
 
@@ -574,7 +555,7 @@ function go(item1, item2) {
     item2.forEach((el, index) => {
         arrAll2[index].push(parseFloat(el.toFixed(0)));
     })
-    got(arrAll1, arrAll2)
+    //got(arrAll1, arrAll2)
     return arrAll1, arrAll2;
 }
 
