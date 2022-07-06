@@ -285,17 +285,30 @@ const funcRandom = (el1, el2) => {
     })
     alls.forEach(function (elem, index) {
         elem.style.background = objColor[generFront(arrTiresFront[index])];
+        localStorage.setItem('id', elem.style.background);
+        elem.style.background = localStorage.getItem('id');
+
+
+        
 
     })
     allsRear.forEach(function (elem, index) {
         elem.style.background = objColor[generRear(arrTiresRear[index])];
+        localStorage.setItem('id1', elem.style.background);
+        elem.style.background = localStorage.getItem('id1');
 
     })
     allsT.forEach(function (elem, index) {
         elem.style.background = objColor[generT(el2[index])];
+        localStorage.setItem('id2', elem.style.background);
+        elem.style.background = localStorage.getItem('id2');
     })
 }
 
+/*
+function math() {
+    return Math.floor(Math.random() * 5);
+}*/
 
 
 //arrtests = [[], [], [], [], [], [], [], [], [], [], [], []];
@@ -303,11 +316,16 @@ const funcRandom = (el1, el2) => {
 const alls = document.querySelectorAll('.tiresD733');
 const allsRear = document.querySelectorAll('.tiresD7333');
 const allsT = document.querySelectorAll('.tiresT733');
+
+
+//arTTT = [[2, 3, 4, 5, 5, 5], [2, 3, 5, 2], [2, 3, 5, 4], [2, 5, 5, 3], [4, 5, 6, 7], [6, 7, 5, 4]]
 function got(item1, item2) {
 
-    //arrDDD = Array(6).fill(0).map(math);
+    //arrDDD = Array(12).fill(0).map(math);
     arrD = item1.slice(0, 6);
     arrRear = item1.slice(6, 12)
+
+    // console.log(arTTT[0].lastIndexOf(!5));
 
     alls.forEach(function (elem, index) {
         if (arrD[index][arrD[index].length - 1] === -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
@@ -317,8 +335,18 @@ function got(item1, item2) {
         }
         if (arrD[index][arrD[index].length - 1] !== -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
             elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 1])];
-        } if (arrD[index][arrD[index].length - 1] === -348201.3876 && arrD[index][arrD[index].length - 2] === -348201.3876) {
-            return false
+        } if (arrD[index][arrD[index].length - 1] === 5 && arrD[index][arrD[index].length - 2] === 5) {
+            arrD[index].reverse();
+            arrD[index].forEach(el => {
+                if (el !== -348201.3876) {
+                    arrD[index][el] = el;
+                    r = arrD[index][el]
+                    elem.style.background = objColor[generFront(r)];
+                    //arTTT[0][el] = el;
+                    return arrD[index].reverse();
+                }
+
+            })
         }
     })
     allsRear.forEach(function (elem, index) {
@@ -330,7 +358,17 @@ function got(item1, item2) {
         if (arrRear[index][arrRear[index].length - 1] !== -348201.3876 && arrRear[index][arrRear[index].length - 2] !== -348201.3876) {
             elem.style.background = objColor[generRear(arrD[index][arrD[index].length - 1])];
         } if (arrRear[index][arrRear[index].length - 1] === -348201.3876 && arrRear[index][arrRear[index].length - 2] === -348201.3876) {
-            return false
+            arrRear[index].reverse();
+            arrRear[index].forEach(el => {
+                if (el !== -348201.3876) {
+                    arrRear[index][el] = el;
+                    t = arrRear[index][el]
+                    elem.style.background = objColor[generRear(t)];
+                    //arTTT[0][el] = el;
+                    return arrRear[index].reverse();
+                }
+
+            })
         }
     })
     allsT.forEach(function (elem, index) {
@@ -342,11 +380,22 @@ function got(item1, item2) {
         if (item2[index][item2[index].length - 1] !== -348201.3876 && item2[index][item2[index].length - 2] !== -348201.3876) {
             elem.style.background = objColor[generT(item2[index][item2[index].length - 1])];
         } if (item2[index][item2[index].length - 1] === -348201.3876 && item2[index][item2[index].length - 2] === -348201.3876) {
-            return false
+            item2[index].reverse();
+            item2[index].forEach(el => {
+                if (el !== -348201.3876) {
+                    item2[index][el] = el;
+                    temp = item2[index][el]
+                    elem.style.background = objColor[generT(temp)];
+                    //arTTT[0][el] = el;
+                    return item2[index].reverse();
+                }
+
+            })
         }
     })
 
 }
+
 
 
 
