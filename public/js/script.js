@@ -58,6 +58,7 @@ function getMainInfo() {
             funcRandom(arrayD, arrayT);
             tiresOs(arrayD);
             go(arrayD, arrayT);
+            //got(arrayD);
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 
@@ -165,7 +166,7 @@ function generFront(el) {
         generatedValue = 3;
     if (el >= 7.5 && el < 8 || el > 9 && el <= 13)
         generatedValue = 2;
-    if (el > -100 && el < 7.5 || el > 13 || el === -348201.3876)
+    if (el > -100 && el < 7.5 || el > 13)
         generatedValue = 1;
     return generatedValue;
 };
@@ -175,7 +176,7 @@ function generRear(el) {
         generatedValue = 3;
     if (el > 8 && el < 9 || el > 12 && el <= 13)
         generatedValue = 2;
-    if (el > -100 && el < 8 || el > 13 || el === -348201.3876)
+    if (el > -100 && el < 8 || el > 13)
         generatedValue = 1;
     return generatedValue;
 };
@@ -186,7 +187,7 @@ function generT(el) {
         generatedValue = 3;
     if (el >= 32 && el < 33 || el > 38 && el <= 39)
         generatedValue = 2;
-    if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876)
+    if (el >= -1000 && el < 32 || el > 39)
         generatedValue = 1;
     return generatedValue;
 };
@@ -252,37 +253,59 @@ const funcRandom = (el1, el2) => {
 }
 
 
-/*
-function math() {
-    return Math.floor(Math.random() * 11);
-}
 
-arrtests = [[], [], [], [], [], []];
+//arrtests = [[], [], [], [], [], [], [], [], [], [], [], []];
 
 const alls = document.querySelectorAll('.tiresD733');
-function got() {
-    arrDDD = Array(6).fill(0).map(math);
-    arrDDD.forEach((el, index) => {
-        arrtests[index].push(el);
-    })
+const allsRear = document.querySelectorAll('.tiresD7333');
+const allsT = document.querySelectorAll('.tiresT733');
+function got(item1, item2) {
+
+    //arrDDD = Array(6).fill(0).map(math);
+    arrD = item1.slice(0, 6);
+    arrRear = item1.slice(6, 12)
+
     alls.forEach(function (elem, index) {
-        if (arrtests[index][arrtests[index].length - 1] === 8 && arrtests[index][arrtests[index].length - 2] !== 8) {
-            elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 2])];
-        } if (arrtests[index][arrtests[index].length - 1] !== 8 && arrtests[index][arrtests[index].length - 2] === 8) {
-            elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 1])];
+        if (arrD[index][arrD[index].length - 1] === -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
+            elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 2])];
+        } if (arrD[index][arrD[index].length - 1] !== -348201.3876 && arrD[index][arrD[index].length - 2] === -348201.3876) {
+            elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 1])];
         }
-        if (arrtests[index][arrtests[index].length - 1] !== 8 && arrtests[index][arrtests[index].length - 2] !== 8) {
-            elem.style.background = objColor[generFront(arrtests[index][arrtests[index].length - 1])];
-        } if (arrtests[index][arrtests[index].length - 1] === 8 && arrtests[index][arrtests[index].length - 2] === 8) {
+        if (arrD[index][arrD[index].length - 1] !== -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
+            elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 1])];
+        } if (arrD[index][arrD[index].length - 1] === -348201.3876 && arrD[index][arrD[index].length - 2] === -348201.3876) {
+            return false
+        }
+    })
+    allsRear.forEach(function (elem, index) {
+        if (arrRear[index][arrRear[index].length - 1] === -348201.3876 && arrRear[index][arrRear[index].length - 2] !== -348201.3876) {
+            elem.style.background = objColor[generRear(arrRear[index][arrRear[index].length - 2])];
+        } if (arrRear[index][arrRear[index].length - 1] !== -348201.3876 && arrRear[index][arrRear[index].length - 2] === -348201.3876) {
+            elem.style.background = objColor[generRear(arrRear[index][arrRear[index].length - 1])];
+        }
+        if (arrRear[index][arrRear[index].length - 1] !== -348201.3876 && arrRear[index][arrRear[index].length - 2] !== -348201.3876) {
+            elem.style.background = objColor[generRear(arrD[index][arrD[index].length - 1])];
+        } if (arrRear[index][arrRear[index].length - 1] === -348201.3876 && arrRear[index][arrRear[index].length - 2] === -348201.3876) {
+            return false
+        }
+    })
+    allsT.forEach(function (elem, index) {
+        if (item2[index][item2[index].length - 1] === -348201.3876 && item2[index][item2[index].length - 2] !== -348201.3876) {
+            elem.style.background = objColor[generT(item2[index][item2[index].length - 2])];
+        } if (item2[index][item2[index].length - 1] !== -348201.3876 && item2[index][item2[index].length - 2] === -348201.3876) {
+            elem.style.background = objColor[generT(item2[index][item2[index].length - 1])];
+        }
+        if (item2[index][item2[index].length - 1] !== -348201.3876 && item2[index][item2[index].length - 2] !== -348201.3876) {
+            elem.style.background = objColor[generT(item2[index][item2[index].length - 1])];
+        } if (item2[index][item2[index].length - 1] === -348201.3876 && item2[index][item2[index].length - 2] === -348201.3876) {
             return false
         }
     })
 
-    return console.log(arrtests[0]);
 }
-got();
-//setInterval(got, 2000);
-*/
+
+
+
 
 
 const tires_link = document.querySelectorAll('.tires_link');
@@ -336,6 +359,8 @@ function tiresLinkfunc(elem, index) {
     function tiresGrafik() {
         elem = arrAll1[index];
         davl = elem;
+
+        //dav10 = davl.slice(-10);
         elem = arrAll2[index];
         davl2 = elem;
         return davl, davl2;
@@ -345,6 +370,7 @@ function tiresLinkfunc(elem, index) {
     //графики
     chrt();
 }
+
 
 
 
@@ -454,6 +480,7 @@ function go(item1, item2) {
     item2.forEach((el, index) => {
         arrAll2[index].push(parseFloat(el.toFixed(0)));
     })
+    got(arrAll1, arrAll2)
     return arrAll1, arrAll2;
 }
 
