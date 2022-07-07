@@ -88,15 +88,15 @@ function getMainInfo() {
             akb(chekOut);
         });
 
+
     /*
-    
         const prms2 = {
             "itemId": 25594204,
             "timeFrom": 165708300,
-            "timeTo": 1657083600,
-            "flags": 4026,
+            "timeTo": 1657170000,
+            "flags": 1,
             "flagsMask": 65281,
-            "loadCount": 20
+            "loadCount": 90
     
         };
     
@@ -115,10 +115,9 @@ function getMainInfo() {
         const prms3 = {
             "source": "",
             "indexFrom": 0,
-            "indexTo": 20,
+            "indexTo": 23,
             "unitId": 25594204,
-            "sensorId": 0,
-            "width": 20
+            "sensorId": 0
     
         };
     
@@ -132,6 +131,7 @@ function getMainInfo() {
     
             });
             */
+
 }
 
 //выводим бортовое питание
