@@ -89,48 +89,48 @@ function getMainInfo() {
         });
 
 
-    /*
-        const prms2 = {
-            "itemId": 25594204,
-            "timeFrom": 165708300,
-            "timeTo": 1657170000,
-            "flags": 1,
-            "flagsMask": 65281,
-            "loadCount": 90
-    
-        };
-    
-        const remote2 = wialon.core.Remote.getInstance();
-        remote2.remoteCall('messages/load_interval', prms2,
-            function (code, result) {
-                if (code) {
-                    console.log(wialon.core.Errors.getErrorText(code));
-                }
-                arr2 = Object.values(result);
-    
-            });
-    
-    
-    
-        const prms3 = {
-            "source": "",
-            "indexFrom": 0,
-            "indexTo": 23,
-            "unitId": 25594204,
-            "sensorId": 0
-    
-        };
-    
-        const remote3 = wialon.core.Remote.getInstance();
-        remote3.remoteCall('unit/calc_sensor', prms3,
-            function (code, result) {
-                if (code) {
-                    console.log(wialon.core.Errors.getErrorText(code));
-                }
-                arr3 = Object.values(result);
-    
-            });
-            */
+
+    const prms2 = {
+        "itemId": 25594204,
+        "timeFrom": 1657205816,
+        "timeTo": 2757209816,
+        "flags": 1,
+        "flagsMask": 65281,
+        "loadCount": 10
+
+    };
+
+    const remote2 = wialon.core.Remote.getInstance();
+    remote2.remoteCall('messages/load_interval', prms2,
+        function (code, result) {
+            if (code) {
+                console.log(wialon.core.Errors.getErrorText(code));
+            }
+            arr2 = Object.values(result);
+
+        });
+
+
+
+    const prms3 = {
+        "source": "",
+        "indexFrom": 0,
+        "indexTo": 9,
+        "unitId": 25594204,
+        "sensorId": 0
+
+    };
+
+    const remote3 = wialon.core.Remote.getInstance();
+    remote3.remoteCall('unit/calc_sensors', prms3,
+        function (code, result) {
+            if (code) {
+                console.log(wialon.core.Errors.getErrorText(code));
+            }
+            arr3 = Object.values(result);
+
+        });
+
 
 }
 
@@ -525,6 +525,13 @@ function chrt() {
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], [], [], []];
 arrTime = [];
+
+
+
+let nowDate = new Date().toLocaleString();
+var nowDat = new Date().toLocaleTimeString();
+
+
 
 function getNowtime1() {
     let now = new Date();
