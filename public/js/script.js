@@ -90,47 +90,6 @@ function getMainInfo() {
 
 
 
-    const prms2 = {
-        "itemId": 25594204,
-        "timeFrom": 1657205816,
-        "timeTo": 2757209816,
-        "flags": 1,
-        "flagsMask": 65281,
-        "loadCount": 10
-
-    };
-
-    const remote2 = wialon.core.Remote.getInstance();
-    remote2.remoteCall('messages/load_interval', prms2,
-        function (code, result) {
-            if (code) {
-                console.log(wialon.core.Errors.getErrorText(code));
-            }
-            arr2 = Object.values(result);
-
-        });
-
-
-
-    const prms3 = {
-        "source": "",
-        "indexFrom": 0,
-        "indexTo": 9,
-        "unitId": 25594204,
-        "sensorId": 0
-
-    };
-
-    const remote3 = wialon.core.Remote.getInstance();
-    remote3.remoteCall('unit/calc_sensors', prms3,
-        function (code, result) {
-            if (code) {
-                console.log(wialon.core.Errors.getErrorText(code));
-            }
-            arr3 = Object.values(result);
-
-        });
-
 
 }
 
@@ -410,10 +369,70 @@ arrTireslink.forEach(function (elem, index) {
         wrapperDash.style.display = 'none';
         grafik = document.querySelector('.grafik');
         grafik.style.display = 'block';
+        btn24 = document.querySelector('.btn24');
+        btn24.style.display = 'block';
         tiresLinkfunc(elem, index);
     }
     local();
 });
+
+
+/*
+var d = new Date();
+var yy = d.setHours(d.getHours() - 2);*/
+
+
+btn24 = document.querySelector('.btn24');
+btn24.addEventListener('click', grafTwo)
+
+function grafTwo() {
+    //let nowDate = Math.round(new Date().getTime())
+    //let nDate = new Date();
+    //let timeFrom = nDate.setHours(nDate.getHours() - 24);
+
+    const prms2 = {
+        "itemId": 25594204,
+        "timeFrom": 1657205816,
+        "timeTo": 2757209816,
+        "flags": 1,
+        "flagsMask": 65281,
+        "loadCount": 10
+    };
+
+    const remote2 = wialon.core.Remote.getInstance();
+    remote2.remoteCall('messages/load_interval', prms2,
+        function (code, result) {
+            if (code) {
+                console.log(wialon.core.Errors.getErrorText(code));
+            }
+            arr2 = Object.values(result);
+
+        });
+
+    const prms3 = {
+        "source": "",
+        "indexFrom": 0,
+        "indexTo": 10,
+        "unitId": 25594204,
+        "sensorId": 0
+
+    };
+    const remote3 = wialon.core.Remote.getInstance();
+    remote3.remoteCall('unit/calc_sensors', prms3,
+        function (code, result) {
+            if (code) {
+                console.log(wialon.core.Errors.getErrorText(code));
+            }
+            arr3 = Object.values(result);
+
+        });
+
+    grafik1 = document.querySelector('.grafik1');
+    grafik1.style.display = 'block';
+
+
+}
+
 
 //сохраняем изменения в localstorage
 function local() {
@@ -443,6 +462,7 @@ function tiresLinkfunc(elem, index) {
     tiresGrafik(arrAll2)
     //графики
     chrt();
+    chrt1()
 }
 
 
@@ -522,14 +542,88 @@ function chrt() {
     setInterval(upDia, 100);
 }
 
+
+
+function chrt1() {
+    Chart.register(ChartDataLabels);
+    myChartg = new Chart(myChartg, {
+        type: 'line',
+        data: {
+            datasets: [{
+                data: davl,
+                label: 'Давление',
+                fill: false,
+                borderColor: 'lightgreen',
+                yAxisID: 'left-y-axis'
+            }, {
+                data: davl2,
+                label: 'Температура',
+                fill: false,
+                borderColor: 'lightblue',
+                yAxisID: 'right-y-axis'
+            }],
+            labels: arrTime
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 12,
+                        },
+                        color: 'gray'
+                    }
+                }
+            },
+            scales: {
+                'left-y-axis': {
+                    type: 'linear',
+                    position: 'left',
+                    min: 0,
+                    max: 12,
+                    ticks: {
+                        font: {
+                            size: 15,
+                        }
+                    }
+                },
+                'right-y-axis': {
+                    type: 'linear',
+                    position: 'right',
+                    min: 0,
+                    max: 50,
+                    ticks: {
+                        font: {
+                            size: 15,
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        font: {
+                            size: 8
+                        }
+                    }
+                }
+            },
+        }
+    });
+
+    const upDia = () => {
+        myChartg.data.datasets[0].data = davl.slice(-10);
+        myChartg.data.datasets[1].data = davl2.slice(-10);
+        myChartg.data.labels = arrTime.slice(-10);
+        myChartg.update();
+    }
+    setInterval(upDia, 100);
+}
+
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], [], [], []];
 arrTime = [];
 
 
 
-let nowDate = new Date().toLocaleString();
-var nowDat = new Date().toLocaleTimeString();
 
 
 
