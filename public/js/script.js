@@ -49,7 +49,7 @@ function getMainInfo() {
             arrayD = [];
             arrayD.push(arr[0]); arrayD.push(arr[2]); arrayD.push(arr[1]); arrayD.push(arr[9]);
             arrayD.push(arr[8]); arrayD.push(arr[7]); arrayD.push(arr[6]); arrayD.push(arr[3]);
-            arrayD.push(arr[5]); arrayD.push(arr[4]); arrayD.push(arr[25]); arrayD.push(arr[25]);
+            arrayD.push(arr[5]); arrayD.push(arr[4]); arrayD.push(arr[25]); arrayD.push(arr[26]);
             arrayT = [];
             arrayT.push(arr[18]); arrayT.push(arr[17]); arrayT.push(arr[14]); arrayT.push(arr[16]);
             arrayT.push(arr[13]); arrayT.push(arr[15]); arrayT.push(arr[10]); arrayT.push(arr[12]);
@@ -376,24 +376,18 @@ arrTireslink.forEach(function (elem, index) {
     local();
 });
 
-
-/*
-var d = new Date();
-var yy = d.setHours(d.getHours() - 2);*/
-
-
 btn24 = document.querySelector('.btn24');
 btn24.addEventListener('click', grafTwo)
 
 function grafTwo() {
-    //let nowDate = Math.round(new Date().getTime())
-    //let nDate = new Date();
-    //let timeFrom = nDate.setHours(nDate.getHours() - 24);
+    let nowDate = Math.round(new Date().getTime() / 1000)
+    let nDate = new Date();
+    let timeFrom = Math.round(nDate.setHours(nDate.getHours() - 24) / 1000);
 
     const prms2 = {
         "itemId": 25594204,
-        "timeFrom": 1657205816,
-        "timeTo": 2757209816,
+        "timeFrom": timeFrom,//1657205816,
+        "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
         "loadCount": 10
@@ -424,6 +418,15 @@ function grafTwo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr3 = Object.values(result);
+
+            array24D = [];
+            array24D.push(arr3[0][1]); array24D.push(arr3[0][3]); array24D.push(arr3[0][2]); array24D.push(arr3[0][10]);
+            array24D.push(arr3[0][9]); array24D.push(arr3[0][8]); array24D.push(arr3[0][7]); array24D.push(arr3[0][4]);
+            array24D.push(arr3[0][6]); array24D.push(arr3[0][5]); array24D.push(arr3[0][26]); array24D.push(arr3[0][27]);
+            array24T = [];
+            arrayT.push(arr[18]); arrayT.push(arr[17]); arrayT.push(arr[14]); arrayT.push(arr[16]);
+            arrayT.push(arr[13]); arrayT.push(arr[15]); arrayT.push(arr[10]); arrayT.push(arr[12]);
+            arrayT.push(arr[11]); arrayT.push(arr[19]); arrayT.push(arr[28]); arrayT.push(arr[27]);
 
         });
 
