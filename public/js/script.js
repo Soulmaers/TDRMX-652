@@ -28,6 +28,7 @@ function init() {
                 return;
             }
             getMainInfo();
+            grafTwo();
             setInterval(getMainInfo, 2000);
         });
 };
@@ -382,7 +383,11 @@ btn24 = document.querySelector('.btn24');
 btn24.addEventListener('click', modal)
 function modal() {
     grafik1 = document.querySelector('.grafik1');
-    grafik1.style.display = 'block';
+    if (grafik1.style.display === 'block') {
+        grafik1.style.display = 'none';
+    } else {
+        grafik1.style.display = 'block';
+    }
 }
 
 
@@ -498,7 +503,7 @@ function grafTwo() {
 
         });
 
-    tiresGrafik24(array24D, array24T)
+
 }
 
 
@@ -537,6 +542,7 @@ function tiresLinkfunc(elem, index) {
         davl224 = elem;
         return davl24, davl224;
     }
+    tiresGrafik24(array24D, array24T)
 
     // tiresGrafik(arrAll2)
     //графики
@@ -621,11 +627,9 @@ function chrt() {
     setInterval(upDia, 100);
 }
 
-
-
 function chrt1() {
     Chart.register(ChartDataLabels);
-    myChartg = new Chart(myChartg, {
+    myChartg1 = new Chart(myChartg1, {
         type: 'line',
         data: {
             datasets: [{
@@ -641,7 +645,7 @@ function chrt1() {
                 borderColor: 'lightblue',
                 yAxisID: 'right-y-axis'
             }],
-            labels: arrTime
+            //labels: arrTime
         },
         options: {
             plugins: {
@@ -688,23 +692,18 @@ function chrt1() {
         }
     });
 
-    const upDia = () => {
-        myChartg.data.datasets[0].data = davl.slice(-10);
-        myChartg.data.datasets[1].data = davl2.slice(-10);
-        myChartg.data.labels = arrTime.slice(-10);
-        myChartg.update();
+    const upDia1 = () => {
+        myChartg1.data.datasets[0].data = davl24;
+        myChartg1.data.datasets[1].data = davl224;
+        //myChartg1.data.labels = arrTime;
+        myChartg1.update();
     }
-    setInterval(upDia, 100);
+    setInterval(upDia1, 100);
 }
 
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], [], [], []];
 arrTime = [];
-
-
-
-
-
 
 function getNowtime1() {
     let now = new Date();
