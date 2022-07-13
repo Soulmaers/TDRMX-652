@@ -371,13 +371,20 @@ arrTireslink.forEach(function (elem, index) {
         grafik.style.display = 'block';
         btn24 = document.querySelector('.btn24');
         btn24.style.display = 'block';
+
         tiresLinkfunc(elem, index);
+        grafTwo()
     }
     local();
 });
 
 btn24 = document.querySelector('.btn24');
-btn24.addEventListener('click', grafTwo)
+btn24.addEventListener('click', modal)
+function modal() {
+    grafik1 = document.querySelector('.grafik1');
+    grafik1.style.display = 'block';
+}
+
 
 function grafTwo() {
     let nowDate = Math.round(new Date().getTime() / 1000)
@@ -406,7 +413,7 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
-        "indexTo": 10,
+        "indexTo": 9,
         "unitId": 25594204,
         "sensorId": 0
 
@@ -417,23 +424,81 @@ function grafTwo() {
             if (code) {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
-            arr3 = Object.values(result);
 
-            array24D = [];
-            array24D.push(arr3[0][1]); array24D.push(arr3[0][3]); array24D.push(arr3[0][2]); array24D.push(arr3[0][10]);
-            array24D.push(arr3[0][9]); array24D.push(arr3[0][8]); array24D.push(arr3[0][7]); array24D.push(arr3[0][4]);
-            array24D.push(arr3[0][6]); array24D.push(arr3[0][5]); array24D.push(arr3[0][26]); array24D.push(arr3[0][27]);
-            array24T = [];
-            arrayT.push(arr[18]); arrayT.push(arr[17]); arrayT.push(arr[14]); arrayT.push(arr[16]);
-            arrayT.push(arr[13]); arrayT.push(arr[15]); arrayT.push(arr[10]); arrayT.push(arr[12]);
-            arrayT.push(arr[11]); arrayT.push(arr[19]); arrayT.push(arr[28]); arrayT.push(arr[27]);
+            arr3 = Object.values(result);
+            arrIter = [];
+            array24D = [[], [], [], [], [], [], [], [], [], []];
+            for (let subArr in arr3) {
+                arsss = Object.values(arr3[subArr]);
+                arrIter.push(arsss)
+            }
+            array24D[0].push(arrIter[0][0]); array24D[0].push(arrIter[0][2]); array24D[0].push(arrIter[0][1]); array24D[0].push(arrIter[0][9]);
+            array24D[0].push(arrIter[0][8]); array24D[0].push(arrIter[0][7]); array24D[0].push(arrIter[0][8]); array24D[0].push(arrIter[0][3]);
+            array24D[0].push(arrIter[0][5]); array24D[0].push(arrIter[0][4]); array24D[0].push(arrIter[0][25]); array24D[0].push(arrIter[0][26]);
+            array24D[1].push(arrIter[1][0]); array24D[1].push(arrIter[1][2]); array24D[1].push(arrIter[1][1]); array24D[1].push(arrIter[1][9]);
+            array24D[1].push(arrIter[1][8]); array24D[1].push(arrIter[1][7]); array24D[1].push(arrIter[1][8]); array24D[1].push(arrIter[1][3]);
+            array24D[1].push(arrIter[1][5]); array24D[1].push(arrIter[1][4]); array24D[1].push(arrIter[1][25]); array24D[1].push(arrIter[1][26]);
+            array24D[2].push(arrIter[2][0]); array24D[2].push(arrIter[2][2]); array24D[2].push(arrIter[2][1]); array24D[2].push(arrIter[2][9]);
+            array24D[2].push(arrIter[2][8]); array24D[2].push(arrIter[2][7]); array24D[2].push(arrIter[2][8]); array24D[2].push(arrIter[2][3]);
+            array24D[2].push(arrIter[2][5]); array24D[2].push(arrIter[2][4]); array24D[2].push(arrIter[2][25]); array24D[2].push(arrIter[2][26]);
+            array24D[3].push(arrIter[3][0]); array24D[3].push(arrIter[3][2]); array24D[3].push(arrIter[3][1]); array24D[3].push(arrIter[3][9]);
+            array24D[3].push(arrIter[3][8]); array24D[3].push(arrIter[3][7]); array24D[3].push(arrIter[3][8]); array24D[3].push(arrIter[3][3]);
+            array24D[3].push(arrIter[3][5]); array24D[3].push(arrIter[3][4]); array24D[3].push(arrIter[3][25]); array24D[3].push(arrIter[3][26]);
+            array24D[4].push(arrIter[4][0]); array24D[4].push(arrIter[4][2]); array24D[4].push(arrIter[4][1]); array24D[4].push(arrIter[4][9]);
+            array24D[4].push(arrIter[4][8]); array24D[4].push(arrIter[4][7]); array24D[4].push(arrIter[4][8]); array24D[4].push(arrIter[4][3]);
+            array24D[4].push(arrIter[4][5]); array24D[4].push(arrIter[4][4]); array24D[4].push(arrIter[4][25]); array24D[4].push(arrIter[4][26]);
+            array24D[5].push(arrIter[5][0]); array24D[5].push(arrIter[5][2]); array24D[5].push(arrIter[5][1]); array24D[5].push(arrIter[5][9]);
+            array24D[5].push(arrIter[5][8]); array24D[5].push(arrIter[5][7]); array24D[5].push(arrIter[5][8]); array24D[5].push(arrIter[5][3]);
+            array24D[5].push(arrIter[5][5]); array24D[5].push(arrIter[5][4]); array24D[5].push(arrIter[5][25]); array24D[5].push(arrIter[5][26]);
+            array24D[6].push(arrIter[6][0]); array24D[6].push(arrIter[6][2]); array24D[6].push(arrIter[6][1]); array24D[6].push(arrIter[6][9]);
+            array24D[6].push(arrIter[6][8]); array24D[6].push(arrIter[6][7]); array24D[6].push(arrIter[6][8]); array24D[6].push(arrIter[6][3]);
+            array24D[6].push(arrIter[6][5]); array24D[6].push(arrIter[6][4]); array24D[6].push(arrIter[6][25]); array24D[6].push(arrIter[6][26]);
+            array24D[7].push(arrIter[7][0]); array24D[7].push(arrIter[7][2]); array24D[7].push(arrIter[7][1]); array24D[7].push(arrIter[7][9]);
+            array24D[7].push(arrIter[7][8]); array24D[7].push(arrIter[7][7]); array24D[7].push(arrIter[7][8]); array24D[7].push(arrIter[7][3]);
+            array24D[7].push(arrIter[7][5]); array24D[7].push(arrIter[7][4]); array24D[7].push(arrIter[7][25]); array24D[7].push(arrIter[7][26]);
+            array24D[8].push(arrIter[8][0]); array24D[8].push(arrIter[8][2]); array24D[8].push(arrIter[8][1]); array24D[8].push(arrIter[8][9]);
+            array24D[8].push(arrIter[8][8]); array24D[8].push(arrIter[8][7]); array24D[8].push(arrIter[8][8]); array24D[8].push(arrIter[8][3]);
+            array24D[8].push(arrIter[8][5]); array24D[8].push(arrIter[8][4]); array24D[8].push(arrIter[8][25]); array24D[8].push(arrIter[8][26]);
+            array24D[9].push(arrIter[9][0]); array24D[9].push(arrIter[9][2]); array24D[9].push(arrIter[9][1]); array24D[9].push(arrIter[9][9]);
+            array24D[9].push(arrIter[9][8]); array24D[9].push(arrIter[9][7]); array24D[9].push(arrIter[9][8]); array24D[9].push(arrIter[9][3]);
+            array24D[9].push(arrIter[9][5]); array24D[9].push(arrIter[9][4]); array24D[9].push(arrIter[9][25]); array24D[9].push(arrIter[9][26]);
+
+            array24T = [[], [], [], [], [], [], [], [], [], []];
+            array24T[0].push(arrIter[0][0]); array24T[0].push(arrIter[0][2]); array24T[0].push(arrIter[0][1]); array24T[0].push(arrIter[0][9]);
+            array24T[0].push(arrIter[0][8]); array24T[0].push(arrIter[0][7]); array24T[0].push(arrIter[0][8]); array24T[0].push(arrIter[0][3]);
+            array24T[0].push(arrIter[0][5]); array24T[0].push(arrIter[0][4]); array24T[0].push(arrIter[0][25]); array24T[0].push(arrIter[0][26]);
+            array24T[1].push(arrIter[1][0]); array24T[1].push(arrIter[1][2]); array24T[1].push(arrIter[1][1]); array24T[1].push(arrIter[1][9]);
+            array24T[1].push(arrIter[1][8]); array24T[1].push(arrIter[1][7]); array24T[1].push(arrIter[1][8]); array24T[1].push(arrIter[1][3]);
+            array24T[1].push(arrIter[1][5]); array24T[1].push(arrIter[1][4]); array24T[1].push(arrIter[1][25]); array24T[1].push(arrIter[1][26]);
+            array24T[2].push(arrIter[2][0]); array24T[2].push(arrIter[2][2]); array24T[2].push(arrIter[2][1]); array24T[2].push(arrIter[2][9]);
+            array24T[2].push(arrIter[2][8]); array24T[2].push(arrIter[2][7]); array24T[2].push(arrIter[2][8]); array24T[2].push(arrIter[2][3]);
+            array24T[2].push(arrIter[2][5]); array24T[2].push(arrIter[2][4]); array24T[2].push(arrIter[2][25]); array24T[2].push(arrIter[2][26]);
+            array24T[3].push(arrIter[3][0]); array24T[3].push(arrIter[3][2]); array24T[3].push(arrIter[3][1]); array24T[3].push(arrIter[3][9]);
+            array24T[3].push(arrIter[3][8]); array24T[3].push(arrIter[3][7]); array24T[3].push(arrIter[3][8]); array24T[3].push(arrIter[3][3]);
+            array24T[3].push(arrIter[3][5]); array24T[3].push(arrIter[3][4]); array24T[3].push(arrIter[3][25]); array24T[3].push(arrIter[3][26]);
+            array24T[4].push(arrIter[4][0]); array24T[4].push(arrIter[4][2]); array24T[4].push(arrIter[4][1]); array24T[4].push(arrIter[4][9]);
+            array24T[4].push(arrIter[4][8]); array24T[4].push(arrIter[4][7]); array24T[4].push(arrIter[4][8]); array24T[4].push(arrIter[4][3]);
+            array24T[4].push(arrIter[4][5]); array24T[4].push(arrIter[4][4]); array24T[4].push(arrIter[4][25]); array24T[4].push(arrIter[4][26]);
+            array24T[5].push(arrIter[5][0]); array24T[5].push(arrIter[5][2]); array24T[5].push(arrIter[5][1]); array24T[5].push(arrIter[5][9]);
+            array24T[5].push(arrIter[5][8]); array24T[5].push(arrIter[5][7]); array24T[5].push(arrIter[5][8]); array24T[5].push(arrIter[5][3]);
+            array24T[5].push(arrIter[5][5]); array24T[5].push(arrIter[5][4]); array24T[5].push(arrIter[5][25]); array24T[5].push(arrIter[5][26]);
+            array24T[6].push(arrIter[6][0]); array24T[6].push(arrIter[6][2]); array24T[6].push(arrIter[6][1]); array24T[6].push(arrIter[6][9]);
+            array24T[6].push(arrIter[6][8]); array24T[6].push(arrIter[6][7]); array24T[6].push(arrIter[6][8]); array24T[6].push(arrIter[6][3]);
+            array24T[6].push(arrIter[6][5]); array24T[6].push(arrIter[6][4]); array24T[6].push(arrIter[6][25]); array24T[6].push(arrIter[6][26]);
+            array24T[7].push(arrIter[7][0]); array24T[7].push(arrIter[7][2]); array24T[7].push(arrIter[7][1]); array24T[7].push(arrIter[7][9]);
+            array24T[7].push(arrIter[7][8]); array24T[7].push(arrIter[7][7]); array24T[7].push(arrIter[7][8]); array24T[7].push(arrIter[7][3]);
+            array24T[7].push(arrIter[7][5]); array24T[7].push(arrIter[7][4]); array24T[7].push(arrIter[7][25]); array24T[7].push(arrIter[7][26]);
+            array24T[8].push(arrIter[8][0]); array24T[8].push(arrIter[8][2]); array24T[8].push(arrIter[8][1]); array24T[8].push(arrIter[8][9]);
+            array24T[8].push(arrIter[8][8]); array24T[8].push(arrIter[8][7]); array24T[8].push(arrIter[8][8]); array24T[8].push(arrIter[8][3]);
+            array24T[8].push(arrIter[8][5]); array24T[8].push(arrIter[8][4]); array24T[8].push(arrIter[8][25]); array24T[8].push(arrIter[8][26]);
+            array24T[9].push(arrIter[9][0]); array24T[9].push(arrIter[9][2]); array24T[9].push(arrIter[9][1]); array24T[9].push(arrIter[9][9]);
+            array24T[9].push(arrIter[9][8]); array24T[9].push(arrIter[9][7]); array24T[9].push(arrIter[9][8]); array24T[9].push(arrIter[9][3]);
+            array24T[9].push(arrIter[9][5]); array24T[9].push(arrIter[9][4]); array24T[9].push(arrIter[9][25]); array24T[9].push(arrIter[9][26]);
+
 
         });
 
-    grafik1 = document.querySelector('.grafik1');
-    grafik1.style.display = 'block';
-
-
+    tiresGrafik24(array24D, array24T)
 }
 
 
@@ -461,8 +526,19 @@ function tiresLinkfunc(elem, index) {
         davl2 = elem;
         return davl, davl2;
     }
-    tiresGrafik(arrAll1)
-    tiresGrafik(arrAll2)
+    tiresGrafik(arrAll1, arrAll2)
+
+    function tiresGrafik24() {
+        elem = array24D[index];
+        davl24 = elem;
+
+        //dav10 = davl.slice(-10);
+        elem = array24T[index];
+        davl224 = elem;
+        return davl24, davl224;
+    }
+
+    // tiresGrafik(arrAll2)
     //графики
     chrt();
     chrt1()
@@ -553,13 +629,13 @@ function chrt1() {
         type: 'line',
         data: {
             datasets: [{
-                data: davl,
+                data: davl24,
                 label: 'Давление',
                 fill: false,
                 borderColor: 'lightgreen',
                 yAxisID: 'left-y-axis'
             }, {
-                data: davl2,
+                data: davl224,
                 label: 'Температура',
                 fill: false,
                 borderColor: 'lightblue',
