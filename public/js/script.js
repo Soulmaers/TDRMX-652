@@ -29,7 +29,7 @@ function init() {
             }
             getMainInfo();
             grafTwo();
-            setInterval(getMainInfo, 2000);
+            setInterval(getMainInfo, 120000);
         });
 };
 init();
@@ -402,7 +402,7 @@ function grafTwo() {
         "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
-        "loadCount": 10
+        "loadCount": 721
     };
 
     const remote2 = wialon.core.Remote.getInstance();
@@ -418,7 +418,7 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
-        "indexTo": 9,
+        "indexTo": 721,
         "unitId": 25594204,
         "sensorId": 0
 
@@ -432,11 +432,33 @@ function grafTwo() {
 
             arr3 = Object.values(result);
             arrIter = [];
-            array24D = [[], [], [], [], [], [], [], [], [], []];
+            arrIterT = [];
+            //array24D = [];
             for (let subArr in arr3) {
                 arsss = Object.values(arr3[subArr]);
                 arrIter.push(arsss)
             }
+            for (let subArr in arr3) {
+                arsss = Object.values(arr3[subArr]);
+                arrIterT.push(arsss)
+            }
+            arrIter.map((arr) => { arr.splice(9, 15); arr.splice(12, 3); });
+            console.log(arrIter);
+            arrIterT.map((arr) => { arr.splice(0, 10); arr.splice(10, 7); });
+            console.log(arrIter);
+            /*
+            array24D.push(arrIter[0]); array24D.push(arrIter[2]); array24D.push(arrIter[1]); array24D.push(arrIter[9]);
+            array24D.push(arrIter[8]); array24D.push(arrIter[7]); array24D.push(arrIter[6]); array24D.push(arrIter[3]);
+            array24D.push(arrIter[5]); array24D.push(arrIter[4]); array24D.push(arrIter[10]); array24D.push(arrIter[11]);
+            console.log(array24D);* /
+
+
+            
+                        const arrTest1 = [[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]]
+            
+                        arrTest1.map((arr) => { arr.splice(2, 1); arr.splice(3, 2); });
+                        console.log(arrTest1);
+            /*
             array24D[0].push(arrIter[0][0]); array24D[0].push(arrIter[0][2]); array24D[0].push(arrIter[0][1]); array24D[0].push(arrIter[0][9]);
             array24D[0].push(arrIter[0][8]); array24D[0].push(arrIter[0][7]); array24D[0].push(arrIter[0][8]); array24D[0].push(arrIter[0][3]);
             array24D[0].push(arrIter[0][5]); array24D[0].push(arrIter[0][4]); array24D[0].push(arrIter[0][25]); array24D[0].push(arrIter[0][26]);
@@ -499,7 +521,7 @@ function grafTwo() {
             array24T[9].push(arrIter[9][0]); array24T[9].push(arrIter[9][2]); array24T[9].push(arrIter[9][1]); array24T[9].push(arrIter[9][9]);
             array24T[9].push(arrIter[9][8]); array24T[9].push(arrIter[9][7]); array24T[9].push(arrIter[9][8]); array24T[9].push(arrIter[9][3]);
             array24T[9].push(arrIter[9][5]); array24T[9].push(arrIter[9][4]); array24T[9].push(arrIter[9][25]); array24T[9].push(arrIter[9][26]);
-
+*/
 
         });
 
@@ -534,15 +556,15 @@ function tiresLinkfunc(elem, index) {
     tiresGrafik(arrAll1, arrAll2)
 
     function tiresGrafik24() {
-        elem = array24D[index];
+        elem = arrIter[index];
         davl24 = elem;
 
         //dav10 = davl.slice(-10);
-        elem = array24T[index];
+        elem = arrIterT[index];
         davl224 = elem;
         return davl24, davl224;
     }
-    tiresGrafik24(array24D, array24T)
+    tiresGrafik24(arrIter, arrIterT)
 
     // tiresGrafik(arrAll2)
     //графики
