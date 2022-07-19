@@ -767,7 +767,8 @@ function chrt1() {
         //myChartg1.data.labels = arrTime;
         myChartg1.update();
     }
-    setInterval(upDia1, 100);
+    //upDia1();
+    setInterval(upDia1, 20000);
 }
 
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
