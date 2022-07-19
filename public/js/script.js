@@ -412,6 +412,10 @@ function grafTwo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr2 = Object.values(result);
+            arrIterTime = [];
+            arr2[1].forEach(el => {
+                arrIterTime.push(el.t);
+            })
 
         });
 
@@ -443,9 +447,41 @@ function grafTwo() {
                 arrIterT.push(arsss)
             }
             arrIter.map((arr) => { arr.splice(9, 15); arr.splice(12, 3); });
-            console.log(arrIter);
+            //console.log(arrIter);
             arrIterT.map((arr) => { arr.splice(0, 10); arr.splice(10, 7); });
-            console.log(arrIter);
+            //console.log(arrIter);
+
+            arrIterDav = new Array(12);
+            arrIterDav[0] = new Array();
+            arrIterDav[1] = new Array();
+            arrIterDav[2] = new Array();
+            arrIterDav[3] = new Array();
+            arrIterDav[4] = new Array();
+            arrIterDav[5] = new Array();
+            arrIterDav[6] = new Array();
+            arrIterDav[7] = new Array();
+            arrIterDav[8] = new Array();
+            arrIterDav[9] = new Array();
+            arrIterDav[10] = new Array();
+            arrIterDav[11] = new Array();
+
+            arrIter.forEach(el => {
+                arrIterDav[0].push(el[0]);
+                arrIterDav[1].push(el[1]);
+                arrIterDav[2].push(el[2]);
+                arrIterDav[3].push(el[3]);
+                arrIterDav[4].push(el[4]);
+                arrIterDav[5].push(el[5]);
+                arrIterDav[6].push(el[6]);
+                arrIterDav[7].push(el[7]);
+                arrIterDav[8].push(el[8]);
+                arrIterDav[9].push(el[9]);
+                arrIterDav[10].push(el[10]);
+                arrIterDav[11].push(el[11]);
+
+                //rrr[index].push(el[1]);
+            })
+
             /*
             array24D.push(arrIter[0]); array24D.push(arrIter[2]); array24D.push(arrIter[1]); array24D.push(arrIter[9]);
             array24D.push(arrIter[8]); array24D.push(arrIter[7]); array24D.push(arrIter[6]); array24D.push(arrIter[3]);
@@ -556,7 +592,7 @@ function tiresLinkfunc(elem, index) {
     tiresGrafik(arrAll1, arrAll2)
 
     function tiresGrafik24() {
-        elem = arrIter[index];
+        elem = arrIterDav[index];
         davl24 = elem;
 
         //dav10 = davl.slice(-10);
@@ -564,7 +600,7 @@ function tiresLinkfunc(elem, index) {
         davl224 = elem;
         return davl24, davl224;
     }
-    tiresGrafik24(arrIter, arrIterT)
+    tiresGrafik24(arrIterDav, arrIterT)
 
     // tiresGrafik(arrAll2)
     //графики
@@ -576,6 +612,7 @@ function tiresLinkfunc(elem, index) {
 
 
 function chrt() {
+
     Chart.register(ChartDataLabels);
     myChartg = new Chart(myChartg, {
         type: 'line',
@@ -649,8 +686,11 @@ function chrt() {
     setInterval(upDia, 100);
 }
 
+
 function chrt1() {
+
     Chart.register(ChartDataLabels);
+    //Chart.defaults.global.tooltips.enabled = false;
     myChartg1 = new Chart(myChartg1, {
         type: 'line',
         data: {
@@ -667,18 +707,23 @@ function chrt1() {
                 borderColor: 'lightblue',
                 yAxisID: 'right-y-axis'
             }],
-            //labels: arrTime
+            labels: arrIterTime
         },
+
+        //Chart1.Series["ИмяГрафика"]["PieLabelStyle"] = "Disabled"
         options: {
             plugins: {
                 legend: {
                     labels: {
                         font: {
-                            size: 12,
+                            size: 15,
                         },
                         color: 'gray'
                     }
-                }
+                },
+                tooltips: {
+                    enabled: false
+                },
             },
             scales: {
                 'left-y-axis': {
@@ -687,7 +732,9 @@ function chrt1() {
                     min: 0,
                     max: 12,
                     ticks: {
+
                         font: {
+
                             size: 15,
                         }
                     }
@@ -706,7 +753,7 @@ function chrt1() {
                 x: {
                     ticks: {
                         font: {
-                            size: 8
+                            size: 1
                         }
                     }
                 }
@@ -917,6 +964,28 @@ const upRender = () => {
 setInterval(upRender, 2000);
 
 
+
+
+//const rrr = [[], [], []]
+
+/*
+var rrr = new Array(3);//Создание массива на 3 элемента
+rrr[0] = new Array(); //вставл. в первый элемент массив на 3 элемента
+rrr[1] = new Array(); //вставл. в второй элемент массив на 3 элемента
+rrr[2] = new Array();
+
+
+const arrayTest = [[2, 8, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6],
+[3, 8, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6],
+[5, 8, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]]
+arrayTest.forEach((el, index) => {
+
+    rrr[0].push(el[0]);
+    rrr[1].push(el[1]);
+    rrr[2].push(el[2]);
+    
+    //rrr[index].push(el[1]);
+})*/
 
 
 
