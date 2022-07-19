@@ -402,7 +402,7 @@ function grafTwo() {
         "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
-        "loadCount": 721
+        "loadCount": 6518
     };
 
     const remote2 = wialon.core.Remote.getInstance();
@@ -422,7 +422,7 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
-        "indexTo": 721,
+        "indexTo": 6518,
         "unitId": 25594204,
         "sensorId": 0
 
@@ -479,9 +479,36 @@ function grafTwo() {
                 arrIterDav[10].push(el[10]);
                 arrIterDav[11].push(el[11]);
 
-                //rrr[index].push(el[1]);
             })
+            arrIterDavT = new Array(12);
+            arrIterDavT[0] = new Array();
+            arrIterDavT[1] = new Array();
+            arrIterDavT[2] = new Array();
+            arrIterDavT[3] = new Array();
+            arrIterDavT[4] = new Array();
+            arrIterDavT[5] = new Array();
+            arrIterDavT[6] = new Array();
+            arrIterDavT[7] = new Array();
+            arrIterDavT[8] = new Array();
+            arrIterDavT[9] = new Array();
+            arrIterDavT[10] = new Array();
+            arrIterDavT[11] = new Array();
 
+            arrIterT.forEach(el => {
+                arrIterDavT[0].push(el[0]);
+                arrIterDavT[1].push(el[1]);
+                arrIterDavT[2].push(el[2]);
+                arrIterDavT[3].push(el[3]);
+                arrIterDavT[4].push(el[4]);
+                arrIterDavT[5].push(el[5]);
+                arrIterDavT[6].push(el[6]);
+                arrIterDavT[7].push(el[7]);
+                arrIterDavT[8].push(el[8]);
+                arrIterDavT[9].push(el[9]);
+                arrIterDavT[10].push(el[10]);
+                arrIterDavT[11].push(el[11]);
+
+            })
             /*
             array24D.push(arrIter[0]); array24D.push(arrIter[2]); array24D.push(arrIter[1]); array24D.push(arrIter[9]);
             array24D.push(arrIter[8]); array24D.push(arrIter[7]); array24D.push(arrIter[6]); array24D.push(arrIter[3]);
@@ -596,11 +623,11 @@ function tiresLinkfunc(elem, index) {
         davl24 = elem;
 
         //dav10 = davl.slice(-10);
-        elem = arrIterT[index];
+        elem = arrIterDavT[index];
         davl224 = elem;
         return davl24, davl224;
     }
-    tiresGrafik24(arrIterDav, arrIterT)
+    tiresGrafik24(arrIterDav, arrIterDavT)
 
     // tiresGrafik(arrAll2)
     //графики
@@ -634,6 +661,7 @@ function chrt() {
         },
         options: {
             plugins: {
+
                 legend: {
                     labels: {
                         font: {
@@ -683,7 +711,7 @@ function chrt() {
         myChartg.data.labels = arrTime.slice(-10);
         myChartg.update();
     }
-    setInterval(upDia, 100);
+    setInterval(upDia, 2000);
 }
 
 
@@ -713,6 +741,11 @@ function chrt1() {
         //Chart1.Series["ИмяГрафика"]["PieLabelStyle"] = "Disabled"
         options: {
             plugins: {
+                datalabels: {
+
+                    display: false,
+
+                },
                 legend: {
                     labels: {
                         font: {
@@ -767,7 +800,7 @@ function chrt1() {
         //myChartg1.data.labels = arrTime;
         myChartg1.update();
     }
-    setInterval(upDia1, 100);
+    setInterval(upDia1, 2000);
 }
 
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
