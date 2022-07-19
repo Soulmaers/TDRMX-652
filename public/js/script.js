@@ -402,7 +402,7 @@ function grafTwo() {
         "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
-        "loadCount": 721
+        "loadCount": 5768
     };
 
     const remote2 = wialon.core.Remote.getInstance();
@@ -422,7 +422,7 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
-        "indexTo": 721,
+        "indexTo": 5768,
         "unitId": 25594204,
         "sensorId": 0
 
@@ -729,7 +729,7 @@ function chrt1() {
                 'left-y-axis': {
                     type: 'linear',
                     position: 'left',
-                    min: -450000,
+                    min: 0,
                     max: 12,
                     ticks: {
 
@@ -742,7 +742,7 @@ function chrt1() {
                 'right-y-axis': {
                     type: 'linear',
                     position: 'right',
-                    min: -450000,
+                    min: 0,
                     max: 50,
                     ticks: {
                         font: {
