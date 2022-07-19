@@ -402,12 +402,8 @@ function grafTwo() {
         "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
-<<<<<<< HEAD
         "loadCount": 6518
-=======
-        "loadCount": 5768
->>>>>>> 44b85964456d417488c67c74f560ac2443ad0a19
-    };
+    }
 
     const remote2 = wialon.core.Remote.getInstance();
     remote2.remoteCall('messages/load_interval', prms2,
@@ -426,14 +422,9 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
-<<<<<<< HEAD
         "indexTo": 6518,
-=======
-        "indexTo": 5768,
->>>>>>> 44b85964456d417488c67c74f560ac2443ad0a19
         "unitId": 25594204,
         "sensorId": 0
-
     };
     const remote3 = wialon.core.Remote.getInstance();
     remote3.remoteCall('unit/calc_sensors', prms3,
@@ -809,10 +800,7 @@ function chrt1() {
         //myChartg1.data.labels = arrTime;
         myChartg1.update();
     }
-<<<<<<< HEAD
-=======
     //upDia1();
->>>>>>> 44b85964456d417488c67c74f560ac2443ad0a19
     setInterval(upDia1, 2000);
 }
 
