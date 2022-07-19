@@ -402,7 +402,11 @@ function grafTwo() {
         "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
+<<<<<<< HEAD
         "loadCount": 6518
+=======
+        "loadCount": 5768
+>>>>>>> 44b85964456d417488c67c74f560ac2443ad0a19
     };
 
     const remote2 = wialon.core.Remote.getInstance();
@@ -422,7 +426,11 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
+<<<<<<< HEAD
         "indexTo": 6518,
+=======
+        "indexTo": 5768,
+>>>>>>> 44b85964456d417488c67c74f560ac2443ad0a19
         "unitId": 25594204,
         "sensorId": 0
 
@@ -614,6 +622,7 @@ function tiresLinkfunc(elem, index) {
         //dav10 = davl.slice(-10);
         elem = arrAll2[index];
         davl2 = elem;
+
         return davl, davl2;
     }
     tiresGrafik(arrAll1, arrAll2)
@@ -632,7 +641,7 @@ function tiresLinkfunc(elem, index) {
     // tiresGrafik(arrAll2)
     //графики
     chrt();
-    chrt1()
+    chrt1();
 }
 
 
@@ -640,7 +649,7 @@ function tiresLinkfunc(elem, index) {
 
 function chrt() {
 
-    Chart.register(ChartDataLabels);
+    //Chart.register(ChartDataLabels);
     myChartg = new Chart(myChartg, {
         type: 'line',
         data: {
@@ -676,7 +685,7 @@ function chrt() {
                     type: 'linear',
                     position: 'left',
                     min: 0,
-                    max: 12,
+                    max: 14,
                     ticks: {
                         font: {
                             size: 15,
@@ -716,12 +725,13 @@ function chrt() {
 
 
 function chrt1() {
-
-    Chart.register(ChartDataLabels);
+    // Chart.unregister(ChartDataLabels);
+    //  Chart.register(ChartDataLabels);
     //Chart.defaults.global.tooltips.enabled = false;
     myChartg1 = new Chart(myChartg1, {
         type: 'line',
         data: {
+
             datasets: [{
                 data: davl24,
                 label: 'Давление',
@@ -736,6 +746,7 @@ function chrt1() {
                 yAxisID: 'right-y-axis'
             }],
             labels: arrIterTime
+
         },
 
         //Chart1.Series["ИмяГрафика"]["PieLabelStyle"] = "Disabled"
@@ -754,16 +765,14 @@ function chrt1() {
                         color: 'gray'
                     }
                 },
-                tooltips: {
-                    enabled: false
-                },
+
             },
             scales: {
                 'left-y-axis': {
                     type: 'linear',
                     position: 'left',
                     min: 0,
-                    max: 12,
+                    max: 14,
                     ticks: {
 
                         font: {
@@ -800,6 +809,10 @@ function chrt1() {
         //myChartg1.data.labels = arrTime;
         myChartg1.update();
     }
+<<<<<<< HEAD
+=======
+    //upDia1();
+>>>>>>> 44b85964456d417488c67c74f560ac2443ad0a19
     setInterval(upDia1, 2000);
 }
 
@@ -879,6 +892,7 @@ function dashDav() {
 Chart.register(ChartDataLabels);
 const ctx = document.getElementById('myChart').getContext('2d');
 chart = new Chart(ctx, {
+
     type: 'doughnut',
     data: {
         labels: [
