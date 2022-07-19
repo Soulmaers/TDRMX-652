@@ -587,6 +587,7 @@ function tiresLinkfunc(elem, index) {
         //dav10 = davl.slice(-10);
         elem = arrAll2[index];
         davl2 = elem;
+
         return davl, davl2;
     }
     tiresGrafik(arrAll1, arrAll2)
@@ -605,7 +606,7 @@ function tiresLinkfunc(elem, index) {
     // tiresGrafik(arrAll2)
     //графики
     chrt();
-    chrt1()
+    chrt1();
 }
 
 
@@ -613,7 +614,7 @@ function tiresLinkfunc(elem, index) {
 
 function chrt() {
 
-    Chart.register(ChartDataLabels);
+    //Chart.register(ChartDataLabels);
     myChartg = new Chart(myChartg, {
         type: 'line',
         data: {
@@ -648,7 +649,7 @@ function chrt() {
                     type: 'linear',
                     position: 'left',
                     min: 0,
-                    max: 12,
+                    max: 14,
                     ticks: {
                         font: {
                             size: 15,
@@ -688,12 +689,13 @@ function chrt() {
 
 
 function chrt1() {
-
-    Chart.register(ChartDataLabels);
+    // Chart.unregister(ChartDataLabels);
+    //  Chart.register(ChartDataLabels);
     //Chart.defaults.global.tooltips.enabled = false;
     myChartg1 = new Chart(myChartg1, {
         type: 'line',
         data: {
+
             datasets: [{
                 data: davl24,
                 label: 'Давление',
@@ -708,11 +710,17 @@ function chrt1() {
                 yAxisID: 'right-y-axis'
             }],
             labels: arrIterTime
+
         },
 
         //Chart1.Series["ИмяГрафика"]["PieLabelStyle"] = "Disabled"
         options: {
             plugins: {
+                datalabels: {
+
+                    display: false,
+
+                },
                 legend: {
                     labels: {
                         font: {
@@ -721,16 +729,14 @@ function chrt1() {
                         color: 'gray'
                     }
                 },
-                tooltips: {
-                    enabled: false
-                },
+
             },
             scales: {
                 'left-y-axis': {
                     type: 'linear',
                     position: 'left',
                     min: 0,
-                    max: 12,
+                    max: 14,
                     ticks: {
 
                         font: {
@@ -847,6 +853,7 @@ function dashDav() {
 Chart.register(ChartDataLabels);
 const ctx = document.getElementById('myChart').getContext('2d');
 chart = new Chart(ctx, {
+
     type: 'doughnut',
     data: {
         labels: [
