@@ -729,7 +729,7 @@ function chrt1() {
                 'left-y-axis': {
                     type: 'linear',
                     position: 'left',
-                    min: 0,
+                    min: -450000,
                     max: 12,
                     ticks: {
 
@@ -742,7 +742,7 @@ function chrt1() {
                 'right-y-axis': {
                     type: 'linear',
                     position: 'right',
-                    min: 0,
+                    min: -450000,
                     max: 50,
                     ticks: {
                         font: {
