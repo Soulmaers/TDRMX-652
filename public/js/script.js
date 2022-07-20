@@ -31,7 +31,7 @@ function init() {
             }
             getMainInfo();
             grafTwo();
-            setInterval(getMainInfo, 120000);
+            setInterval(getMainInfo, 5000);
         });
 };
 init();
@@ -760,7 +760,7 @@ function chrt1() {
         myChartg1.update();
     }
     //upDia1();
-    setInterval(upDia1, 2000);
+    setInterval(upDia1, 1500);
 }
 
 const arrAll1 = [[], [], [], [], [], [], [], [], [], [], [], []];
@@ -849,7 +849,7 @@ chart = new Chart(ctx, {
         ],
         datasets: [{
             label: 'Дашбоард',
-            data: setInterval(dashDav, 2000),
+            data: setInterval(dashDav, 1000),
             backgroundColor: [
                 '#e03636',
                 '#9ba805',
@@ -915,7 +915,7 @@ const chart2 = new Chart(ctx2, {
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: setInterval(dashDat, 2000),
+            data: setInterval(dashDat, 1000),
             backgroundColor: [
                 '#e03636',
                 '#9ba805',
@@ -955,7 +955,7 @@ const upRender = () => {
     chart2.update();
 }
 
-setInterval(upRender, 2000);
+setInterval(upRender, 1500);
 
 
 
