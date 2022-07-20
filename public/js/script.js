@@ -404,7 +404,7 @@ function grafTwo() {
         "timeTo": nowDate,//2757209816,
         "flags": 1,
         "flagsMask": 65281,
-        "loadCount": 6518
+        "loadCount": 8271
     }
 
     const remote2 = wialon.core.Remote.getInstance();
@@ -421,8 +421,8 @@ function grafTwo() {
             })
             arrIterTime.forEach(item => {
                 dateObj = new Date(item * 1000);
-                utcString = dateObj.toUTCString();
-                arrTimeDate = utcString.slice(-24, -4);
+                utcString = dateObj.toString();
+                arrTimeDate = utcString.slice(8, 24);
                 arrIterTimeDate.push(arrTimeDate);
             })
             let t = 0;
@@ -434,7 +434,7 @@ function grafTwo() {
     const prms3 = {
         "source": "",
         "indexFrom": 0,
-        "indexTo": 6518,
+        "indexTo": 8271,
         "unitId": 25594204,
         "sensorId": 0
     };
