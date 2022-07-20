@@ -422,7 +422,7 @@ function grafTwo() {
             arrIterTime.forEach(item => {
                 dateObj = new Date(item * 1000);
                 utcString = dateObj.toUTCString();
-                arrTimeDate = utcString.slice(-11, -4);
+                arrTimeDate = utcString.slice(-24, -4);
                 arrIterTimeDate.push(arrTimeDate);
             })
             let t = 0;
