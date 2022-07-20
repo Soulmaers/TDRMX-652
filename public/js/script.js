@@ -1,4 +1,6 @@
 
+
+
 /*
 function foo() {
     var httpRequest = new XMLHttpRequest();
@@ -413,11 +415,21 @@ function grafTwo() {
             }
             arr2 = Object.values(result);
             arrIterTime = [];
+            arrIterTimeDate = [];
             arr2[1].forEach(el => {
                 arrIterTime.push(el.t);
             })
+            arrIterTime.forEach(item => {
+                dateObj = new Date(item * 1000);
+                utcString = dateObj.toUTCString();
+                arrTimeDate = utcString.slice(-11, -4);
+                arrIterTimeDate.push(arrTimeDate);
+            })
+            let t = 0;
+            arrIterTimeDateT = arrIterTimeDate.filter(e => (++t) % 8 === 0);
 
         });
+
 
     const prms3 = {
         "source": "",
@@ -446,8 +458,14 @@ function grafTwo() {
                 arrIterT.push(arsss)
             }
             arrIter.map((arr) => { arr.splice(9, 15); arr.splice(12, 3); });
+            let i = 0;
+            arrIter24 = arrIter.filter(e => (++i) % 8 === 0);
+
+
             //console.log(arrIter);
             arrIterT.map((arr) => { arr.splice(0, 10); arr.splice(10, 7); });
+            let i2 = 0;
+            arrIter24T = arrIterT.filter(e => (++i2) % 8 === 0);
             //console.log(arrIter);
 
             arrIterDav = new Array(12);
@@ -464,7 +482,7 @@ function grafTwo() {
             arrIterDav[10] = new Array();
             arrIterDav[11] = new Array();
 
-            arrIter.forEach(el => {
+            arrIter24.forEach(el => {
                 arrIterDav[0].push(el[0]);
                 arrIterDav[1].push(el[1]);
                 arrIterDav[2].push(el[2]);
@@ -493,7 +511,7 @@ function grafTwo() {
             arrIterDavT[10] = new Array();
             arrIterDavT[11] = new Array();
 
-            arrIterT.forEach(el => {
+            arrIter24T.forEach(el => {
                 arrIterDavT[0].push(el[0]);
                 arrIterDavT[1].push(el[1]);
                 arrIterDavT[2].push(el[2]);
@@ -676,7 +694,7 @@ function chrt1() {
                 pointBorderWidth: 0.01,
                 pointBackgroundColor: 'blue'
             }],
-            labels: arrIterTime
+            labels: arrIterTimeDateT
 
         },
 
