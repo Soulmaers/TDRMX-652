@@ -457,7 +457,7 @@ function grafTwo() {
                 arsss = Object.values(arr3[subArr]);
                 arrIterT.push(arsss)
             }
-            arrIter.map((arr) => { arr.splice(9, 15); arr.splice(12, 3); });
+            arrIter.map((arr) => { arr.splice(10, 15); arr.splice(12, 2); });
             let i = 0;
             arrIter24 = arrIter.filter(e => (++i) % 8 === 0);
 
