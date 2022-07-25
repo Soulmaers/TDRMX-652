@@ -87,8 +87,12 @@ function getMainInfo() {
             }
             arr1 = Object.values(result);
             check = arr1[5][1].lmsg.p.pwr_ext;
+            odom = arr1[5][1].lmsg.p.mileage.toFixed(2);
+            oil = ((arr1[5][1].lmsg.p.rs232fuel_level) / 163.8275).toFixed(2);
             chekOut = check.toFixed(1);
             akb(chekOut);
+            odomFn(odom);
+            oilFn(oil);
         });
 
 
@@ -96,11 +100,25 @@ function getMainInfo() {
 
 }
 
+//выводим топливо
+function oilFn(elem) {
+    oilBenz = document.querySelector('.oilText');
+    oilBenz.textContent = elem;
+
+}
 //выводим бортовое питание
 function akb(elem) {
     akbVt = document.querySelector('.akbText');
     akbVt.textContent = elem + 'V';
 
+}
+
+//выводим одометр
+function odomFn(elem) {
+    odomOd = document.querySelectorAll('.odom');
+    odomOd.forEach(item => {
+        item.textContent = elem;
+    })
 
 }
 //подсветка оси
