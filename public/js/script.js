@@ -59,7 +59,8 @@ function getMainInfo() {
             arrayT.push(arr[11]); arrayT.push(arr[19]); arrayT.push(arr[28]); arrayT.push(arr[27]);
 
             funcRandom(arrayD, arrayT);
-            tiresOs(arrayD);
+            tiresFnProfil(arrayD);
+            //tiresOs(arrayD);
             go(arrayD, arrayT);
             //got(arrayD);
             //return window['arrayD'] = arrayD, arrayT, arr
@@ -121,6 +122,8 @@ function odomFn(elem) {
     })
 
 }
+
+/*
 //подсветка оси
 function tiresOs(arr) {
     arrFront = arr.slice(0, 2);
@@ -183,6 +186,7 @@ function tiresTest(arr1, arr2, arr3, arr4, arr5) {
     }
 
 }
+*/
 //условия для подсветки шин D и T
 function generFront(el) {
     let generatedValue;
@@ -223,6 +227,28 @@ const objColor = {
 }
 //кладем значения в каждое колесо
 
+const tiresFnProfil = (el1) => {
+    arrFrontProfilres = el1.slice(0, 6);
+    arrFrontProfil = [];
+    arrFrontProfil.push(arrFrontProfilres[0]);
+    arrFrontProfil.push(arrFrontProfilres[1]);
+    arrFrontProfil.push(arrFrontProfilres[3]);
+    arrFrontProfil.push(arrFrontProfilres[4]);
+    arrFrontProfil.push(arrFrontProfilres[2]);
+    arrFrontProfil.push(arrFrontProfilres[5]);
+
+    arrRearProfil = el1.slice(6, 12);
+    const frontTiresProfil = document.querySelectorAll('.tiresProfil');
+    const rearTiresProfil = document.querySelectorAll('.tiresProfilr');
+
+
+    frontTiresProfil.forEach((elem, index) => {
+        elem.style.background = objColor[generFront(arrFrontProfil[index])];
+    })
+    rearTiresProfil.forEach((elem, index) => {
+        elem.style.background = objColor[generRear(arrRearProfil[index])];
+    })
+}
 const funcRandom = (el1, el2) => {
     const alls = document.querySelectorAll('.tiresD733');
     const allsRear = document.querySelectorAll('.tiresD7333');

@@ -316,18 +316,21 @@ td {
   position: absolute;
   left: 40%;
   bottom: 30px;
-  background-color: #000;
+  background-color: rgb(73, 68, 68);
 }
 
 .spareWill1 {
   width: 42px;
-  height: 21px;
-  border-bottom: 1px solid #000;
+  height: 20px;
+  border-bottom: 2px solid #000;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
 .spareWill12 {
   width: 42px;
-  height: 21px;
+  height: 20px;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+
 }
 
 .imgSpare {
@@ -520,6 +523,7 @@ td {
 .imgDiv {
   width: 23px;
   height: 23px;
+
 }
 
 .img {
@@ -636,5 +640,68 @@ span {
 .enter {
   display: flex;
   align-items: center;
+  width: 190px;
+
+}
+
+.frontSpare {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #000;
+
+}
+
+.imgDivTires {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+}
+
+
+
+.tiresDown {
+  width: 42px;
+  height: 21px;
+  display: flex;
+}
+
+.tiresUp {
+  width: 42px;
+  height: 20px;
+  display: flex;
+  border-bottom: 2px solid #000;
+}
+
+.spareWill1_1 {
+  width: 21px;
+  height: 20.5px;
+  border-right: 2px solid #000;
+  border-radius: 100% 0 0 0
+}
+
+.spareWill1_2 {
+  width: 21px;
+  height: 20.5px;
+
+  border-radius: 0 100% 0 0;
+}
+
+.spareWill1_3 {
+  width: 21px;
+  height: 20.5px;
+  border-right: 2px solid #000;
+  border-radius: 0 0 0 100%;
+
+}
+
+.spareWill1_4 {
+  width: 21px;
+  height: 20.5px;
+
+  border-radius: 0 0 100% 0;
 
 }
