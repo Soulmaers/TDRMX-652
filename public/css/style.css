@@ -711,3 +711,7 @@ span {
   border-radius: 0 0 100% 0;
 
 }
+
+input[type="date"] {
+  font-weight: bold;
+}
