@@ -241,7 +241,6 @@ const tiresFnProfil = (el1) => {
     const frontTiresProfil = document.querySelectorAll('.tiresProfil');
     const rearTiresProfil = document.querySelectorAll('.tiresProfilr');
 
-
     frontTiresProfil.forEach((elem, index) => {
         elem.style.background = objColor[generFront(arrFrontProfil[index])];
     })
@@ -423,6 +422,7 @@ arrTireslink.forEach(function (elem, index) {
         grafTwo()
     }
     local();
+    calcPSI();
 });
 
 btn24 = document.querySelector('.btn24');
@@ -588,6 +588,42 @@ function local() {
         const id = el.getAttribute('id');
         el.value = localStorage.getItem(id);
     })
+}
+
+function calcPSI() {
+    inputPSI = document.querySelectorAll('.jobDav')
+    inputBar = document.querySelectorAll('.bar')
+    inputToProb = document.querySelectorAll('.toProb');
+    inputPassprob = document.querySelectorAll('.passProb');
+    inputResProb = document.querySelectorAll('.resprob');
+
+    inputToProb.forEach((el) => {
+        el.addEventListener('input', toPSI)
+        function toPSI() {
+            toProb = [];
+            toProb.push(el.value)
+            return toProb
+        }
+    })
+    inputPassprob.forEach((el) => {
+        el.addEventListener('input', passPSI)
+        function passPSI() {
+            passProb = [];
+            passProb.push(el.value);
+            return passProb
+        }
+    })
+
+
+    inputPSI.forEach((el, index) => {
+        el.addEventListener('input', valPSI)
+        function valPSI() {
+            inputBar[index].textContent = (el.value / 14.504).toFixed(2);
+        }
+
+    })
+
+
 }
 
 //добавляем значения в график давления и темп и запускаем график

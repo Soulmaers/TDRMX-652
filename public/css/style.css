@@ -204,7 +204,7 @@ td {
 
 .odom {
   border: 1px solid gray;
-  color: blue;
+  color: darkblue;
   width: 80px;
   text-align: center;
   margin-top: 14px;
@@ -618,11 +618,25 @@ span {
 }
 
 .bar {
-  width: 30px;
+  width: 60px;
   height: 15px;
   border: 1px solid gray;
   margin-left: 10px;
   margin-bottom: 0;
+  font-size: 1rem;
+  text-align: center;
+  color: darkblue;
+
+}
+
+.resProb {
+  width: 195px;
+  height: 16px;
+  border: 1px solid gray;
+  margin-bottom: 0;
+  font-size: 1rem;
+  text-align: center;
+  color: darkblue;
 
 }
 
