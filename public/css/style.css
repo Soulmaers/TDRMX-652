@@ -399,7 +399,7 @@ td {
 
   border-radius: 30% 30% 0 0;
   color: #fff;
-  background-color: gray;
+  background-color: gray !important;
   display: flex;
   flex-direction: column;
   justify-content: center;

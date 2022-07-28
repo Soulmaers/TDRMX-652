@@ -418,11 +418,14 @@ arrTireslink.forEach(function (elem, index) {
         btn24 = document.querySelector('.btn24');
         btn24.style.display = 'block';
 
+
+
         tiresLinkfunc(elem, index);
         grafTwo()
+        calcPSI();
     }
     local();
-    calcPSI();
+
 });
 
 btn24 = document.querySelector('.btn24');
@@ -578,6 +581,7 @@ function grafTwo() {
 
 
 //сохраняем изменения в localstorage
+
 function local() {
     const inpInput = document.querySelectorAll('.techInput')
     inpInput.forEach(el => {
@@ -590,39 +594,35 @@ function local() {
     })
 }
 
+//считаем разницу значений и выводим бары и км
 function calcPSI() {
     inputPSI = document.querySelectorAll('.jobDav')
     inputBar = document.querySelectorAll('.bar')
     inputToProb = document.querySelectorAll('.toProb');
     inputPassprob = document.querySelectorAll('.passProb');
-    inputResProb = document.querySelectorAll('.resprob');
+    inputResProb = document.querySelectorAll('.resProb');
 
-    inputToProb.forEach((el) => {
-        el.addEventListener('input', toPSI)
-        function toPSI() {
-            toProb = [];
-            toProb.push(el.value)
-            return toProb
-        }
+    inputPassprob.forEach((el2, index) => {
+        inputResProb[index].textContent = el2.value - inputToProb[index].value;
+        el2.addEventListener('input', () => {
+            inputResProb[index].textContent = el2.value - inputToProb[index].value;
+        })
     })
-    inputPassprob.forEach((el) => {
-        el.addEventListener('input', passPSI)
-        function passPSI() {
-            passProb = [];
-            passProb.push(el.value);
-            return passProb
-        }
+    inputToProb.forEach((el2, index) => {
+        inputResProb[index].textContent = inputPassprob[index].value - el2.value;
+        el2.addEventListener('input', () => {
+            inputResProb[index].textContent = inputPassprob[index].value - el2.value;
+        })
     })
-
-
     inputPSI.forEach((el, index) => {
         el.addEventListener('input', valPSI)
         function valPSI() {
             inputBar[index].textContent = (el.value / 14.504).toFixed(2);
+            localStorage.setItem(id, inputBar[index].textContent);
         }
-
+        const id = inputBar[index].getAttribute('id');
+        inputBar[index].textContent = localStorage.getItem(id);
     })
-
 
 }
 
@@ -717,7 +717,7 @@ function chrt() {
                     type: 'linear',
                     position: 'right',
                     min: 0,
-                    max: 50,
+                    max: 60,
                     ticks: {
                         font: {
                             size: 15,
@@ -815,7 +815,7 @@ function chrt1() {
                     type: 'linear',
                     position: 'right',
                     min: 0,
-                    max: 50,
+                    max: 60,
                     ticks: {
                         font: {
                             size: 15,
