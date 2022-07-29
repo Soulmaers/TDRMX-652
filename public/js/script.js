@@ -66,7 +66,7 @@ function getMainInfo() {
             //return window['arrayD'] = arrayD, arrayT, arr
         });
 
-    const flags = 1 + 1025
+    const flags = 1 + 1024
     const prms = {
         "spec": {
             "itemsType": "avl_unit",
@@ -90,14 +90,12 @@ function getMainInfo() {
             check = arr1[5][1].lmsg.p.pwr_ext;
             odom = arr1[5][1].lmsg.p.mileage.toFixed(2);
             oil = ((arr1[5][1].lmsg.p.rs232fuel_level) / 163.8275).toFixed(2);
+            document.querySelector('.title_two').textContent = arr1[5][1].nm;
             chekOut = check.toFixed(1);
             akb(chekOut);
             odomFn(odom);
             oilFn(oil);
         });
-
-
-
 
 }
 
