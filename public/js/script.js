@@ -393,8 +393,18 @@ const arrTireslink = Array.from(tires_link);
 
 //проваливаемся в колесо
 arrTireslink.forEach(function (elem, index) {
+
+
+
     elem.addEventListener('click', tiresActive);
     function tiresActive() {
+        validation = document.querySelectorAll('validation')
+        validation.forEach(el => {
+            el.addEventListener("keyup", function () {
+                this.value = this.value.replace(/[^\d]/g, "");
+            });
+
+        })
         arrTireslink.forEach(function (elem, index) {
             tD = document.querySelectorAll('.tiresD');
             tT = document.querySelectorAll('.tiresT');

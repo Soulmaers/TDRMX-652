@@ -629,7 +629,10 @@ span {
 
 }
 
-.resProb {
+
+
+.resProb,
+.dateChangeTires {
   width: 195px;
   height: 16px;
   border: 1px solid gray;
@@ -650,6 +653,8 @@ span {
   margin-top: 14.5px;
   margin-bottom: 0;
 }
+
+
 
 .enter {
   display: flex;
