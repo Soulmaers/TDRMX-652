@@ -506,22 +506,35 @@ function grafTwo() {
             //array24D = [];
             for (let subArr in arr3) {
                 arsss = Object.values(arr3[subArr]);
-                arrIter.push(arsss)
+                arChange = [];
+                arChangeT = [];
+                arChange.push(arsss[0]); arChange.push(arsss[2]); arChange.push(arsss[1]); arChange.push(arsss[9]);
+                arChange.push(arsss[8]); arChange.push(arsss[7]); arChange.push(arsss[6]); arChange.push(arsss[3]);
+                arChange.push(arsss[5]); arChange.push(arsss[4]); arChange.push(arsss[25]); arChange.push(arsss[26]);
+                arrIter.push(arChange)
+
+                arChangeT.push(arsss[18]); arChangeT.push(arsss[17]); arChangeT.push(arsss[14]); arChangeT.push(arsss[16]);
+                arChangeT.push(arsss[13]); arChangeT.push(arsss[15]); arChangeT.push(arsss[10]); arChangeT.push(arsss[12]);
+                arChangeT.push(arsss[11]); arChangeT.push(arsss[19]); arChangeT.push(arsss[28]); arChangeT.push(arsss[27]);
+                arrIterT.push(arChangeT)
+                let i = 0;
+                arrIter24 = arrIter.filter(e => (++i) % 8 === 0);
+                let i2 = 0;
+                arrIter24T = arrIterT.filter(e => (++i2) % 8 === 0);
+
+
             }
-            for (let subArr in arr3) {
-                arsss = Object.values(arr3[subArr]);
-                arrIterT.push(arsss)
-            }
+
+            //arrIter.map((arr) => { arr.splice(10, 15); arr.splice(12, 2); });
+            /*
             arrIter.map((arr) => { arr.splice(10, 15); arr.splice(12, 2); });
             let i = 0;
             arrIter24 = arrIter.filter(e => (++i) % 8 === 0);
-
-
             //console.log(arrIter);
             arrIterT.map((arr) => { arr.splice(0, 10); arr.splice(10, 7); });
             let i2 = 0;
             arrIter24T = arrIterT.filter(e => (++i2) % 8 === 0);
-            //console.log(arrIter);
+            //console.log(arrIter);*/
 
             arrIterDav = new Array(12);
             arrIterDav[0] = new Array();
