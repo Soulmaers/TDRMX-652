@@ -653,19 +653,28 @@ span {
 }
 
 .br {
-  width: 60px;
+  width: 50px;
   height: 15px;
   border: 1px solid gray;
-  margin-left: 5px;
+
   margin-bottom: 0;
   font-size: 1rem;
   text-align: center;
 }
 
 
+
+
+
+.barDd:nth-child(n+2) {
+  margin-left: 10px;
+}
+
+
 .min_max {
   display: flex;
-  width: 190px;
+  justify-content: space-between;
+  width: 198px;
 }
 
 .dateChangeTires {
