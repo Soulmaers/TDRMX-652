@@ -316,10 +316,18 @@ td {
   height: 42px;
   border: 1px solid #000;
   border-radius: 50%;
-  position: absolute;
-  left: 40%;
-  bottom: 30px;
+  position: relative;
   background-color: rgb(73, 68, 68);
+}
+
+
+.spareContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 110px;
+  position: absolute;
+  left: 26%;
+  top: 290px;
 }
 
 .spareWill1 {
@@ -425,7 +433,7 @@ td {
   border: 1px solid #000;
 
   border-radius: 0 0 30% 30%;
-  color: #fff;
+  color: #000;
   background-color: gray;
   display: flex;
   justify-content: center;
@@ -473,7 +481,7 @@ td {
 .tiresActiveT {
   border: 3px solid #1f1cc7;
   border-radius: 0 0 30% 30%;
-  color: #fff;
+  color: #000;
   background-color: gray;
   display: flex;
   flex-direction: column;
@@ -622,8 +630,8 @@ span {
   position: absolute;
   height: 40px;
   width: 80px;
-  top: 50%;
-  left: 30%;
+  top: 57%;
+  left: 32%;
   background-color: #fff;
   visibility: visible;
   border-radius: 5px;
@@ -733,6 +741,9 @@ span {
 .sparka {
   display: block;
 }
+
+
+
 
 .imgDivTires {
   width: 23px;

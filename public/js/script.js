@@ -202,19 +202,19 @@ function generRear(el) {
 
 function generT(el) {
     let generatedValue;
-    if (el >= 33 && el <= 38)
-        generatedValue = 3;
-    if (el >= 32 && el < 33 || el > 38 && el <= 39)
-        generatedValue = 2;
-    if (el >= -1000 && el < 32 || el > 39)
+    if (el >= -50 && el <= 35)
+        generatedValue = 4;
+    if (el > 36)
         generatedValue = 1;
+
     return generatedValue;
 };
 //создаем объект где ключ-результат условия, а свойства - соответсующее условию значение
 const objColor = {
     1: '#e03636',
     2: '#9ba805',
-    3: '#3eb051'
+    3: '#3eb051',
+    4: '#ffffff'
 }
 //кладем значения в каждое колесо
 
