@@ -203,12 +203,15 @@ td {
 }
 
 .odom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid gray;
   color: darkblue;
   width: 80px;
   text-align: center;
-  margin-top: 14px;
-  margin-bottom: 0;
+  height: 18px;
+  padding: 2px;
 }
 
 .techButton {
@@ -506,6 +509,22 @@ td {
 
 }
 
+.odometr {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 120px;
+}
+
+.odd {
+  border: 1px solid gray;
+  padding: 2px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lowDiv {
   width: 42px;
   height: 42px;
@@ -629,10 +648,39 @@ span {
 
 }
 
+.barDd {
+  margin-left: 0;
+}
+
+.br {
+  width: 60px;
+  height: 15px;
+  border: 1px solid gray;
+  margin-left: 5px;
+  margin-bottom: 0;
+  font-size: 1rem;
+  text-align: center;
+}
 
 
-.resProb,
+.min_max {
+  display: flex;
+  width: 190px;
+}
+
 .dateChangeTires {
+  width: 195px;
+  height: 16px;
+  border: 1px solid gray;
+  margin-bottom: 0;
+  font-size: 1rem;
+  text-align: center;
+  color: darkblue;
+  font-weight: 100;
+
+}
+
+.resProb {
   width: 195px;
   height: 16px;
   border: 1px solid gray;
@@ -659,7 +707,7 @@ span {
 .enter {
   display: flex;
   align-items: center;
-  width: 190px;
+  width: 198px;
 
 }
 

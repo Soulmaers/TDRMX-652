@@ -15,13 +15,6 @@ foo()
 */
 // wialon api запросы
 
-//localStorage.getItem('name');
-//console.log(localStorage.getItem('name'));
-//console.log(localStorage.getItem('name'));
-
-
-
-
 function init() {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
     wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
@@ -381,19 +374,11 @@ function math() {
 }
 */
 
-
-
-
-
 const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
 
-
 //проваливаемся в колесо
 arrTireslink.forEach(function (elem, index) {
-
-
-
     elem.addEventListener('click', tiresActive);
     function tiresActive() {
         validation = document.querySelectorAll('validation')
@@ -638,7 +623,7 @@ function calcPSI() {
     inputPSI.forEach((el, index) => {
         el.addEventListener('input', valPSI)
         function valPSI() {
-            inputBar[index].textContent = (el.value / 14.504).toFixed(2);
+            inputBar[index].textContent = (el.value / 14.504).toFixed(1);
             localStorage.setItem(id, inputBar[index].textContent);
         }
         const id = inputBar[index].getAttribute('id');

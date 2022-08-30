@@ -180,6 +180,10 @@
                 <div class="profil">
 
                     <div class="bigDiv">
+                        <div class="odometr">
+                            <p class="odom"></p>
+                            <p class="odd">км</p>
+                        </div>
                         <div class="oil">
                             <p class="oilText"></p>
                         </div>
@@ -230,7 +234,7 @@
                         </div>
                     </div>
                     <div class="techInfo">
-                        <h2 class="techTitle">Основные ТТХ</h2>
+                        <h2 class="techTitle">Основные показатели колеса</h2>
                         <div class="tth">
                             <ul class="techInfo_list">
                                 <li class="techItem">
@@ -244,7 +248,7 @@
                                 </li>
 
                                 <li class="techItem">
-                                    <p class="techText od">Одометр</p>
+                                    <p class="techText od">min и max отклонение в BAR</p>
                                 </li>
                                 <li class="techItem">
                                     <p class="techText">Текущий пробег колеса</p>
@@ -259,10 +263,10 @@
                                     <p class="techText">Остаточный пробег колеса в км</p>
                                 </li>
                                 <li class="techItem">
-                                    <p class="techText">Средний пробег в месяц</p>
+                                    <p class="techText">Оставшаяся глубина протектора</p>
                                 </li>
                                 <li class="techItem">
-                                    <p class="techText">Расчетная дата замены колеса</p>
+                                    <p class="techText">Дата замены протектора</p>
                                 </li>
 
                             </ul>
@@ -274,13 +278,20 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b1'></p>
                                 </div>
-                                <p class="techInput odom" id='o1'></p>
+
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n1'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n2'>
+                                </div>
+
                                 <input class="techInput toProb validation" type="number" id='t1'>
-                                <input class="techInput" type="date" id='5'>
+                                <input class="techInput dateChangeTires" type="date" id='5'>
                                 <input class="techInput passProb validation" type="number" id='p1'>
                                 <p class="techInput resProb" id='r1'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr1'>
+                                <input class="techInput dateChangeTires" type="date" id='dat1'>
 
                             </form>
                             <form class="techForm">
@@ -291,13 +302,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b2'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n3'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n4'>
+                                </div>
                                 <p class="techInput odom" id='o2'></p>
                                 <input class="techInput toProb validation" type="number" id='11'>
-                                <input class="techInput" type="date" id='12'>
+                                <input class="techInput dateChangeTires" type="date" id='12'>
                                 <input class="techInput passProb validation" type="number" id='13'>
                                 <p class="techInput resProb" id='14'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr2'>
+                                <input class="techInput dateChangeTires" type="date" id='dat2'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='15'>
@@ -307,13 +324,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b3'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n5'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n6'>
+                                </div>
                                 <p class="techInput odom" id='o3'></p>
                                 <input class="techInput toProb validation" type="number" id='18'>
-                                <input class="techInput" type="date" id='19'>
+                                <input class="techInput dateChangeTires" type="date" id='19'>
                                 <input class="techInput passProb validation" type="number" id='20'>
                                 <p class="techInput resProb" id='21'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr3'>
+                                <input class="techInput dateChangeTires" type="date" id='dat3'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='22'>
@@ -323,13 +346,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b4'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n7'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n8'>
+                                </div>
                                 <p class="techInput odom" id='o4'></p>
                                 <input class="techInput toProb validation" type="number" id='25'>
-                                <input class="techInput" type="date" id='26'>
+                                <input class="techInput dateChangeTires" type="date" id='26'>
                                 <input class="techInput passProb validation" type="number" id='27'>
                                 <p class="techInput resProb" id='28'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr4'>
+                                <input class="techInput dateChangeTires" type="date" id='dat4'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='29'>
@@ -339,13 +368,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b5'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n9'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n10'>
+                                </div>
                                 <p class="techInput odom" id='o5'></p>
                                 <input class="techInput toProb validation" type="number" id='32'>
-                                <input class="techInput" type="date" id='33'>
+                                <input class="techInput dateChangeTires" type="date" id='33'>
                                 <input class="techInput passProb validation" type="number" id='34'>
                                 <p class="techInput resProb" id='35'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr5'>
+                                <input class="techInput dateChangeTires" type="date" id='dat5'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='36'>
@@ -355,13 +390,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b6'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n11'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n12'>
+                                </div>
                                 <p class="techInput odom" id='o6'></p>
                                 <input class="techInput toProb validation" type="number" id='39'>
-                                <input class="techInput" type="date" id='40'>
+                                <input class="techInput dateChangeTires" type="date" id='40'>
                                 <input class="techInput passProb validation" type="number" id='41'>
                                 <p class="techInput resProb" id='42'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr6'>
+                                <input class="techInput dateChangeTires" type="date" id='dat6'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='43'>
@@ -371,13 +412,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b7'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n13'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n14'>
+                                </div>
                                 <p class="techInput odom" id='o7'></p>
                                 <input class="techInput toProb validation" type="number" id='46'>
-                                <input class="techInput" type="date" id='47'>
+                                <input class="techInput dateChangeTires" type="date" id='47'>
                                 <input class="techInput passProb validation" type="number" id='48'>
                                 <p class="techInput resProb" id='49'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr7'>
+                                <input class="techInput dateChangeTires" type="date" id='dat7'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='50'>
@@ -387,13 +434,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b8'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n15'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n16'>
+                                </div>
                                 <p class="techInput odom" id='o8'></p>
                                 <input class="techInput toProb validation" type="number" id='53'>
-                                <input class="techInput" type="date" id='54'>
+                                <input class="techInput dateChangeTires" type="date" id='54'>
                                 <input class="techInput passProb validation" type="number" id='55'>
                                 <p class="techInput resProb" id='56'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr8'>
+                                <input class="techInput dateChangeTires" type="date" id='dat8'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='57'>
@@ -403,13 +456,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b9'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n17'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n18'>
+                                </div>
                                 <p class="techInput odom" id='o9'></p>
                                 <input class="techInput toProb validation" type="number" id='60'>
-                                <input class="techInput" type="date" id='61'>
+                                <input class="techInput dateChangeTires" type="date" id='61'>
                                 <input class="techInput passProb validation" type="number" id='62'>
                                 <p class="techInput resProb" id='63'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr9'>
+                                <input class="techInput dateChangeTires" type="date" id='dat9'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='64'>
@@ -419,13 +478,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b10'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n19'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n20'>
+                                </div>
                                 <p class="techInput odom" id='o10'></p>
                                 <input class="techInput toProb validation" type="number" id='67'>
-                                <input class="techInput" type="date" id='68'>
+                                <input class="techInput dateChangeTires" type="date" id='68'>
                                 <input class="techInput passProb validation" type="number" id='69'>
                                 <p class="techInput resProb" id='70'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr10'>
+                                <input class="techInput dateChangeTires" type="date" id='dat10'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='71'>
@@ -435,13 +500,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b11'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n21'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n22'>
+                                </div>
                                 <p class="techInput odom" id='o11'></p>
                                 <input class="techInput toProb validation" type="number" id='74'>
-                                <input class="techInput" type="date" id='75'>
+                                <input class="techInput dateChangeTires" type="date" id='75'>
                                 <input class="techInput passProb validation" type="number" id='76'>
                                 <p class="techInput resProb" id='77'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr11'>
+                                <input class="techInput dateChangeTires" type="date" id='dat11'>
                             </form>
                             <form class="techForm">
                                 <input class="techInput" id='78'>
@@ -451,13 +522,19 @@
                                     <p class="techText barD">BAR</p>
                                     <p class="techInput bar" id='b12'></p>
                                 </div>
+                                <div class="min_max">
+                                    <p class="techText barDd">min</p>
+                                    <input class="techInput br validation" type="number" id='n23'>
+                                    <p class="techText barDd">max</p>
+                                    <input class="techInput br validation" type="number" id='n24'>
+                                </div>
                                 <p class="techInput odom" id='o12'></p>
                                 <input class="techInput toProb validation" type="number" id='81'>
-                                <input class="techInput" type="date" id='82'>
+                                <input class="techInput dateChangeTires" type="date" id='82'>
                                 <input class="techInput passProb validation" type="number" id='83'>
                                 <p class="techInput resProb" id='84'></p>
-                                <input class="techInput  validation" type="number" id='pr1'>
-                                <p class="techInput dateChangeTires" id='dat1'></p>
+                                <input class="techInput" id='pr12'>
+                                <input class="techInput dateChangeTires" type="date" id='dat12'>
                             </form>
 
                         </div>
