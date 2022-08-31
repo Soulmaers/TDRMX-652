@@ -974,20 +974,18 @@ function dashDat() {
     countYellow = 0;
     countGreen = 0;
     arrDall.forEach((el) => {
-        if (el >= 33 && el <= 38) {
+        if (el >= -50 && el <= 35) {
             countGreen++
         }
-        if (el >= 32 && el < 33 || el > 38 && el <= 39) {
-            countYellow++
-        }
-        if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876) {
+
+        if (el >= 36 || el === -348201.3876) {
             countRed++
         }
     })
     resultRed = Math.round(countRed / arrDall.length * 100);
-    resultYellow = Math.round(countYellow / arrDall.length * 100);
+    //resultYellow = Math.round(countYellow / arrDall.length * 100);
     resultGreen = Math.round(countGreen / arrDall.length * 100);
-    return arrT = [resultRed, resultYellow, resultGreen];
+    return arrT = [resultRed, resultGreen];
 }
 
 const ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -996,7 +994,7 @@ const chart2 = new Chart(ctx2, {
     data: {
         labels: [
             'Критически',
-            'Повышенное/Пониженное',
+
             'Норма'
         ],
         datasets: [{
@@ -1004,7 +1002,6 @@ const chart2 = new Chart(ctx2, {
             data: setInterval(dashDat, 1000),
             backgroundColor: [
                 '#e03636',
-                '#9ba805',
                 '#3eb051'
             ],
             hoverOffset: 4
