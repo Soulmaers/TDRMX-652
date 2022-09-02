@@ -19,7 +19,7 @@
         <div class="menu">
             <ul class="list_menu">
                 <li class="list_item_menu"><a class="link_menu" href="index.html">Мониторинг</a>
-
+                <li class="list_item_menu"><a class="link_menu detaly" href="#">Детализация</a>
 
             </ul>
         </div>
@@ -27,6 +27,31 @@
 
     <main class="main">
 
+        <div class="detalisation">
+            <div class="format">
+                <h3 class="title_det">Мониторинг эксплуатации шин</h3>
+                <ul class="item_det">
+                    <li class="list_det">Индикатор остаточного протектора</li>
+                    <li class="list_det">График протектора</li>
+                    <li class="list_det">Иконка (батарейка) на остаток протектора</li>
+                    <li class="list_det">Советчик шинному инженеру</li>
+                    <li class="list_det">Система управления жизненным циклом крупногабаритных шин</li>
+                </ul>
+            </div>
+            <div class="format">
+                <h3 class="title_det">Дополнительные параметры ТС</h3>
+                <ul class="item_det">
+                    <li class="list_det">Датчик удара (слабый, сильный)</li>
+                    <li class="list_det">CAN шина</li>
+                    <li class="list_det">Обороты двигателя</li>
+                    <li class="list_det">Температура ОЖ</li>
+                    <li class="list_det">Нагрузка на ось(только с CAN шины)</li>
+                    <li class="list_det">Система подсчета расходов по платону</li>
+                    <li class="list_det">Проверка качества вождения</li>
+                    <li class="list_det">Проверка штрафов из ГИБДД через гос.услуги</li>
+                </ul>
+            </div>
+        </div>
         <div class="wrapper_left">
             <div class="grafik">
                 <canvas id="myChartg" width="600" height="250"></canvas>
@@ -59,6 +84,78 @@
         </div>
         <div class="wrapper_right">
             <div class="wrapper_containt">
+                <div class="left_widjet">
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text ">BAR</div>
+                            <div class="max_min_value bar_left"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text ">BAR</div>
+                            <div class="max_min_value bar_left"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text ">BAR</div>
+                            <div class="max_min_value bar_left"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text ">BAR</div>
+                            <div class="max_min_value bar_left"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text ">BAR</div>
+                            <div class="max_min_value bar_left"></div>
+                        </div>
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <div class="max_min_value"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card c2_4_4">
                     <h2 class="title_two"></h2>
                     <div class="container_2_4_4">
@@ -190,6 +287,14 @@
                         <div class="odometr">
                             <p class="odom"></p>
                             <p class="odd">км</p>
+                        </div>
+                        <div class="toT">
+                            <p class="tovalue"></p>
+                            <p class="to">ТО Тягача</p>
+                        </div>
+                        <div class="toP">
+                            <p class="tovalue"></p>
+                            <p class="to">ТО Прицепа</p>
                         </div>
                         <div class="oil">
                             <p class="oilText"></p>

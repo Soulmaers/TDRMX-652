@@ -114,6 +114,22 @@ function odomFn(elem) {
 
 }
 
+const detaly = document.querySelector('.detaly');
+
+detaly.addEventListener('click', detalyFn)
+function detalyFn(e) {
+    e.preventDefault();
+    detalisation = document.querySelector('.detalisation');
+    wrapperLeft = document.querySelector('.wrapper_left');
+    wrapperRigth = document.querySelector('.wrapper_right');
+    detalisation.style.display = 'flex';
+    wrapperLeft.style.display = 'none';
+    wrapperRigth.style.display = 'none';
+
+}
+
+
+
 /*
 //подсветка оси
 function tiresOs(arr) {
@@ -381,6 +397,7 @@ const arrTireslink = Array.from(tires_link);
 arrTireslink.forEach(function (elem, index) {
     elem.addEventListener('click', tiresActive);
     function tiresActive() {
+
         validation = document.querySelectorAll('validation')
         validation.forEach(el => {
             el.addEventListener("keyup", function () {
@@ -404,6 +421,8 @@ arrTireslink.forEach(function (elem, index) {
         tT = document.querySelectorAll('.tiresT');
         elem = tD[index].classList.toggle('tiresActiveD');
         elem = tT[index].classList.toggle('tiresActiveT');
+        leftwidjet = document.querySelector('.left_widjet')
+        leftwidjet.style.display = 'flex';
         wrapperDash = document.querySelector('.wrapper_right_dash')
         wrapperDash.style.display = 'none';
         grafik = document.querySelector('.grafik');
@@ -604,6 +623,8 @@ function local() {
 function calcPSI() {
     inputPSI = document.querySelectorAll('.jobDav')
     inputBar = document.querySelectorAll('.bar')
+
+    inputBarLeft = document.querySelectorAll('.bar_left')
     inputToProb = document.querySelectorAll('.toProb');
     inputPassprob = document.querySelectorAll('.passProb');
     inputResProb = document.querySelectorAll('.resProb');
@@ -625,10 +646,13 @@ function calcPSI() {
         function valPSI() {
             inputBar[index].textContent = (el.value / 14.504).toFixed(1);
             localStorage.setItem(id, inputBar[index].textContent);
+
         }
         const id = inputBar[index].getAttribute('id');
         inputBar[index].textContent = localStorage.getItem(id);
+
     })
+
 
 }
 
@@ -701,7 +725,7 @@ function chrt() {
                 legend: {
                     labels: {
                         font: {
-                            size: 12,
+                            size: 15,
                         },
                         color: 'gray'
                     }

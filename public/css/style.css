@@ -49,6 +49,30 @@ td {
   border-bottom: 15px solid lightgray
 }
 
+.detalisation {
+  width: 35%;
+  min-height: 600px;
+  border-right: 20px solid lightgray;
+  display: none;
+  flex-direction: column;
+}
+
+.format {
+  margin-top: 30px;
+}
+
+.title_det {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.list_det {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+
+
 .wrapper_left {
   width: 35%;
   min-height: 600px;
@@ -56,9 +80,9 @@ td {
 }
 
 .wrapper_right {
-  width: 65%;
+  width: 68%;
   min-height: 600px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .wrapper_containt {
@@ -154,11 +178,11 @@ td {
 .card {
   width: 220px;
 
-  margin: 5px 5px;
+  margin: 5px 2px;
 }
 
 .profil {
-  margin-left: 10px;
+  margin-left: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -524,6 +548,41 @@ td {
   left: 120px;
 }
 
+.toT {
+  display: flex;
+  position: absolute;
+  top: 40px;
+  left: 120px;
+}
+
+.toP {
+  display: flex;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.to {
+  border: 1px solid gray;
+  padding: 2px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tovalue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  color: darkblue;
+  width: 80px;
+  text-align: center;
+  height: 18px;
+  padding: 2px;
+}
+
 .odd {
   border: 1px solid gray;
   padding: 2px;
@@ -800,5 +859,45 @@ span {
 }
 
 input[type="date"] {
-  font-weight: bold;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.left_widjet {
+  width: 70px;
+
+  display: none;
+  flex-direction: column;
+
+}
+
+.value_pole {
+  border: 1px solid gray;
+  display: flex;
+  margin: 1px;
+}
+
+.max_min_text {
+  font-size: 0.8rem;
+  width: 50%;
+  border-right: 1px solid gray;
+}
+
+.container_widget {
+  padding-top: 52px;
+}
+
+.container_widget:nth-child(n+2) {
+  padding: 0;
+  margin-top: 100px;
+}
+
+.container_widget:nth-child(n+3) {
+  padding: 0;
+  margin-top: 135px;
+}
+
+.container_widget:nth-child(n+4) {
+  padding: 0;
+  margin-top: 4px;
 }
