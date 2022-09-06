@@ -1093,30 +1093,47 @@ arrayTest.forEach((el, index) => {
     //rrr[index].push(el[1]);
 })*/
 
-
+/*
+function local() {
+    const inpInput = document.querySelectorAll('.techInput')
+    inpInput.forEach(el => {
+        el.addEventListener('input', checkValidity)
+        function checkValidity() {
+            localStorage.setItem(id, el.value);
+        }
+        const id = el.getAttribute('id');
+        el.value = localStorage.getItem(id);
+    })
+}*/
 
 function localNumber() {
-    const number = document.querySelector('.number');
-    const number2 = document.querySelector('.number2');
-    number.addEventListener('input', function valueNumber(e) {
-        number2.value = e.target.value;
-        localStorage.setItem(id, e.target.value);
-        //const idNumber02 = document.getAttribute('n02');
+    const number = document.querySelectorAll('.number_local');
+    //const number2 = document.querySelector('.number2');
 
-    }
-    )
-    number2.addEventListener('input', function valueNumber2(e) {
-        number.value = e.target.value;
-        localStorage.setItem(id, e.target.value);
-        //const idNumber01 = document.getAttribute('n01');
+    number.forEach(el => {
+        el.addEventListener('input', valueNumber)
+        function valueNumber() {
+            let x;
+            // el.value = e.target.value;
+            number[0].value = el.value;
+            number[1].value = el.value;
+            // localStorage.setItem(id, number[0].value);
+            localStorage.setItem(id, el.value);
 
-    }
-    )
-    const idNumber01 = number.getAttribute('n01');
-    number.value = localStorage.getItem(idNumber01);
-    const idNumber02 = number.getAttribute('n02');
-    number2.value = localStorage.getItem(idNumber02);
+        }
+        const id = el.getAttribute('id');
+        el.value = localStorage.getItem(id);
+        number[0].value = el.value
+        number[1].value = el.value
+        // number[0].value = localStorage.getItem(id);
+    })
+
 }
+
 localNumber();
+
+
+
+
 
 
