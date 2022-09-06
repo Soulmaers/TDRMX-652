@@ -879,25 +879,46 @@ input[type="date"] {
 
 .max_min_text {
   font-size: 0.8rem;
-  width: 50%;
+  width: 44%;
   border-right: 1px solid gray;
 }
 
+.max_min_value {
+  font-size: 0.8rem;
+  width: 47%;
+
+}
+
 .container_widget {
-  padding-top: 52px;
+  padding-top: 55px;
 }
 
 .container_widget:nth-child(n+2) {
   padding: 0;
-  margin-top: 100px;
+  margin-top: 108px;
 }
 
 .container_widget:nth-child(n+3) {
   padding: 0;
-  margin-top: 135px;
+  margin-top: 140px;
 }
 
 .container_widget:nth-child(n+4) {
   padding: 0;
-  margin-top: 4px;
+  margin-top: 10px;
+}
+
+.number {
+  margin-top: 25px;
+  max-width: 75px;
+  margin: auto;
+}
+
+.number2 {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  max-width: 75px;
+  margin: auto;
+
 }

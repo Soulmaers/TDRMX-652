@@ -95,6 +95,8 @@ function getMainInfo() {
 
 }
 
+
+
 //выводим топливо
 function oilFn(elem) {
     oilBenz = document.querySelector('.oilText');
@@ -627,7 +629,7 @@ function calcPSI() {
     inputPSI = document.querySelectorAll('.jobDav')
     inputBar = document.querySelectorAll('.bar')
 
-    inputBarLeft = document.querySelectorAll('.bar_left')
+    inputBarLeft = document.querySelectorAll('.br')
     inputToProb = document.querySelectorAll('.toProb');
     inputPassprob = document.querySelectorAll('.passProb');
     inputResProb = document.querySelectorAll('.resProb');
@@ -1091,5 +1093,30 @@ arrayTest.forEach((el, index) => {
     //rrr[index].push(el[1]);
 })*/
 
+
+
+function localNumber() {
+    const number = document.querySelector('.number');
+    const number2 = document.querySelector('.number2');
+    number.addEventListener('input', function valueNumber(e) {
+        number2.value = e.target.value;
+        localStorage.setItem(id, e.target.value);
+        //const idNumber02 = document.getAttribute('n02');
+
+    }
+    )
+    number2.addEventListener('input', function valueNumber2(e) {
+        number.value = e.target.value;
+        localStorage.setItem(id, e.target.value);
+        //const idNumber01 = document.getAttribute('n01');
+
+    }
+    )
+    const idNumber01 = number.getAttribute('n01');
+    number.value = localStorage.getItem(idNumber01);
+    const idNumber02 = number.getAttribute('n02');
+    number2.value = localStorage.getItem(idNumber02);
+}
+localNumber();
 
 
