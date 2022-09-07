@@ -910,15 +910,23 @@ input[type="date"] {
 
 .number {
   margin-top: 25px;
-  max-width: 75px;
-  margin: auto;
+
 }
 
 .number2 {
   position: absolute;
   bottom: 50px;
   right: 10px;
-  max-width: 75px;
+
+
+}
+
+.number_local {
+  max-width: 70px;
   margin: auto;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #000;
+  background-color: lightgray;
 
 }
