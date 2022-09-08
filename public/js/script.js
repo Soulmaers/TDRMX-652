@@ -1284,13 +1284,14 @@ function minMax() {
 }
 
 
-/*
+
 const menu = document.querySelectorAll('.car_item')
 menu.forEach(el => {
+    el.style.backgroundColor = 'none'
     el.addEventListener('click', menuBtn)
     function menuBtn() {
         el.style.backgroundColor = 'lightgray'
     }
 
-})*/
+})
 

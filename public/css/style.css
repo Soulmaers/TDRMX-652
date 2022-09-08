@@ -55,6 +55,10 @@ td {
   border-radius: 5px;
 }
 
+.car_item:hover {
+  background-color: lightgray;
+  color: #fff;
+}
 
 
 .link_menu {
@@ -71,10 +75,7 @@ td {
   color: #000;
 }
 
-.car_item:hover {
-  background-color: lightgray;
-  color: #fff;
-}
+
 
 .main {
   display: flex;
