@@ -1286,12 +1286,17 @@ function minMax() {
 
 
 const menu = document.querySelectorAll('.car_item')
+
 menu.forEach(el => {
-    el.style.backgroundColor = 'none'
     el.addEventListener('click', menuBtn)
     function menuBtn() {
+        menu.forEach(el => {
+            el.style.backgroundColor = '#fff'
+        })
         el.style.backgroundColor = 'lightgray'
     }
-
 })
+
+
+
 
