@@ -20,20 +20,42 @@ td {
 
 .menu {
   display: flex;
-  margin-left: 50px;
+
 
 }
 
 .list_menu {
   display: flex;
   list-style-type: none;
-  margin: 10px 0;
+  margin: 0;
+  padding: 10px 122.5px;
+  border-right: 20px solid lightgray;
 }
+
+.list_menu:nth-child(n+2) {
+  margin-left: 10px;
+  border: 0;
+  padding: 10px 0;
+}
+
+
+
+
+
+
 
 .list_item_menu:nth-child(n+2) {
   margin-left: 15px;
 
 }
+
+.car_item {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
 
 .link_menu {
   text-decoration: none;
@@ -41,6 +63,17 @@ td {
   color: lightgray;
   font-weight: 900;
   font-size: 1rem;
+}
+
+
+
+.car {
+  color: #000;
+}
+
+.car_item:hover {
+  background-color: lightgray;
+  color: #fff;
 }
 
 .main {
