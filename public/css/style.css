@@ -20,20 +20,48 @@ td {
 
 .menu {
   display: flex;
-  margin-left: 50px;
+
 
 }
 
 .list_menu {
   display: flex;
   list-style-type: none;
-  margin: 10px 0;
+  margin: 0;
+  padding: 10px 122.5px;
+  border-right: 20px solid lightgray;
 }
+
+.list_menu:nth-child(n+2) {
+  margin-left: 10px;
+  border: 0;
+  padding: 10px 0;
+}
+
+
+
+
+
+
 
 .list_item_menu:nth-child(n+2) {
   margin-left: 15px;
 
 }
+
+.car_item {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.car_item:hover {
+  background-color: lightgray;
+  color: #fff;
+}
+
+
+
 
 .link_menu {
   text-decoration: none;
@@ -43,11 +71,43 @@ td {
   font-size: 1rem;
 }
 
+
+
+.car {
+  color: #000;
+}
+
+
+
 .main {
   display: flex;
   max-width: 100%;
   border-bottom: 15px solid lightgray
 }
+
+.detalisation {
+  width: 35%;
+  min-height: 600px;
+  border-right: 20px solid lightgray;
+  display: none;
+  flex-direction: column;
+}
+
+.format {
+  margin-top: 30px;
+}
+
+.title_det {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.list_det {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+
 
 .wrapper_left {
   width: 35%;
@@ -56,9 +116,9 @@ td {
 }
 
 .wrapper_right {
-  width: 65%;
+  width: 68%;
   min-height: 600px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .wrapper_containt {
@@ -154,11 +214,11 @@ td {
 .card {
   width: 220px;
 
-  margin: 5px 5px;
+  margin: 5px 2px;
 }
 
 .profil {
-  margin-left: 10px;
+  margin-left: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -317,7 +377,7 @@ td {
   border: 1px solid #000;
   border-radius: 50%;
   position: relative;
-  background-color: rgb(73, 68, 68);
+  background-color: #000;
 }
 
 
@@ -522,6 +582,41 @@ td {
   position: absolute;
   top: 0;
   left: 120px;
+}
+
+.toT {
+  display: flex;
+  position: absolute;
+  top: 40px;
+  left: 120px;
+}
+
+.toP {
+  display: flex;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.to {
+  border: 1px solid gray;
+  padding: 2px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tovalue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  color: darkblue;
+  width: 80px;
+  text-align: center;
+  height: 18px;
+  padding: 2px;
 }
 
 .odd {
@@ -800,5 +895,74 @@ span {
 }
 
 input[type="date"] {
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.left_widjet {
+  width: 70px;
+
+  display: none;
+  flex-direction: column;
+
+}
+
+.value_pole {
+  border: 1px solid gray;
+  display: flex;
+  margin: 1px;
+}
+
+.max_min_text {
+  font-size: 0.8rem;
+  width: 44%;
+  border-right: 1px solid gray;
+}
+
+.max_min_value {
+  font-size: 0.8rem;
+  width: 47%;
+
+}
+
+.container_widget {
+  padding-top: 55px;
+}
+
+.container_widget:nth-child(n+2) {
+  padding: 0;
+  margin-top: 108px;
+}
+
+.container_widget:nth-child(n+3) {
+  padding: 0;
+  margin-top: 140px;
+}
+
+.container_widget:nth-child(n+4) {
+  padding: 0;
+  margin-top: 10px;
+}
+
+.number {
+  margin-top: 25px;
+
+}
+
+.number2 {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+
+
+}
+
+.number_local {
+  max-width: 70px;
+  margin: auto;
+  text-align: center;
   font-weight: bold;
+  border: 1px solid #000;
+  background-color: lightgray;
+
 }

@@ -1,6 +1,9 @@
 
 
 
+
+
+
 /*
 function foo() {
     var httpRequest = new XMLHttpRequest();
@@ -92,6 +95,8 @@ function getMainInfo() {
 
 }
 
+
+
 //выводим топливо
 function oilFn(elem) {
     oilBenz = document.querySelector('.oilText');
@@ -113,6 +118,22 @@ function odomFn(elem) {
     })
 
 }
+
+const detaly = document.querySelector('.detaly');
+
+detaly.addEventListener('click', detalyFn)
+function detalyFn(e) {
+    e.preventDefault();
+    detalisation = document.querySelector('.detalisation');
+    wrapperLeft = document.querySelector('.wrapper_left');
+    wrapperRigth = document.querySelector('.wrapper_right');
+    detalisation.style.display = 'flex';
+    wrapperLeft.style.display = 'none';
+    wrapperRigth.style.display = 'none';
+
+}
+
+
 
 /*
 //подсветка оси
@@ -379,8 +400,10 @@ const arrTireslink = Array.from(tires_link);
 
 //проваливаемся в колесо
 arrTireslink.forEach(function (elem, index) {
+
     elem.addEventListener('click', tiresActive);
     function tiresActive() {
+        minMax();
         validation = document.querySelectorAll('validation')
         validation.forEach(el => {
             el.addEventListener("keyup", function () {
@@ -404,6 +427,8 @@ arrTireslink.forEach(function (elem, index) {
         tT = document.querySelectorAll('.tiresT');
         elem = tD[index].classList.toggle('tiresActiveD');
         elem = tT[index].classList.toggle('tiresActiveT');
+        leftwidjet = document.querySelector('.left_widjet')
+        leftwidjet.style.display = 'flex';
         wrapperDash = document.querySelector('.wrapper_right_dash')
         wrapperDash.style.display = 'none';
         grafik = document.querySelector('.grafik');
@@ -604,6 +629,8 @@ function local() {
 function calcPSI() {
     inputPSI = document.querySelectorAll('.jobDav')
     inputBar = document.querySelectorAll('.bar')
+
+    inputBarLeft = document.querySelectorAll('.br')
     inputToProb = document.querySelectorAll('.toProb');
     inputPassprob = document.querySelectorAll('.passProb');
     inputResProb = document.querySelectorAll('.resProb');
@@ -625,11 +652,12 @@ function calcPSI() {
         function valPSI() {
             inputBar[index].textContent = (el.value / 14.504).toFixed(1);
             localStorage.setItem(id, inputBar[index].textContent);
+
         }
         const id = inputBar[index].getAttribute('id');
         inputBar[index].textContent = localStorage.getItem(id);
-    })
 
+    })
 }
 
 //добавляем значения в график давления и темп и запускаем график
@@ -701,7 +729,7 @@ function chrt() {
                 legend: {
                     labels: {
                         font: {
-                            size: 12,
+                            size: 15,
                         },
                         color: 'gray'
                     }
@@ -974,20 +1002,18 @@ function dashDat() {
     countYellow = 0;
     countGreen = 0;
     arrDall.forEach((el) => {
-        if (el >= 33 && el <= 38) {
+        if (el >= -50 && el <= 35) {
             countGreen++
         }
-        if (el >= 32 && el < 33 || el > 38 && el <= 39) {
-            countYellow++
-        }
-        if (el >= -1000 && el < 32 || el > 39 || el === -348201.3876) {
+
+        if (el >= 36 || el === -348201.3876) {
             countRed++
         }
     })
     resultRed = Math.round(countRed / arrDall.length * 100);
-    resultYellow = Math.round(countYellow / arrDall.length * 100);
+    //resultYellow = Math.round(countYellow / arrDall.length * 100);
     resultGreen = Math.round(countGreen / arrDall.length * 100);
-    return arrT = [resultRed, resultYellow, resultGreen];
+    return arrT = [resultRed, resultGreen];
 }
 
 const ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -996,7 +1022,7 @@ const chart2 = new Chart(ctx2, {
     data: {
         labels: [
             'Критически',
-            'Повышенное/Пониженное',
+
             'Норма'
         ],
         datasets: [{
@@ -1004,7 +1030,6 @@ const chart2 = new Chart(ctx2, {
             data: setInterval(dashDat, 1000),
             backgroundColor: [
                 '#e03636',
-                '#9ba805',
                 '#3eb051'
             ],
             hoverOffset: 4
@@ -1066,6 +1091,211 @@ arrayTest.forEach((el, index) => {
     
     //rrr[index].push(el[1]);
 })*/
+
+
+//данные по номеру прицепа
+function localNumber() {
+    const number = document.querySelectorAll('.number_local');
+    const nb = Array.from(number).reverse();
+    //const number2 = document.querySelector('.number2');
+
+    nb.forEach(el => {
+        el.addEventListener('input', valueNumber)
+        function valueNumber() {
+            //let x;
+            // el.value = e.target.value;
+            nb[1].value = el.value;
+            nb[0].value = el.value;
+            // localStorage.setItem(id, number[0].value);
+            localStorage.setItem(id, el.value);
+
+        }
+        const id = el.getAttribute('id');
+        el.value = localStorage.getItem(id);
+        nb[1].value = el.value
+        nb[0].value = el.value
+        // number[0].value = localStorage.getItem(id);
+    })
+
+}
+localNumber();
+
+
+/*
+inputPSI.forEach((el, index) => {
+    el.addEventListener('input', valPSI)
+    function valPSI() {
+        inputBar[index].textContent = (el.value / 14.504).toFixed(1);
+        localStorage.setItem(id, inputBar[index].textContent);
+
+    }
+    const id = inputBar[index].getAttribute('id');
+    inputBar[index].textContent = localStorage.getItem(id);*/
+
+const brMn = document.querySelectorAll('.barMin')
+const barMin = Array.from(brMn);
+const minValue = document.querySelectorAll('.min_value')
+const barMax = document.querySelectorAll('.barMax')
+const maxValue = document.querySelectorAll('.max_value')
+//мин и мах значения в барах
+function minMax() {
+    minValue.forEach(el => {
+        el.addEventListener('input', copyMin)
+        function copyMin() {
+            localStorage.setItem(id, el.value);
+
+
+            if (el.value === minValue[0].value) {
+                barMin[0].textContent = el.value
+                barMin[1].textContent = el.value
+                localStorage.setItem(ide0, barMin[0].textContent);
+                localStorage.setItem(ide1, barMin[1].textContent);
+            }
+            if (el.value === minValue[1].value) {
+                barMin[2].textContent = el.value
+                barMin[3].textContent = el.value
+                barMin[4].textContent = el.value
+                barMin[5].textContent = el.value
+                localStorage.setItem(ide2, barMin[2].textContent);
+                localStorage.setItem(ide3, barMin[3].textContent);
+                localStorage.setItem(ide4, barMin[4].textContent);
+                localStorage.setItem(ide5, barMin[5].textContent);
+            }
+            if (el.value === minValue[2].value) {
+                barMin[6].textContent = el.value
+                barMin[7].textContent = el.value
+                localStorage.setItem(ide6, barMin[6].textContent);
+                localStorage.setItem(ide7, barMin[7].textContent);
+            }
+            if (el.value === minValue[3].value) {
+                barMin[8].textContent = el.value
+                barMin[9].textContent = el.value
+                localStorage.setItem(ide8, barMin[8].textContent);
+                localStorage.setItem(ide9, barMin[9].textContent);
+            }
+            if (el.value === minValue[4].value) {
+                barMin[10].textContent = el.value
+                barMin[11].textContent = el.value
+                localStorage.setItem(ide10, barMin[10].textContent);
+                localStorage.setItem(ide11, barMin[11].textContent);
+            }
+            // textContent()
+        }
+
+        const id = el.getAttribute('id');
+        el.value = localStorage.getItem(id);
+        const ide0 = barMin[0].getAttribute('id');
+        barMin[0].textContent = localStorage.getItem(ide0);
+        const ide1 = barMin[1].getAttribute('id');
+        barMin[1].textContent = localStorage.getItem(ide1);
+        const ide2 = barMin[2].getAttribute('id');
+        barMin[2].textContent = localStorage.getItem(ide2);
+        const ide3 = barMin[3].getAttribute('id');
+        barMin[3].textContent = localStorage.getItem(ide3);
+        const ide4 = barMin[4].getAttribute('id');
+        barMin[4].textContent = localStorage.getItem(ide4);
+        const ide5 = barMin[5].getAttribute('id');
+        barMin[5].textContent = localStorage.getItem(ide5);
+        const ide6 = barMin[6].getAttribute('id');
+        barMin[6].textContent = localStorage.getItem(ide6);
+        const ide7 = barMin[7].getAttribute('id');
+        barMin[7].textContent = localStorage.getItem(ide7);
+        const ide8 = barMin[8].getAttribute('id');
+        barMin[8].textContent = localStorage.getItem(ide8);
+        const ide9 = barMin[9].getAttribute('id');
+        barMin[9].textContent = localStorage.getItem(ide9);
+        const ide10 = barMin[10].getAttribute('id');
+        barMin[10].textContent = localStorage.getItem(ide10);
+        const ide11 = barMin[11].getAttribute('id');
+        barMin[11].textContent = localStorage.getItem(ide11);
+    });
+
+
+
+    maxValue.forEach(el => {
+        el.addEventListener('input', copyMax)
+        function copyMax() {
+            localStorage.setItem(id, el.value);
+            if (el.value === maxValue[0].value) {
+                barMax[0].textContent = el.value
+                barMax[1].textContent = el.value
+                localStorage.setItem(ide0, barMax[0].textContent);
+                localStorage.setItem(ide1, barMax[1].textContent);
+            }
+            if (el.value === maxValue[1].value) {
+                barMax[2].textContent = el.value
+                barMax[3].textContent = el.value
+                barMax[4].textContent = el.value
+                barMax[5].textContent = el.value
+                localStorage.setItem(ide2, barMax[2].textContent);
+                localStorage.setItem(ide3, barMax[3].textContent);
+                localStorage.setItem(ide4, barMax[4].textContent);
+                localStorage.setItem(ide5, barMax[5].textContent);
+            }
+            if (el.value === maxValue[2].value) {
+                barMax[6].textContent = el.value
+                barMax[7].textContent = el.value
+                localStorage.setItem(ide6, barMax[6].textContent);
+                localStorage.setItem(ide7, barMax[7].textContent);
+            }
+            if (el.value === maxValue[3].value) {
+                barMax[8].textContent = el.value
+                barMax[9].textContent = el.value
+                localStorage.setItem(ide8, barMax[8].textContent);
+                localStorage.setItem(ide9, barMax[9].textContent);
+            }
+            if (el.value === maxValue[4].value) {
+                barMax[10].textContent = el.value
+                barMax[11].textContent = el.value
+                localStorage.setItem(ide10, barMax[10].textContent);
+                localStorage.setItem(ide11, barMax[11].textContent);
+            }
+
+        }
+        const id = el.getAttribute('id');
+        el.value = localStorage.getItem(id);
+
+        const ide0 = barMax[0].getAttribute('id');
+        barMax[0].textContent = localStorage.getItem(ide0);
+        const ide1 = barMax[1].getAttribute('id');
+        barMax[1].textContent = localStorage.getItem(ide1);
+        const ide2 = barMax[2].getAttribute('id');
+        barMax[2].textContent = localStorage.getItem(ide2);
+        const ide3 = barMax[3].getAttribute('id');
+        barMax[3].textContent = localStorage.getItem(ide3);
+        const ide4 = barMax[4].getAttribute('id');
+        barMax[4].textContent = localStorage.getItem(ide4);
+        const ide5 = barMax[5].getAttribute('id');
+        barMax[5].textContent = localStorage.getItem(ide5);
+        const ide6 = barMax[6].getAttribute('id');
+        barMax[6].textContent = localStorage.getItem(ide6);
+        const ide7 = barMax[7].getAttribute('id');
+        barMax[7].textContent = localStorage.getItem(ide7);
+        const ide8 = barMax[8].getAttribute('id');
+        barMax[8].textContent = localStorage.getItem(ide8);
+        const ide9 = barMin[9].getAttribute('id');
+        barMax[9].textContent = localStorage.getItem(ide9);
+        const ide10 = barMax[10].getAttribute('id');
+        barMax[10].textContent = localStorage.getItem(ide10);
+        const ide11 = barMax[11].getAttribute('id');
+        barMax[11].textContent = localStorage.getItem(ide11);
+    })
+
+}
+
+
+
+const menu = document.querySelectorAll('.car_item')
+menu.forEach(el => {
+    el.addEventListener('click', menuBtn)
+    function menuBtn() {
+        menu.forEach(el => {
+            el.style.backgroundColor = '#fff'
+        })
+        el.style.backgroundColor = 'lightgray'
+    }
+})
+
 
 
 

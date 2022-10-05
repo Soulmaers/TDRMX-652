@@ -19,14 +19,42 @@
         <div class="menu">
             <ul class="list_menu">
                 <li class="list_item_menu"><a class="link_menu" href="index.html">Мониторинг</a>
-
-
+                <li class="list_item_menu"><a class="link_menu detaly" href="#">Детализация</a>
+            </ul>
+            <ul class="list_menu">
+                <li class="list_item_menu car_item"><a class="link_menu car" href="#">TDRMX 652</a>
+                <li class="list_item_menu car_item"><a class="link_menu car" href="#">PP933</a>
             </ul>
         </div>
     </header>
 
     <main class="main">
 
+        <div class="detalisation">
+            <div class="format">
+                <h3 class="title_det">Мониторинг эксплуатации шин</h3>
+                <ul class="item_det">
+                    <li class="list_det">Индикатор остаточного протектора</li>
+                    <li class="list_det">График протектора</li>
+                    <li class="list_det">Иконка (батарейка) на остаток протектора</li>
+                    <li class="list_det">Советчик шинному инженеру</li>
+                    <li class="list_det">Система управления жизненным циклом крупногабаритных шин</li>
+                </ul>
+            </div>
+            <div class="format">
+                <h3 class="title_det">Дополнительные параметры ТС</h3>
+                <ul class="item_det">
+                    <li class="list_det">Датчик удара (слабый, сильный)</li>
+                    <li class="list_det">CAN шина</li>
+                    <li class="list_det">Обороты двигателя</li>
+                    <li class="list_det">Температура ОЖ</li>
+                    <li class="list_det">Нагрузка на ось(только с CAN шины)</li>
+                    <li class="list_det">Система подсчета расходов по платону</li>
+                    <li class="list_det">Проверка качества вождения</li>
+                    <li class="list_det">Проверка штрафов из ГИБДД через гос.услуги</li>
+                </ul>
+            </div>
+        </div>
         <div class="wrapper_left">
             <div class="grafik">
                 <canvas id="myChartg" width="600" height="250"></canvas>
@@ -59,6 +87,63 @@
         </div>
         <div class="wrapper_right">
             <div class="wrapper_containt">
+                <div class="left_widjet">
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <input class="max_min_value max_value" type="number" id="m01">
+                        </div>
+
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <input class="max_min_value min_value" minlength="2" type="number" id="m11">
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <input class="max_min_value max_value" type="number" id="m02">
+                        </div>
+
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <input class="max_min_value min_value" type="number" id="m12">
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <input class="max_min_value max_value" type="number" id="m03">
+                        </div>
+
+                        <div class="value_pole">
+                            <div class="max_min_text ">min</div>
+                            <input class="max_min_value min_value" type="number" id="m13">
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <input class="max_min_value max_value" type="number" id="m04">
+                        </div>
+
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <input class="max_min_value min_value" type="number" id="m14">
+                        </div>
+                    </div>
+                    <div class="container_widget">
+                        <div class="value_pole">
+                            <div class="max_min_text">max</div>
+                            <input class="max_min_value max_value" type="number" id="m05">
+                        </div>
+
+                        <div class="value_pole">
+                            <div class="max_min_text">min</div>
+                            <input class="max_min_value min_value" type="number" id="m15">
+                        </div>
+                    </div>
+                </div>
                 <div class="card c2_4_4">
                     <h2 class="title_two"></h2>
                     <div class="container_2_4_4">
@@ -164,22 +249,25 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="spareContainer">
-                                <div class="spare">
-                                    <div class="spareWill1"></div>
-                                    <div class="spareWill2"></div>
-                                    <div class="imgSpare"><img class="img" src="./image/kol.png"></div>
-                                </div>
-                                <div class="spare">
-                                    <div class="spareWill1"></div>
-                                    <div class="spareWill2"></div>
-                                    <div class="imgSpare"><img class="img" src="./image/kol.png"></div>
-                                </div>
+
+                        </div>
+                        <input class="number number_local" maxlength="9" id="n01">
+                        <div class="spareContainer">
+                            <div class="spare">
+                                <div class="spareWill1"></div>
+                                <div class="spareWill2"></div>
+                                <div class="imgSpare"><img class="img" src="./image/kol.png"></div>
+                            </div>
+                            <div class="spare">
+                                <div class="spareWill1"></div>
+                                <div class="spareWill2"></div>
+                                <div class="imgSpare"><img class="img" src="./image/kol.png"></div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
+
 
 
 
@@ -191,6 +279,15 @@
                             <p class="odom"></p>
                             <p class="odd">км</p>
                         </div>
+                        <div class="toT">
+                            <p class="tovalue"></p>
+                            <p class="to">ТО Тягача</p>
+                        </div>
+                        <div class="toP">
+                            <p class="tovalue"></p>
+                            <p class="to">ТО Прицепа</p>
+                        </div>
+                        <input class="number2 number_local" maxlength="9" id="n02">
                         <div class="oil">
                             <p class="oilText"></p>
                         </div>
@@ -273,7 +370,7 @@
                                     <p class="techText">Оставшаяся глубина протектора</p>
                                 </li>
                                 <li class="techItem">
-                                    <p class="techText">Дата замены протектора</p>
+                                    <p class="techText">Дата замера протектора</p>
                                 </li>
 
                             </ul>
@@ -288,9 +385,9 @@
 
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n1'>
+                                    <p class="techInput br validation barMin" id='n1'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n2'>
+                                    <p class="techInput br validation barMax" id='n2'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='t1'>
@@ -311,9 +408,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n3'>
+                                    <p class="techInput br validation barMin" id='n3'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n4'>
+                                    <p class="techInput br validation barMax" id='n4'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='11'>
@@ -333,9 +430,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n5'>
+                                    <p class="techInput br validation barMin" id='n5'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n6'>
+                                    <p class="techInput br validation barMax" id='n6'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='18'>
@@ -355,9 +452,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n7'>
+                                    <p class="techInput br validation barMin" id='n7'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n8'>
+                                    <p class="techInput br validation barMax" id='n8'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='25'>
@@ -377,9 +474,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n9'>
+                                    <p class="techInput br validation barMin" id='n9'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n10'>
+                                    <p class="techInput br validation barMax" id='n10'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='32'>
@@ -399,9 +496,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n11'>
+                                    <p class="techInput br validation barMin" id='n11'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n12'>
+                                    <p class="techInput br validation barMax" id='n12'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='39'>
@@ -421,9 +518,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n13'>
+                                    <p class="techInput br validation barMin" id='n13'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n14'>
+                                    <p class="techInput br validation barMax" id='n14'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='46'>
@@ -443,9 +540,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n15'>
+                                    <p class="techInput br validation barMin" id='n15'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n16'>
+                                    <p class="techInput br validation barMax" id='n16'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='53'>
@@ -465,9 +562,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n17'>
+                                    <p class="techInput br validation barMin" id='n17'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n18'>
+                                    <p class="techInput br validation barMax" id='n18'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='60'>
@@ -487,9 +584,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n19'>
+                                    <p class="techInput br validation barMin" id='n19'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n20'>
+                                    <p class="techInput br validation barMax" id='n20'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='67'>
@@ -509,9 +606,9 @@
                                 </div>
                                 <div class="min_max">
                                     <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n21'>
+                                    <p class="techInput br validation barMin" id='n21'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n22'>
+                                    <p class="techInput br validation barMax" id='n22'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='74'>
@@ -530,10 +627,10 @@
                                     <p class="techInput bar" id='b12'></p>
                                 </div>
                                 <div class="min_max">
-                                    <p class="techText barDd">min</p>
-                                    <input class="techInput br validation" type="number" id='n23'>
+                                    <p class="techText barDd ">min</p>
+                                    <p class="techInput br validation barMin" id='n23'></p>
                                     <p class="techText barDd">max</p>
-                                    <input class="techInput br validation" type="number" id='n24'>
+                                    <p class="techInput br validation barMax" id='n24'></p>
                                 </div>
 
                                 <input class="techInput toProb validation" type="number" id='81'>
