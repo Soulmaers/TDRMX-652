@@ -1,9 +1,5 @@
 
 
-
-
-
-
 /*
 function foo() {
     var httpRequest = new XMLHttpRequest();
@@ -60,9 +56,10 @@ function getMainInfo() {
             go(arrayD, arrayT);
             //got(arrayD);
             //return window['arrayD'] = arrayD, arrayT, arr
+
         });
 
-    const flags = 1 + 1024
+    const flags = 1 + 1025
     const prms = {
         "spec": {
             "itemsType": "avl_unit",

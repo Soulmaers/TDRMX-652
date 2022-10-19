@@ -272,6 +272,7 @@ td {
   text-align: center;
   height: 18px;
   padding: 2px;
+  background-color: #fff;
 }
 
 .techButton {
@@ -617,6 +618,7 @@ td {
   text-align: center;
   height: 18px;
   padding: 2px;
+  background-color: #fff;
 }
 
 .odd {
@@ -955,6 +957,7 @@ input[type="date"] {
   right: 10px;
 
 
+
 }
 
 .number_local {
@@ -963,6 +966,5 @@ input[type="date"] {
   text-align: center;
   font-weight: bold;
   border: 1px solid #000;
-  background-color: lightgray;
-
+  background-color: #fff
 }
