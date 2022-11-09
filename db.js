@@ -1,5 +1,8 @@
 const mysql = require("mysql2");
 const wialon = require('wialon');
+const express = require('express');
+const app = express();
+app.use(express.json());
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -61,17 +64,61 @@ function getMainInfo() {
             console.log(arrayD);
             ;
             const testt = [[45, 20, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
-            updatet(testt)
+            // updatet(testt)
 
 
         })
 
-}
 
+    const flags = 1 + 1026
+    const prms = {
+        "spec": {
+            "itemsType": "avl_unit",
+            "propName": "sys_name",
+            "propValueMask": "*",
+            "sortType": "sys_name"
+        },
+        "force": 1,
+        "flags": flags,
+        "from": 0,
+        "to": 0
+    };
+
+
+    session.request('core/search_items', prms)
+        .catch(function (err) {
+            console.log(err);
+        })
+        .then(function (data) {
+            arr1 = Object.values(data);
+            sensors = Object.entries(arr1[5][0].lmsg.p)
+            /*
+                        function math() {
+                            return Math.floor(Math.random() * 10);
+                        }
+                        arrD = [Array(2).fill(0).map(math)];
+                        arrD1 = [Array(2).fill(0).map(math)];
+                        arrDres = [];
+                        arrDres.push(arrD, arrD1)*/
+            console.log(sensors)
+        })
+
+
+
+
+
+
+}
+/*
+app.get('/db', (req, res) => {
+    console.log(res.json())
+})*/
+
+/*
 function updatet(arr) {
     const sql = `INSERT INTO sensors(a,b,c,d,e,f,g,h,j,k,l,m) VALUES ?`;
     connection.query(sql, [arr], function (err, results) {
         if (err) console.log(err);
         console.log(results);
     });
-}
+}*/

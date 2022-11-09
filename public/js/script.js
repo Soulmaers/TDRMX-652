@@ -1,5 +1,6 @@
 
 
+
 /*
 function foo() {
     var httpRequest = new XMLHttpRequest();
@@ -94,10 +95,11 @@ function getMainInfo() {
 
 
 
+
 //выводим топливо
 function oilFn(elem) {
     oilBenz = document.querySelector('.oilText');
-    oilBenz.textContent = elem;
+    oilBenz.textContent = parseFloat(elem).toFixed(0) + 'л.';
 
 }
 //выводим бортовое питание
@@ -532,17 +534,6 @@ function grafTwo() {
 
             }
 
-            //arrIter.map((arr) => { arr.splice(10, 15); arr.splice(12, 2); });
-            /*
-            arrIter.map((arr) => { arr.splice(10, 15); arr.splice(12, 2); });
-            let i = 0;
-            arrIter24 = arrIter.filter(e => (++i) % 8 === 0);
-            //console.log(arrIter);
-            arrIterT.map((arr) => { arr.splice(0, 10); arr.splice(10, 7); });
-            let i2 = 0;
-            arrIter24T = arrIterT.filter(e => (++i2) % 8 === 0);
-            //console.log(arrIter);*/
-
             arrIterDav = new Array(12);
             arrIterDav[0] = new Array();
             arrIterDav[1] = new Array();
@@ -609,7 +600,7 @@ function grafTwo() {
 
 
 //сохраняем изменения в localstorage
-
+const inpTest = document.querySelectorAll('.techInput')
 function local() {
     const inpInput = document.querySelectorAll('.techInput')
     inpInput.forEach(el => {

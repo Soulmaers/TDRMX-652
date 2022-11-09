@@ -51,14 +51,16 @@ td {
 
 .obo {
     display: none;
-    flex-direction: column;
+
     flex-wrap: wrap;
     height: 1200px;
     padding: 0 5px;
-    margin: 0
+    margin: 0;
+    width: 487px;
 }
 
 .msg {
+    width: 45%;
     border: 1px solid #ddd;
     padding: 2px 5px;
     font-weight: 600;
@@ -83,7 +85,7 @@ td {
 }
 
 .wrapper_left {
-    width: 30%;
+    width: 35%;
     min-height: 600px;
     border-right: 20px solid lightgray;
 }
@@ -417,6 +419,10 @@ td {
     margin: 5px 5px;
 }
 
+.grafik1 {
+    display: none;
+}
+
 
 
 .container_2_4_4 {
@@ -441,9 +447,11 @@ td {
 }
 
 .title_two {
+    display: block;
     font-size: 0.8rem;
     text-align: center;
     margin: 0;
+    cursor: pointer;
 
 }
 
@@ -520,13 +528,13 @@ td {
     height: 40px;
     border: 2px solid gray;
     border-radius: 30% 30% 0 0;
-    color: #000;
+    color: #fff;
     background-color: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-align: center;
 }
@@ -618,4 +626,52 @@ td {
     font-weight: 700;
     text-align: center;
     border-bottom: 1px solid #fa0707d8;
+}
+
+
+
+.speedGraf {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form_speed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5px;
+    padding: 5px 15px;
+    border: 1px solid gray
+}
+
+.input_date {
+    margin-left: 90px;
+    margin-top: 5px;
+    width: 180px;
+    padding: 3px 8px;
+}
+
+.select_speed {
+    margin-left: 38px;
+    width: 200px;
+    padding: 3px 8px;
+}
+
+.btn_speed {
+    margin-top: 5px;
+    margin-left: 146px;
+}
+
+.btm_form {
+    padding: 5px 8px;
+    color: rgb(28, 123, 160);
+    background-color: #fff;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.control {
+    color: #fff;
+    background-color: rgb(28, 123, 160);
+    border: 1px solid rgb(28, 123, 160);
 }
