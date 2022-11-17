@@ -1,3 +1,5 @@
+
+'use strict'
 /*
 let form = document.querySelector('.form')
 let formin = document.querySelector('.formin')
@@ -113,7 +115,7 @@ const grafView = document.querySelector('.grafik1')
 
 function dataInput() {
     selectSpeed.value = 0;
-    arrDate = [];
+    const arrDate = [];
     inputDate.forEach(e => {
         arrDate.push(e.value)
     })
@@ -139,7 +141,7 @@ function dataSelect() {
         let nowDate = Math.round(new Date().getTime() / 1000)
         let nDate = new Date();
         let timeFrom = Math.round(nDate.setHours(nDate.getHours() - 24) / 1000);
-        console.log(timeFrom, nowDate)
+        //console.log(timeFrom, nowDate)
         console.log('сутки')
         graf(timeFrom, nowDate, 30)
     }
@@ -147,7 +149,7 @@ function dataSelect() {
         let nowDate = Math.round(new Date().getTime() / 1000)
         let nDate = new Date();
         let timeFrom = Math.round(nDate.setDate(nDate.getDate() - 7) / 1000);
-        console.log(timeFrom, nowDate)
+        // console.log(timeFrom, nowDate)
         console.log('неделя')
         graf(timeFrom, nowDate, 100)
     }
@@ -155,7 +157,7 @@ function dataSelect() {
         let nowDate = Math.round(new Date().getTime() / 1000)
         let nDate = new Date();
         let timeFrom = Math.round(nDate.setMonth(nDate.getMonth() - 1) / 1000);
-        console.log(timeFrom, nowDate)
+        // console.log(timeFrom, nowDate)
         console.log('месяц')
         graf(timeFrom, nowDate, 300)
     };
@@ -184,7 +186,7 @@ function speed() {
 speed()
 
 function graf(t1, t2, int) {
-    console.log(t1, t2, int)
+    //console.log(t1, t2, int)
     const prms2 = {
         "itemId": 25343786,
         "timeFrom": t1,//t1,//timeFrom,//1657205816,
@@ -199,28 +201,28 @@ function graf(t1, t2, int) {
             if (code) {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
-            arr2 = Object.values(result);
-            arrIterTime = [];
-            arrIterTimeDate = [];
+            const arr2 = Object.values(result);
+            const arrIterTime = [];
+            const arrIterTimeDate = [];
             arr2[1].forEach(el => {
                 arrIterTime.push(el.t);
             })
             arrIterTime.forEach(item => {
-                dateObj = new Date(item * 1000);
-                utcString = dateObj.toString();
-                arrTimeDate = utcString.slice(8, 24);
+                const dateObj = new Date(item * 1000);
+                const utcString = dateObj.toString();
+                const arrTimeDate = utcString.slice(8, 24);
                 arrIterTimeDate.push(arrTimeDate);
             })
             let t = 0;
-            arrIterTimeDateT = arrIterTimeDate.filter(e => (++t) % int === 0);
+            const arrIterTimeDateT = arrIterTimeDate.filter(e => (++t) % int === 0);
             console.log(arrIterTimeDateT)
-            arrSpee = [];
+            const arrSpee = [];
             arr2[1].forEach(el => {
                 arrSpee.push(el.pos.s)
             })
             let s = 0;
-            arrSpeed = arrSpee.filter(e => (++s) % int === 0)
-            chrt1(arrSpeed);
+            const arrSpeed = arrSpee.filter(e => (++s) % int === 0)
+            chrt1(arrSpeed, arrIterTimeDateT);
             console.log(arrSpeed)
         });
 }
@@ -397,118 +399,58 @@ function init() {
             if (code) {
                 return;
             }
-            getMainInfo();
+            //  getMainInfo();
             //grafTwo();
-            setInterval(getMainInfo, 5000);
+            //  setInterval(getMainInfo, 5000);
         });
 };
 init();
-function getMainInfo() {
-    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
-    var prms1 = {
-        "unitId": 25343786,
-        "sensors": []
-    };
-
-    const remote = wialon.core.Remote.getInstance();
-    remote.remoteCall('unit/calc_last_message', prms1,
-        function (code, result) {
-            if (code) {
-                console.log(wialon.core.Errors.getErrorText(code));
-            }
-            arr = Object.values(result);
-            arrayD = [];
-            arrayD.push(arr[0]); arrayD.push(arr[2]); arrayD.push(arr[1]); arrayD.push(arr[9]);
-            arrayD.push(arr[8]); arrayD.push(arr[7]); arrayD.push(arr[6]); arrayD.push(arr[5]);
-            arrayD.push(arr[4]); arrayD.push(arr[3]);
-            arrayT = [];
-            arrayT.push(arr[19]); arrayT.push(arr[18]); arrayT.push(arr[17]); arrayT.push(arr[16]);
-            arrayT.push(arr[15]); arrayT.push(arr[14]); arrayT.push(arr[13]); arrayT.push(arr[12]);
-            arrayT.push(arr[11]); arrayT.push(arr[10]);
-
-            // funcRandom(arrayD, arrayT);
-
-            //tiresOs(arrayD);
-            // go(arrayD, arrayT);
-            //got(arrayD);
-            //return window['arrayD'] = arrayD, arrayT, arr
-
-        });
 
 
-    const flags = 1 + 1026
-    const prms = {
-        "spec": {
-            "itemsType": "avl_unit",
-            "propName": "sys_name",
-            "propValueMask": "*",
-            "sortType": "sys_name"
-        },
-        "force": 1,
-        "flags": flags,
-        "from": 0,
-        "to": 0
-    };
-
-    const remote1 = wialon.core.Remote.getInstance();
-    remote1.remoteCall('core/search_items', prms,
-        function (code, result) {
-            if (code) {
-                console.log(wialon.core.Errors.getErrorText(code));
-            }
-            arr1 = Object.values(result);
-            // sensors = Object.entries(arr1[5][0].lmsg.p)
-            // sensorss = arr1[5][0].lmsg.p;
-
-            const sensorss = Object.keys(arr1[5][0].lmsg.p).sort().reduce(
-                (obj, key) => {
-                    obj[key] = arr1[5][0].lmsg.p[key];
-                    return obj;
-                },
-                {}
-            );
-            sensors = Object.entries(sensorss)
-            // console.log(sensors);
-            // → '{"a":"baz","b":"foo","c":"bar"}'
-            // console.log(arr1[5][0].lmsg.p)
-            // console.log(arr1[5][0].lmsg.p)
-            // homes.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-            //test = [['4', '2'], ['3', '8'], ['3', '15'], ['2', '25'], ['1', '10'], ['3', '40']]
-            //test.sort((a, b) => (b.price) - (a.price));
-            //console.log(test)
-            /*
-            function math() {
-                return Math.floor(Math.random() * 10);
-            }
-            arrD = [Array(2).fill(0).map(math)];
-            arrD1 = [Array(2).fill(0).map(math)];
-            arrDres = [];
-            arrDres.push(arrD, arrD1)
-            console.log(arrD)*/
-            view(sensors)
-            console.log(sensors)
-        });
-
-}
-
-
-function liCreate() {
-    count = 100;
-    for (i = 0; i < count; i++) {
+function liCreate(arr) {
+    // const count = 100;
+    for (let i = 0; i < arr.length; i++) {
         let li = document.createElement('li');
         li.className = "msg";
         obo.append(li);
     }
 }
-liCreate()
+
+
+function viewDB() {
+    fetch('api/wialon', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+
+        }
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            const data = res
+
+            data.values.sort((prev, next) => {
+                if (prev.name < next.name) return -1;
+                if (prev.name < next.name) return 1;
+            })
+            console.log(data.values.length)
+            liCreate(data.values)
+
+            view(data.values)
+            //console.log(obj);
+            //  modals(user.values)
+        })
+
+}
+
 
 
 function view(arr) {
     const msg = document.querySelectorAll('.msg')
-    arg = msg
+    let arg = msg
     //  console.log(arg)
     arr.forEach((el, index) => {
-        arg[index].textContent = `${el[0]}:${el[1]}`
+        arg[index].textContent = `${el.name}:${el.value}`
     })
     //console.log(arr)
     //console.log(arg)
@@ -546,6 +488,7 @@ tiresLink.forEach(e => {
 function sensor() {
     btnsens.forEach(e =>
         e.addEventListener('click', () => {
+            viewDB();
             btnsens.forEach(el => {
                 obo.style.display = 'none';
                 titleSens.style.display = 'none';
@@ -565,13 +508,14 @@ function fnt() {
 
     tiresLink.forEach(it => {
         if (it.classList.contains('tiresActiv') && btnsens[0].classList.contains('actBTN')) {
-            iterValue = [...counter.textContent]
+            const iterValue = [...counter.textContent]
+            let value;
             iterValue.forEach(el => {
                 if (el === ':') {
                     value = iterValue.splice(iterValue.indexOf(el) + 1, iterValue.length - 1).join('')
                 }
             })
-            console.log(value)
+            // console.log(value)
             value.length > 10 ?
                 it.children[1].textContent = '-' :
                 it.children[0].textContent = value + '\nБар'
@@ -598,15 +542,17 @@ function msgAct(arg) {
         p.push(e)
         arg.forEach(el => el.classList.remove('act'))
         e.classList.add('act')
-        arrAct = [...e.textContent]
-
+        const arrAct = [...e.textContent]
+        let value;
         arrAct.forEach(el => {
             if (el === ':') {
                 value = arrAct.splice(arrAct.indexOf(el) + 1, arrAct.length - 1).join('')
-                //counter = value;
+                // counter = value;
 
                 //console.log(value)
+
             }
+
         })
 
         tiresLink.forEach(e => {
@@ -696,7 +642,7 @@ const funcRandom = (el1, el2) => {
 
 
 
-function chrt1(arr) {
+function chrt1(arr, time) {
     const config = {
         type: 'line',
         data: {
@@ -711,7 +657,7 @@ function chrt1(arr) {
                 pointBorderWidth: 0.01,
                 pointBackgroundColor: 'green'
             }],
-            labels: arrIterTimeDateT
+            labels: time
         },
         options: {
             plugins: {
@@ -754,10 +700,11 @@ function chrt1(arr) {
         }
     };
     console.log(arr)
+    console.log(time)
     let chart = Chart.getChart('myChartg1'); // Pass the canvas ID
 
     if (chart) {
-        chart.data.labels = arrIterTimeDateT;
+        chart.data.labels = time;
         chart.data.datasets[0].data = arr;
         chart.update();
     } else {

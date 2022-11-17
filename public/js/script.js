@@ -1,12 +1,9 @@
 
 
-
 /*
 function foo() {
     var httpRequest = new XMLHttpRequest();
-
     httpRequest.open('POST', 'https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={%22token%22:%220f481b03d94e32db858c7bf2d84152041F49949D880D9189DE1A3C3E3E554FA5D7F4B74C%22}');
-
     httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpRequest.send();
     return console.log(httpRequest.responseText);
@@ -146,7 +143,6 @@ function tiresOs(arr) {
 }
 function tiresTest(arr1, arr2, arr3, arr4, arr5) {
     lowDiv = document.querySelectorAll('.lowDiv ');
-
     if (arr1[0] >= 8 && arr1[0] <= 9 || arr1[1] >= 8 && arr1[1] <= 9) {
         lowDiv[0].style.backgroundColor = '#3eb051'
     }
@@ -195,7 +191,6 @@ function tiresTest(arr1, arr2, arr3, arr4, arr5) {
         || arr2[2] > -100 && arr2[2] < 7.5 || arr2[2] > 13 || arr2[3] > -100 && arr2[3] < 7.5 || arr2[3] > 13) {
         lowDiv[1].style.backgroundColor = '#e03636'
     }
-
 }
 */
 //условия для подсветки шин D и T
@@ -317,13 +312,10 @@ function math() {
 
 //arTTT = [[2, 3, 4, 5, 5, 5], [2, 3, 5, 2], [2, 3, 5, 4], [2, 5, 5, 3], [4, 5, 6, 7], [6, 7, 5, 4]]
 /*function got(item1, item2) {
-
     //arrDDD = Array(12).fill(0).map(math);
     arrD = item1.slice(0, 6);
     arrRear = item1.slice(6, 12)
-
     // console.log(arTTT[0].lastIndexOf(!5));
-
     alls.forEach(function (elem, index) {
         if (arrD[index][arrD[index].length - 1] === -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
             elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 2])];
@@ -342,7 +334,6 @@ function math() {
                     //arTTT[0][el] = el;
                     return arrD[index].reverse();
                 }
-
             })
         }
     })
@@ -364,7 +355,6 @@ function math() {
                     //arTTT[0][el] = el;
                     return arrRear[index].reverse();
                 }
-
             })
         }
     })
@@ -386,11 +376,9 @@ function math() {
                     //arTTT[0][el] = el;
                     return item2[index].reverse();
                 }
-
             })
         }
     })
-
 }
 */
 
@@ -1066,13 +1054,10 @@ var rrr = new Array(3);//Создание массива на 3 элемента
 rrr[0] = new Array(); //вставл. в первый элемент массив на 3 элемента
 rrr[1] = new Array(); //вставл. в второй элемент массив на 3 элемента
 rrr[2] = new Array();
-
-
 const arrayTest = [[2, 8, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6],
 [3, 8, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6],
 [5, 8, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]]
 arrayTest.forEach((el, index) => {
-
     rrr[0].push(el[0]);
     rrr[1].push(el[1]);
     rrr[2].push(el[2]);
@@ -1115,7 +1100,6 @@ inputPSI.forEach((el, index) => {
     function valPSI() {
         inputBar[index].textContent = (el.value / 14.504).toFixed(1);
         localStorage.setItem(id, inputBar[index].textContent);
-
     }
     const id = inputBar[index].getAttribute('id');
     inputBar[index].textContent = localStorage.getItem(id);*/
@@ -1283,7 +1267,5 @@ menu.forEach(el => {
         el.style.backgroundColor = 'lightgray'
     }
 })
-
-
 
 

@@ -1,101 +1,99 @@
 
 const wialon = require('wialon');
 const express = require('express');
+const connection = require('./db')
+const { allParams, lostSens } = require('./sort')
+
+const { prms1, prms } = require('./params')
 const app = express();
 app.use(express.json());
 
 
 
-
-
 const session = wialon().session;
 function init() {
-
+    //console.log('init')
     session.start({ token: '0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178' })
         .catch(function (err) {
             console.log(err);
         })
         .then(function (data) {
-            // console.log(data  arr = Object.values(result);
+            setInterval(getMainInfo, 5000);
 
-            getMainInfo();
         })
 
-
-
-    //setInterval(getMainInfo, 1000);
 }
 init()
 
-
 function getMainInfo() {
-    const prms1 = {
-        "unitId": 25594204,
-        "sensors": []
-    };
+    console.log('запуск')
     session.request('unit/calc_last_message', prms1)
         .catch(function (err) {
             console.log(err);
         })
         .then(function (data) {
-            //console.log(data);
-            arr = Object.values(data);
-            arrayD = [];
-            arrayD.push(arr[0]); arrayD.push(arr[2]); arrayD.push(arr[1]); arrayD.push(arr[9]);
-            arrayD.push(arr[8]); arrayD.push(arr[7]); arrayD.push(arr[6]); arrayD.push(arr[3]);
-            arrayD.push(arr[5]); arrayD.push(arr[4]); arrayD.push(arr[25]); arrayD.push(arr[26]);
-            arrayT = [];
-            arrayT.push(arr[18]); arrayT.push(arr[17]); arrayT.push(arr[14]); arrayT.push(arr[16]);
-            arrayT.push(arr[13]); arrayT.push(arr[15]); arrayT.push(arr[10]); arrayT.push(arr[12]);
-            arrayT.push(arr[11]); arrayT.push(arr[19]); arrayT.push(arr[28]); arrayT.push(arr[27]);
-            console.log(arrayD);
-            ;
-            const testt = [[45, 20, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
-            // updatet(testt)
-
-
+            lostSens(data)
+            //  console.log(pressureSensor, temperatureSensor)
         })
-
-
-    const flags = 1 + 1026
-    const prms = {
-        "spec": {
-            "itemsType": "avl_unit",
-            "propName": "sys_name",
-            "propValueMask": "*",
-            "sortType": "sys_name"
-        },
-        "force": 1,
-        "flags": flags,
-        "from": 0,
-        "to": 0
-    };
-
 
     session.request('core/search_items', prms)
         .catch(function (err) {
             console.log(err);
         })
         .then(function (data) {
-            arr1 = Object.values(data);
-            sensors = Object.entries(arr1[5][0].lmsg.p)
-            /*
-                        function math() {
-                            return Math.floor(Math.random() * 10);
-                        }
-                        arrD = [Array(2).fill(0).map(math)];
-                        arrD1 = [Array(2).fill(0).map(math)];
-                        arrDres = [];
-                        arrDres.push(arrD, arrD1)*/
-            console.log(sensors)
+            allParams(data)
+            //console.log(sensors)
+            //sens = JSON.stringify(sensors)
+            // console.log(sens)
+            const selectBase = `SELECT id FROM params WHERE 1`
+            connection.query(selectBase, function (err, results) {
+                if (err) console.log(err);
+                //console.log(results);
+                //console.log(results.length);
+                if (results.length == 0) {
+                    // const datas = [['M', 300], ['R', 200], ['P', 500]]
+                    const sql = `INSERT INTO params(name,value) VALUES?`;
+                    connection.query(sql, [sensors], function (err, results) {
+                        if (err) console.log(err);
+                        // console.log(results);
+                    });
+                    connection.end();
+                }
+                else if (results.length > 0) {
+                    //const datas2 = [['mikaS', 2], ['ryk', 200], ['pety', 5]]
+                    let count = 0;
+                    sensors.forEach(el => {
+                        count++
+                        const sql = `UPDATE params  SET name='${el[0]}', value='${el[1]}' WHERE id=${count}`;
+                        // const data = [34, "Tom"];
+                        connection.query(sql, function (err, results) {
+                            if (err) console.log(err);
+                            //  console.log(results);
+                        });
+                        //  connection.end();
+                    })
+                }
+            });
+
+
         })
 
 
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+//const y = c
+module.exports = getMainInfo
+
+
+
 /*
 app.get('/db', (req, res) => {
     console.log(res.json())
@@ -103,7 +101,7 @@ app.get('/db', (req, res) => {
 
 /*
 function updatet(arr) {
-    const sql = `INSERT INTO sensors(a,b,c,d,e,f,g,h,j,k,l,m) VALUES ?`;
+    const sql = `INSERT INTO sensors(a, b, c, d, e, f, g, h, j, k, l, m) VALUES ? `;
     connection.query(sql, [arr], function (err, results) {
         if (err) console.log(err);
         console.log(results);

@@ -4,7 +4,7 @@ module.exports = (app) => {
     const passport = require('passport')
 
     const usersController = require('../Controller/usersController')
-
+    const dataWialon = require('../Controller/dataWialon')
 
 
 
@@ -20,4 +20,12 @@ module.exports = (app) => {
         .route('/api/auth/signin')
         .post(usersController.signin)
 
+    app
+        .route('/api/wialon')
+        .get(dataWialon.datawialon)
+
 }
+
+
+
+
