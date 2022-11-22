@@ -5,11 +5,17 @@
     <meta charset="utf-8">
     <title>Прототип интерфейса</title>
     <link rel="stylesheet" type="text/css" href="css/pp933.css" />
-
+    <link rel="Shortcut Icon" href="../image/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.css "
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.js "
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
 </head>
 
 <body>
@@ -22,9 +28,16 @@
         </div>
     </header>
 
+
     <main class="main">
         <div class="wrapper_left">
-            <div class="wrapper_up"></div>
+            <div class="wrapper_up">
+
+
+                <div id="map" style="width: 100%; height: 300px"></div>
+                <!-- Get the leaflet JavaScript file -->
+
+            </div>
             <div class="speedGraf">
                 <div class="form_speed">
                     <label>Интервал
@@ -59,6 +72,7 @@
             </ul>
         </div>
         <div class="wrapper_right">
+
 
             <div class="dropdown">
                 <button class="dropbtn">Кол-во осей</button>
@@ -129,7 +143,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="1"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -161,7 +175,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="2"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -193,7 +207,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="3"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -225,7 +239,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="4"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -257,7 +271,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="5"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -289,7 +303,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="6"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -321,7 +335,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="7"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">
@@ -353,7 +367,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="centerOs"></div>
+                            <div class="centerOs" id="8"></div>
                             <div class="tires_spark">
                                 <div class="tires">
                                     <a class="tires_link" href="#">

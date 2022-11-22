@@ -1,5 +1,17 @@
 
 'use strict'
+
+//const e = require("express");
+
+//const { json } = require("body-parser");
+
+//карта OSM
+const map = L.map('map')
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+map.setView([59.9386, 30.3141], 8);
+
 /*
 let form = document.querySelector('.form')
 let formin = document.querySelector('.formin')
@@ -111,6 +123,40 @@ const inputDate = document.querySelectorAll('.input_date')
 const btnForm = document.querySelectorAll('.btm_form')
 const selectSpeed = document.querySelector('.select_speed')
 const grafView = document.querySelector('.grafik1')
+
+
+
+fetch('api/model', {
+    method: "GET",
+    headers: {
+        'Content-Type': 'application/json',
+
+    }
+})
+    .then((res) => res.json())
+    .then((res) => {
+        const model = res
+        model.values.forEach(el => {
+            osi[el.osi].style.display = 'flex';
+            centerOs[el.osi].style.display = 'flex';
+        })
+        console.log(model.values)
+        /*
+                data.values.sort((prev, next) => {
+                    if (prev.name < next.name) return -1;
+                    if (prev.name < next.name) return 1;
+                })
+                // console.log(data.values.length)
+        
+                view(data.values)
+                //console.log(obj);
+                //  modals(user.values)*/
+    })
+
+
+
+
+
 
 
 function dataInput() {
@@ -239,38 +285,47 @@ car.addEventListener('click', () => {
 
 
 
+
+
 const array = [];
 function modul() {
     centerOs.forEach(el => {
-        //el.style.backgroundImage = "url('../image/line.png')";
         el.addEventListener('click', () => {
             centerOs.forEach(el => el.classList.remove('os'));
             el.classList.add('os')
-            //  wrapperButton.style.display = 'none'
             moduleConfig.style.display = 'flex'
-
             array.push(el)
-            //console.log(array)
-            os(array)
             console.log('нажал ось')
-
         })
     })
+    os(array)
 }
 modul()
 
+
+
 function os(arr) {
+    const arrayTrailer = [];
+    // console.log(arr)
     linkSelectOs.forEach(e =>
         e.addEventListener('click', () => {
+            arrayTrailer.push(e)
             if (e.textContent == 'Прицеп') {
                 arr[arr.length - 1].style.backgroundImage = "url('../image/line_red.png')";
+                //  trail == e.textContent
             }
             else if (e.textContent == 'Тягач')
+                // trail == e.textContent
                 arr[arr.length - 1].style.backgroundImage = "url('../image/line.png')";
+
         }))
 
     linkSelectTires.forEach(e =>
         e.addEventListener('click', () => {
+            const arrayTyres = []
+            arrayTyres.push(e)
+            console.log(arrayTrailer)
+            // console.log(arr[arr.length - 1])
             arr[arr.length - 1].previousElementSibling.children[0].style.display = 'none';
             arr[arr.length - 1].previousElementSibling.children[1].style.display = 'none';
             arr[arr.length - 1].nextElementSibling.children[0].style.display = 'none';
@@ -285,9 +340,51 @@ function os(arr) {
                 arr[arr.length - 1].nextElementSibling.children[0].style.display = 'flex';
                 arr[arr.length - 1].nextElementSibling.children[1].style.display = 'flex';
             }
+            console.log('запуск saveBase')
+            validation(arrayTrailer, arrayTyres)
         }))
+}
+
+
+function validation(arrayTrailer, arrayTyres) {
+    console.log(arrayTrailer, arrayTyres)
+    const osy = array[array.length - 1].id;
+    const trailer = arrayTrailer.length ? arrayTrailer[arrayTrailer.length - 1].textContent : 'Тягач'
+    const tyres = arrayTyres[arrayTyres.length - 1].textContent
+    postModel(osy, trailer, tyres)
 
 }
+
+
+
+function postModel(osy, trailer, tyres) {
+    const base = [];
+    base.push(osy, trailer, tyres)
+    //   console.log(tu)
+    fetch('api/model', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(base),
+    })
+        .then((res) => res.json())
+    // .then((res) => {
+    //const data = res
+
+    /*
+    data.values.sort((prev, next) => {
+        if (prev.name < next.name) return -1;
+        if (prev.name < next.name) return 1;
+    })
+    // console.log(data.values.length)
+ 
+    view(data.values)
+    //console.log(obj);
+    //  modals(user.values)*/
+    // })
+}
+
 
 
 function select() {
@@ -407,17 +504,21 @@ function init() {
 init();
 
 
-function liCreate(arr) {
-    // const count = 100;
-    for (let i = 0; i < arr.length; i++) {
+function liCreate() {
+    const count = 97;
+
+    for (let i = 0; i < count; i++) {
         let li = document.createElement('li');
+
         li.className = "msg";
         obo.append(li);
     }
-}
 
+}
+liCreate()
 
 function viewDB() {
+    // console.log('запуск viewdb')
     fetch('api/wialon', {
         method: "GET",
         headers: {
@@ -433,8 +534,7 @@ function viewDB() {
                 if (prev.name < next.name) return -1;
                 if (prev.name < next.name) return 1;
             })
-            console.log(data.values.length)
-            liCreate(data.values)
+            // console.log(data.values.length)
 
             view(data.values)
             //console.log(obj);
@@ -442,6 +542,8 @@ function viewDB() {
         })
 
 }
+
+setInterval(viewDB, 5000)
 
 
 
@@ -488,7 +590,7 @@ tiresLink.forEach(e => {
 function sensor() {
     btnsens.forEach(e =>
         e.addEventListener('click', () => {
-            viewDB();
+
             btnsens.forEach(el => {
                 obo.style.display = 'none';
                 titleSens.style.display = 'none';

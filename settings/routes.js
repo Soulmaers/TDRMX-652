@@ -5,7 +5,7 @@ module.exports = (app) => {
 
     const usersController = require('../Controller/usersController')
     const dataWialon = require('../Controller/dataWialon')
-
+    const modelController = require('../Controller/modelController')
 
 
 
@@ -23,6 +23,12 @@ module.exports = (app) => {
     app
         .route('/api/wialon')
         .get(dataWialon.datawialon)
+    app
+        .route('/api/model')
+        .post(modelController.model)
+    app
+        .route('/api/model')
+        .get(modelController.modelView)
 
 }
 
