@@ -127,6 +127,7 @@ td {
 
 .wrapper_right {
     display: flex;
+
     width: 64.5%;
     min-height: 600px;
     padding: 30px;
@@ -429,12 +430,30 @@ td {
     display: none;
 }
 
+.container_left {
+    display: flex;
+    flex-direction: column;
+}
 
+
+.clear {
+    display: inline-block;
+    height: 50px;
+
+}
+
+.btn_clear {
+    background-color: gray;
+    padding: 10px 8px;
+    font-size: 13px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
 
 .container_2_4_4 {
     display: flex;
     flex-direction: column;
-
     height: 850px;
     padding: 0 20px;
 }

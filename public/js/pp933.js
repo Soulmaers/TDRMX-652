@@ -123,6 +123,7 @@ const inputDate = document.querySelectorAll('.input_date')
 const btnForm = document.querySelectorAll('.btm_form')
 const selectSpeed = document.querySelector('.select_speed')
 const grafView = document.querySelector('.grafik1')
+const btnClear = document.querySelector('.btn_clear')
 
 
 
@@ -136,27 +137,63 @@ fetch('api/model', {
     .then((res) => res.json())
     .then((res) => {
         const model = res
-        model.values.forEach(el => {
-            osi[el.osi].style.display = 'flex';
-            centerOs[el.osi].style.display = 'flex';
-        })
         console.log(model.values)
-        /*
-                data.values.sort((prev, next) => {
-                    if (prev.name < next.name) return -1;
-                    if (prev.name < next.name) return 1;
-                })
-                // console.log(data.values.length)
-        
-                view(data.values)
-                //console.log(obj);
-                //  modals(user.values)*/
+        if (model.values.length > 0) {
+            model.values.forEach(el => {
+                osi[el.osi - 1].style.display = 'flex';
+                centerOs[el.osi - 1].style.display = 'flex';
+                if (el.trailer === 'Прицеп') {
+                    centerOs[el.osi - 1].style.backgroundImage = "url('../image/line_red.png')";
+                }
+                if (el.trailer === 'Тягач') {
+                    centerOs[el.osi - 1].style.backgroundImage = "url('../image/line_gray.png')";
+                }
+
+                if (el.tyres == 2) {
+                    centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
+                    centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'flex';
+                }
+                else {
+                    centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
+                    centerOs[el.osi - 1].previousElementSibling.children[1].style.display = 'flex';
+                    centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'flex';
+                    centerOs[el.osi - 1].nextElementSibling.children[1].style.display = 'flex';
+                }
+
+            })
+        }
+        //console.log(model.values)
+        // console.log(model.values[0].tyres)
     })
 
 
 
 
+btnClear.addEventListener('click', () => {
+    fetch('api/delete', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([]),
+    })
+        .then((res) => res.json())
 
+
+    fetch('api/model', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+
+        }
+    })
+        .then((res) => res.json())
+        .then(res => console.log(res))
+    osi.forEach(e => {
+        e.style.display = 'none';
+    })
+    window.location.reload()
+})
 
 
 function dataInput() {
@@ -316,7 +353,7 @@ function os(arr) {
             }
             else if (e.textContent == 'Тягач')
                 // trail == e.textContent
-                arr[arr.length - 1].style.backgroundImage = "url('../image/line.png')";
+                arr[arr.length - 1].style.backgroundImage = "url('../image/line_gray.png')";
 
         }))
 
@@ -384,8 +421,6 @@ function postModel(osy, trailer, tyres) {
     //  modals(user.values)*/
     // })
 }
-
-
 
 function select() {
     linkSelect.forEach(el =>

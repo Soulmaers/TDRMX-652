@@ -60,7 +60,6 @@ function getMainInfo() {
                     connection.end();
                 }
                 else if (results.length > 0) {
-                    //const datas2 = [['mikaS', 2], ['ryk', 200], ['pety', 5]]
                     let count = 0;
                     sensors.forEach(el => {
                         count++
