@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const path = require('path')
 
-
+const routes = require('./settings/routes')
 const app = express();
 
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => res.sendFile(indexHTML));
 
 
 
-const routes = require('./settings/routes')
+
 routes(app);
 
 

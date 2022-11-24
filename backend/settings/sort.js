@@ -1,23 +1,7 @@
 
-
 function allParams(data) {
     const arr1 = Object.values(data);
     sensors = Object.entries(arr1[5][0].lmsg.p)
-    // const  sensorObj = Object.assign({}, sensors)
-    // console.log(sensorObj)
-    //return sensors
-    //r = Object.entries(sensors)
-    //console.log(r)
-    /*
-    const sensorss = Object.keys(arr1[5][0].lmsg.p).sort().reduce(
-        (obj, key) => {
-            obj[key] = arr1[5][0].lmsg.p[key];
-            return obj;
-        },
-    );
-
-    // const sensors = Object.entries(sensorss)
-    //console.log(sensorss)*/
 }
 
 function lostSens(data) {

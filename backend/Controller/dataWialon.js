@@ -7,7 +7,7 @@ const connection = require('../settings/db')
 
 exports.datawialon = (req, res) => {
 
-    console.log('запрос')
+    //   console.log('запрос')
     try {
         const selectBase = `SELECT name, value FROM params WHERE 1`
         connection.query(selectBase, function (err, results) {

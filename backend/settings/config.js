@@ -26,7 +26,7 @@ function init() {
 init()
 
 function getMainInfo() {
-    console.log('запуск')
+    // console.log('запуск')
     session.request('unit/calc_last_message', prms1)
         .catch(function (err) {
             console.log(err);

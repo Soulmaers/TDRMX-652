@@ -31,7 +31,7 @@ module.exports = (app) => {
         .get(modelController.modelView)
     app
         .route('/api/delete')
-        .post(modelController.deleteView)
+        .delete(modelController.deleteView)
 }
 
 
