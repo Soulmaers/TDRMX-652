@@ -16,7 +16,7 @@ export const loadModel = () => {
         .then((res) => res.json())
         .then((res) => {
             const model = res
-            // console.log(model.values)
+            console.log(model.values)
             if (model.values.length > 0) {
                 model.values.forEach(el => {
                     osi[el.osi - 1].style.display = 'flex';
@@ -27,6 +27,8 @@ export const loadModel = () => {
                     if (el.tyres == 2) {
                         centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
                         centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'flex';
+                        centerOs[el.osi - 1].previousElementSibling.children[1].style.display = 'none';
+                        centerOs[el.osi - 1].nextElementSibling.children[1].style.display = 'none';
                     }
                     else {
                         centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
@@ -60,16 +62,17 @@ export const reqDelete = () => {
 
 }
 
-export function postModel(osy, trailer, tyres) {
-    const base = [];
-    base.push(osy, trailer, tyres)
+export function postModel(arrTwo) {
+    console.log(arrTwo)
+    // const base = [];
+    // base.push(osy, trailer, tyres)
     //   console.log(tu)
     fetch('api/model', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(base),
+        body: JSON.stringify(arrTwo),
     })
         .then((res) => res.json())
 }

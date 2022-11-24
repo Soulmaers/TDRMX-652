@@ -24,8 +24,8 @@ exports.model = (req, res) => {
     console.log(req.body)
     //  console.log('запрос')
     try {
-        const postModel = "INSERT INTO `model`(`osi`, `trailer`,`tyres`) VALUES('" + req.body[0] + "', '" + req.body[1] + "', '" + req.body[2] + "')"
-        connection.query(postModel, function (err, results) {
+        const postModel = `INSERT INTO model(osi, trailer, tyres) VALUES?`
+        connection.query(postModel, [req.body], function (err, results) {
             if (err) console.log(err);
             //console.log(results)
             response.status(200, results, res)

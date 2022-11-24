@@ -21,6 +21,7 @@ const car = document.querySelector('.title_two')
 const inputDate = document.querySelectorAll('.input_date')
 const selectSpeed = document.querySelector('.select_speed')
 const btnClear = document.querySelector('.btn_clear')
+const btnSave = document.querySelector('.btn_save')
 
 //валидация токена на wialon
 init();
@@ -131,14 +132,25 @@ function os(arr) {
         }))
 }
 
+const massiv = []
 function validation(arrayTrailer, arrayTyres) {
-    console.log(arrayTrailer, arrayTyres)
+
     const osy = array[array.length - 1].id;
+
     const trailer = arrayTrailer.length ? arrayTrailer[arrayTrailer.length - 1].textContent : 'Тягач'
     const tyres = arrayTyres[arrayTyres.length - 1].textContent
-    postModel(osy, trailer, tyres)
+    console.log(osy, trailer, tyres)
+    const mass = [];
+    mass.push(osy, trailer, tyres)
+    //console.log(mass)
+    massiv.push(mass)
+    console.log(massiv)
 
 }
+
+btnSave.addEventListener('click', () => {
+    postModel(massiv)
+})
 
 function select() {
     linkSelect.forEach(el =>
