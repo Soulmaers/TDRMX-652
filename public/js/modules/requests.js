@@ -6,6 +6,32 @@ const tiresInside = document.querySelectorAll('.tiresInside')
 const centerOs = document.querySelectorAll('.centerOs');
 
 
+//запрос данный с базы (параметры датчиков)
+/*
+export function viewDB() {
+    fetch('api/wialon', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            const data = res
+
+            data.values.sort((prev, next) => {
+                if (prev.name < next.name) return -1;
+                if (prev.name < next.name) return 1;
+            })
+            // console.log(data.values.length)
+
+            view(data.values)
+            //console.log(obj);
+            //  modals(user.values)
+        })
+
+}*/
+
 export const loadModel = () => {
     fetch('api/model', {
         method: "GET",
@@ -49,7 +75,27 @@ export const loadModel = () => {
             }
         })
             .then((res) => res.json())
-            .then((res) => console.log(res))
+            .then((res) => {
+                const params = res
+                console.log(params.values)
+
+                fetch('api/wialon', {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    .then((res) => res.json())
+                    .then((res) => {
+                        const data = res
+
+                        data.values.sort((prev, next) => {
+                            if (prev.name < next.name) return -1;
+                            if (prev.name < next.name) return 1;
+                        })
+                        view(data.values, params.values)
+                    })
+            })
 }
 
 export const reqDelete = () => {
@@ -70,7 +116,6 @@ export const reqDelete = () => {
 
 }
 
-
 export const paramsDelete = () => {
     fetch('api/paramsDelete', {
         method: "DELETE",
@@ -80,12 +125,6 @@ export const paramsDelete = () => {
     })
         .then((res) => res.json())
         .then((res) => console.log(res))
-    //divClear(osi)
-    //divClear(tiresInside)
-    //divClear(tires)
-    // centerOs.forEach(e => {
-    //     e.style.backgroundImage = "url('../image/line.png')"
-    // })
 
 }
 
@@ -104,27 +143,4 @@ export function postModel(arrTwo) {
         .then((res) => res.json())
 }
 
-//запрос данный с базы (параметры датчиков)
-export function viewDB() {
-    fetch('api/wialon', {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
-        .then((res) => res.json())
-        .then((res) => {
-            const data = res
 
-            data.values.sort((prev, next) => {
-                if (prev.name < next.name) return -1;
-                if (prev.name < next.name) return 1;
-            })
-            // console.log(data.values.length)
-
-            view(data.values)
-            //console.log(obj);
-            //  modals(user.values)
-        })
-
-}

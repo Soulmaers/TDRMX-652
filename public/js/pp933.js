@@ -2,7 +2,7 @@
 'use strict'
 import { foreachArr, checked, speed, init, liCreate, sensor } from './modules/func.js'
 import { map } from './modules/osm.js'
-import { reqDelete, loadModel, postModel, viewDB, paramsDelete } from './modules/requests.js'
+import { reqDelete, loadModel, postModel, paramsDelete } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
 const linkSelect = document.querySelectorAll('.linkSelect');
@@ -29,8 +29,10 @@ const tyresD = document.querySelectorAll('.tiresD')
 
 //валидация токена на wialon
 init();
+//запрос в базу и получение параметров датчиков
 //загрузка текущей модели конфигуратора из базы
 loadModel();
+setInterval(loadModel, 5000)
 //очистка модели из базы и удаление отрисовки
 btnClear.addEventListener('click', reqDelete)
 btnClear.addEventListener('click', paramsDelete)
@@ -40,9 +42,7 @@ checked()
 speed()
 //генерация списка под параметры датчиков с базы
 liCreate()
-//запрос в базу и получение параметров датчиков
-viewDB();
-setInterval(viewDB, 5000)
+
 
 
 export function dataInput() {
@@ -153,6 +153,7 @@ function validation(arrayTrailer, arrayTyres) {
 
 btnSave.addEventListener('click', () => {
     postModel(massiv)
+
 })
 
 function select() {
@@ -194,68 +195,41 @@ select()
 
 
 
-export function view(arr) {
+export function view(arr, params) {
     //const msg = document.querySelectorAll('.msg')
-    //let arg = msg
-    //  console.log(arg)
+    const tiresLink = document.querySelectorAll('.tires_link')
+    console.log(arr)
+    console.log(params)
     arr.forEach((el, index) => {
         msg[index].textContent = `${el.name}:${el.value}`
+        let parapmsPress;
+        if (job.value !== '') {
+            parapmsPress = (el.value * job.value).toFixed(1)
+        } else {
+            parapmsPress = (el.value)
+        }
+
+        params.forEach(item => {
+            if (el.name == item.pressure) {
+                tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
+                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(el.value)];
+            }
+            if (el.name == item.temp) {
+                tiresLink[item.tyresdiv - 1].children[1].textContent = el.value + '°'
+                tiresLink[item.tyresdiv - 1].children[1].style.background = objColor[generT(el.value)];
+            }
+        })
+
     })
     //msgAct(arg)
 }
-
 const msg = document.querySelectorAll('.msg')
 
-/*
-msg.forEach(e => e.addEventListener('click', () => {
-    //console.log(e)
-    counter = e;
-    p.push(e)
-    console.log(p)
-    console.log(p[p.length - 1].textContent)
-    msg.forEach(el => el.classList.remove('act'))
-    e.classList.add('act')
-    const arrAct = [...e.textContent]
-    console.log(arrAct)
-    let value;
-    arrAct.forEach(el => {
-        if (el === ':') {
-            value = arrAct.splice(arrAct.indexOf(el) + 1, arrAct.length - 1).join('')
-        }
-    })
-    tiresLink.forEach(e => {
-        if (e.classList.contains('tiresActiv') && btnsens[0].classList.contains('actBTN')) {
-            value.length > 10 ?
-                e.children[0].textContent = '-' :
-                e.children[0].textContent = value + '\nБар'
-            e.children[0].style.background = objColor[generFront(value)];
-        }
-        if (e.classList.contains('tiresActiv') && btnsens[1].classList.contains('actBTN')) {
-            value.length > 10 ?
-                e.children[1].textContent = '-' :
-                e.children[1].textContent = value + '°'
-            e.children[1].style.background = objColor[generT(value)];
-        }
-    })
-}))*/
-
-/*
-const testArr = [[], []]
-const fntest = () => {
-    const num1 = Math.floor(Math.random() * 10)
-    const num2 = Math.floor(Math.random() * 10)
-    testArr[0].push(num1, num2)
-    testArr[1].push(num1, num2)
-}
-setInterval(fntest, 3000)
-console.log(testArr)
-*/
 
 
 
 
 const kolesos = [];
-
 function fn() {
     tiresLink.forEach(e => {
         e.addEventListener('click', () => {
@@ -368,8 +342,8 @@ function valid(paramPress, paramTemp) {
         postTyres(massivionbd);
     })
     //postTyres(massivionbd);
-    views(massivion)
-    setInterval(() => views(massivion), 15000)
+    // views(massivion)
+    //setInterval(() => views(massivion), 15000)
 }
 
 
@@ -387,6 +361,8 @@ function postTyres(arr) {
 
 
 }
+
+
 const views = (arr) => {
     console.log('итерация')
     console.log(arr)
@@ -416,39 +392,6 @@ const views = (arr) => {
         console.log(el[0].children[0].textContent, el[0].children[1].textContent)
     })
 }
-
-/*
-function fnt() {
-    tiresLink.forEach(it => {
-        if (it.classList.contains('tiresActiv') && btnsens[0].classList.contains('actBTN')) {
-            const iterValue = [...counter.textContent]
-            let value;
-            iterValue.forEach(el => {
-                if (el === ':') {
-                    value = iterValue.splice(iterValue.indexOf(el) + 1, iterValue.length - 1).join('')
-                }
-            })
-            value.length > 10 ?
-                it.children[1].textContent = '-' :
-                it.children[0].textContent = value + '\nБар'
-            it.children[0].style.background = objColor[generFront(value)];
-        }
-        if (it.classList.contains('tiresActiv') && btnsens[1].classList.contains('actBTN')) {
-            iterValue = [...counter.textContent]
-            iterValue.forEach(el => {
-                if (el === ':') {
-                    value = iterValue.splice(iterValue.indexOf(el) + 1, iterValue.length - 1).join('')
-                }
-            })
-            value.length > 10 ?
-                it.children[1].textContent = '-' :
-                it.children[1].textContent = value + '°'
-            it.children[1].style.background = objColor[generT(value)];
-        }
-    })
- 
-}*/
-
 
 //условия для подсветки шин D и T
 function generFront(el) {

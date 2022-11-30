@@ -118,9 +118,14 @@ td {
 
 }
 
+.change {
+    border: 1px solid gray;
+    max-width: 170px;
+    margin: 5px 0;
+}
+
 .job {
-    display: none;
-    max-width: 90px;
+    max-width: 160px;
 }
 
 .tiresActiv {

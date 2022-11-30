@@ -91,7 +91,7 @@ export function sensor() {
                 el.classList.remove('actBTN')
             })
             e.classList.add('actBTN')
-            jobModal(e);
+            // jobModal(e);
             obo.style.display = 'flex';
             titleSens.style.display = 'block';
         }))
