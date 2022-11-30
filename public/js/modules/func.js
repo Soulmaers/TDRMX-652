@@ -84,13 +84,26 @@ export function sensor() {
     const titleSens = document.querySelector('.title_sens')
     btnsens.forEach(e =>
         e.addEventListener('click', () => {
+
             btnsens.forEach(el => {
                 obo.style.display = 'none';
                 titleSens.style.display = 'none';
                 el.classList.remove('actBTN')
             })
             e.classList.add('actBTN')
+            jobModal(e);
             obo.style.display = 'flex';
             titleSens.style.display = 'block';
         }))
+}
+
+
+const jobModal = (e) => {
+    let job = document.querySelector('.job')
+    console.log(e)
+    if (e.textContent == 'Давление') {
+        job.style.display = "block"
+    } else {
+        job.style.display = "none"
+    }
 }

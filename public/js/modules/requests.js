@@ -26,9 +26,9 @@ export const loadModel = () => {
                         centerOs[el.osi - 1].style.backgroundImage = "url('../image/line_gray.png')"
                     if (el.tyres == 2) {
                         centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
-                        centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'flex';
+                        centerOs[el.osi - 1].nextElementSibling.children[1].style.display = 'flex';
                         centerOs[el.osi - 1].previousElementSibling.children[1].style.display = 'none';
-                        centerOs[el.osi - 1].nextElementSibling.children[1].style.display = 'none';
+                        centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'none';
                     }
                     else {
                         centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
@@ -41,7 +41,15 @@ export const loadModel = () => {
             else {
                 console.log('база пустая')
             }
+        }),
+        fetch('api/tyres', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            }
         })
+            .then((res) => res.json())
+            .then((res) => console.log(res))
 }
 
 export const reqDelete = () => {
@@ -59,6 +67,25 @@ export const reqDelete = () => {
     centerOs.forEach(e => {
         e.style.backgroundImage = "url('../image/line.png')"
     })
+
+}
+
+
+export const paramsDelete = () => {
+    fetch('api/paramsDelete', {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+    //divClear(osi)
+    //divClear(tiresInside)
+    //divClear(tires)
+    // centerOs.forEach(e => {
+    //     e.style.backgroundImage = "url('../image/line.png')"
+    // })
 
 }
 

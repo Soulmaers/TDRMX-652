@@ -1,7 +1,8 @@
 
 function allParams(data) {
     const arr1 = Object.values(data);
-    sensors = Object.entries(arr1[5][0].lmsg.p)
+    // console.log(arr1[5][0].lmsg.p)
+    sensors = Object.entries(arr1[5][1].lmsg.p)
 }
 
 function lostSens(data) {

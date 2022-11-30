@@ -118,6 +118,11 @@ td {
 
 }
 
+.job {
+    display: none;
+    max-width: 90px;
+}
+
 .tiresActiv {
     border: 1px solid #000;
     border-radius: 5px;
@@ -562,7 +567,6 @@ td {
 
 .tires_link {
     text-decoration: none;
-
 }
 
 

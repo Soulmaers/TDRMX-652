@@ -2,7 +2,7 @@
 'use strict'
 import { foreachArr, checked, speed, init, liCreate, sensor } from './modules/func.js'
 import { map } from './modules/osm.js'
-import { reqDelete, loadModel, postModel, viewDB } from './modules/requests.js'
+import { reqDelete, loadModel, postModel, viewDB, paramsDelete } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
 const linkSelect = document.querySelectorAll('.linkSelect');
@@ -22,6 +22,10 @@ const inputDate = document.querySelectorAll('.input_date')
 const selectSpeed = document.querySelector('.select_speed')
 const btnClear = document.querySelector('.btn_clear')
 const btnSave = document.querySelector('.btn_save')
+const job = document.querySelector('.job')
+const tyresD = document.querySelectorAll('.tiresD')
+
+
 
 //валидация токена на wialon
 init();
@@ -29,6 +33,7 @@ init();
 loadModel();
 //очистка модели из базы и удаление отрисовки
 btnClear.addEventListener('click', reqDelete)
+btnClear.addEventListener('click', paramsDelete)
 //обработка выбора графика скорости за интервал
 checked()
 //управление графиком скорости
@@ -36,6 +41,7 @@ speed()
 //генерация списка под параметры датчиков с базы
 liCreate()
 //запрос в базу и получение параметров датчиков
+viewDB();
 setInterval(viewDB, 5000)
 
 
@@ -119,7 +125,7 @@ function os(arr) {
             arr[arr.length - 1].nextElementSibling.children[1].style.display = 'none';
             if (e.textContent == 2) {
                 arr[arr.length - 1].previousElementSibling.children[0].style.display = 'flex';
-                arr[arr.length - 1].nextElementSibling.children[0].style.display = 'flex';
+                arr[arr.length - 1].nextElementSibling.children[1].style.display = 'flex';
             }
             if (e.textContent == 4) {
                 arr[arr.length - 1].previousElementSibling.children[0].style.display = 'flex';
@@ -134,9 +140,7 @@ function os(arr) {
 
 const massiv = []
 function validation(arrayTrailer, arrayTyres) {
-
     const osy = array[array.length - 1].id;
-
     const trailer = arrayTrailer.length ? arrayTrailer[arrayTrailer.length - 1].textContent : 'Тягач'
     const tyres = arrayTyres[arrayTyres.length - 1].textContent
     console.log(osy, trailer, tyres)
@@ -145,7 +149,6 @@ function validation(arrayTrailer, arrayTyres) {
     //console.log(mass)
     massiv.push(mass)
     console.log(massiv)
-
 }
 
 btnSave.addEventListener('click', () => {
@@ -192,40 +195,229 @@ select()
 
 
 export function view(arr) {
-    const msg = document.querySelectorAll('.msg')
-    let arg = msg
+    //const msg = document.querySelectorAll('.msg')
+    //let arg = msg
     //  console.log(arg)
     arr.forEach((el, index) => {
-        arg[index].textContent = `${el.name}:${el.value}`
+        msg[index].textContent = `${el.name}:${el.value}`
     })
-    msgAct(arg)
+    //msgAct(arg)
 }
 
-tiresLink.forEach(e => {
-    e.addEventListener('click', () => {
-        t.push(e)
-        speedGraf.style.display = 'none';
-        sensor()
-        tiresLink.forEach(e => {
-            obo.style.display = 'none'
-            titleSens.style.display = 'none'
-            wrapperButton.style.display = 'none'
-            const msg = document.querySelectorAll('.msg')
-            msg.forEach(el => el.classList.remove('act'))
-            //  console.log('убрали')
-        });
-        wrapperButton.style.display = 'flex';
-        //  console.log('поставили')
-        tiresLink.forEach(el => el.classList.remove('tiresActiv'));
-        e.classList.add('tiresActiv')
-        //console.log('нажал')
+const msg = document.querySelectorAll('.msg')
 
+/*
+msg.forEach(e => e.addEventListener('click', () => {
+    //console.log(e)
+    counter = e;
+    p.push(e)
+    console.log(p)
+    console.log(p[p.length - 1].textContent)
+    msg.forEach(el => el.classList.remove('act'))
+    e.classList.add('act')
+    const arrAct = [...e.textContent]
+    console.log(arrAct)
+    let value;
+    arrAct.forEach(el => {
+        if (el === ':') {
+            value = arrAct.splice(arrAct.indexOf(el) + 1, arrAct.length - 1).join('')
+        }
     })
-})
+    tiresLink.forEach(e => {
+        if (e.classList.contains('tiresActiv') && btnsens[0].classList.contains('actBTN')) {
+            value.length > 10 ?
+                e.children[0].textContent = '-' :
+                e.children[0].textContent = value + '\nБар'
+            e.children[0].style.background = objColor[generFront(value)];
+        }
+        if (e.classList.contains('tiresActiv') && btnsens[1].classList.contains('actBTN')) {
+            value.length > 10 ?
+                e.children[1].textContent = '-' :
+                e.children[1].textContent = value + '°'
+            e.children[1].style.background = objColor[generT(value)];
+        }
+    })
+}))*/
 
-let counter;
-const t = [];
-const p = [];
+/*
+const testArr = [[], []]
+const fntest = () => {
+    const num1 = Math.floor(Math.random() * 10)
+    const num2 = Math.floor(Math.random() * 10)
+    testArr[0].push(num1, num2)
+    testArr[1].push(num1, num2)
+}
+setInterval(fntest, 3000)
+console.log(testArr)
+*/
+
+
+
+
+const kolesos = [];
+
+function fn() {
+    tiresLink.forEach(e => {
+        e.addEventListener('click', () => {
+            kolesos.push(e)
+            console.log(kolesos[kolesos.length - 1].id)
+
+            speedGraf.style.display = 'none';
+            sensor()
+            tiresLink.forEach(e => {
+                obo.style.display = 'none'
+                titleSens.style.display = 'none'
+                wrapperButton.style.display = 'none'
+                const msg = document.querySelectorAll('.msg')
+                msg.forEach(el => el.classList.remove('act'))
+                //  console.log('убрали')
+            });
+            wrapperButton.style.display = 'flex';
+            //  console.log('поставили')
+            tiresLink.forEach(el => el.classList.remove('tiresActiv'));
+            e.classList.add('tiresActiv')
+            //console.log('нажал')
+
+        })
+    })
+    koleso(kolesos)
+}
+fn()
+function koleso(kol) {
+    const paramPress = [];
+    const paramTemp = [];
+    msg.forEach(el => {
+        el.addEventListener('click', () => {
+
+            const arrSpreed = [...el.textContent]
+            let value;
+            arrSpreed.forEach(el => {
+                if (el === ':') {
+                    value = arrSpreed.splice(arrSpreed.indexOf(el) + 1, arrSpreed.length - 1).join('')
+                }
+            })
+            if (btnsens[0].classList.contains('actBTN')) {
+
+                console.log(job.value)
+
+                const valJob = (job.value.length == 0) ? value : value * job.value
+                console.log(valJob)
+                console.log('первые данные')
+                valJob.length > 10 ?
+                    kol[kol.length - 1].children[0].textContent = '-' :
+                    kol[kol.length - 1].children[0].textContent = valJob + '\nБар'
+                kol[kol.length - 1].children[0].style.background = objColor[generFront(valJob)];
+                paramPress.push(el)
+                console.log(paramPress)
+            }
+            if (btnsens[1].classList.contains('actBTN')) {
+
+                value.length > 10 ?
+                    kol[kol.length - 1].children[1].textContent = '-' :
+                    kol[kol.length - 1].children[1].textContent = value + '°'
+                kol[kol.length - 1].children[1].style.background = objColor[generFront(value)];
+                paramTemp.push(el)
+                console.log(paramTemp)
+                valid(paramPress, paramTemp)
+            }
+
+        })
+    })
+
+}
+
+
+const massivion = [];
+
+function valid(paramPress, paramTemp) {
+    const massivionbd = [];
+    const kol = kolesos[kolesos.length - 1];
+    const kolId = kolesos[kolesos.length - 1].id;
+    console.log(kolId)
+    const dav = paramPress[paramPress.length - 1]
+    const temp = paramTemp[paramTemp.length - 1]
+
+    const arrSpreed1 = [...dav.textContent]
+    let value;
+    arrSpreed1.forEach(el => {
+        if (el === ':') {
+            value = arrSpreed1.splice(arrSpreed1[0] + 1, arrSpreed1.indexOf(el)).join('')
+        }
+    })
+    console.log(value)
+    const arrSpreed2 = [...temp.textContent]
+    let value2;
+    arrSpreed2.forEach(el => {
+        if (el === ':') {
+            value2 = arrSpreed2.splice(arrSpreed2[0] + 1, arrSpreed2.indexOf(el)).join('')
+        }
+    })
+    console.log(value2)
+    const mass = [];
+    mass.push(kol, dav, temp)
+    console.log(mass)
+    const massbd = [];
+    massbd.push(kolId, value, value2)
+    console.log(massbd)
+    //console.log(mass)
+    massivion.push(mass)
+    massivionbd.push(massbd)
+    console.log(massivion)
+    console.log(massivionbd)
+    btnSave.addEventListener('click', () => {
+        postTyres(massivionbd);
+    })
+    //postTyres(massivionbd);
+    views(massivion)
+    setInterval(() => views(massivion), 15000)
+}
+
+
+function postTyres(arr) {
+    fetch('api/tyres', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(arr),
+    })
+        .then((res) => res.json())
+        .then(res => console.log(res))
+
+
+
+}
+const views = (arr) => {
+    console.log('итерация')
+    console.log(arr)
+    arr.forEach(el => {
+        const arrSpreed = [...el[1].textContent]
+        //console.log(arrSpreed)
+        let value;
+        arrSpreed.forEach(el => {
+            if (el === ':') {
+                value = arrSpreed.splice(arrSpreed.indexOf(el) + 1, arrSpreed.length - 1).join('')
+            }
+        })
+        //console.log(value)
+        const arrSpreed2 = [...el[2].textContent]
+        //console.log(arrSpreed2)
+        let value2;
+        arrSpreed2.forEach(el => {
+            if (el === ':') {
+                value2 = arrSpreed2.splice(arrSpreed2.indexOf(el) + 1, arrSpreed2.length - 1).join('')
+            }
+        })
+        // console.log(value2)
+        console.log(el[0])
+        console.log('втораые данные')
+        el[0].children[0].textContent = (value * job.value).toFixed(1) + '\nБар'
+        el[0].children[1].textContent = value2 + '°'
+        console.log(el[0].children[0].textContent, el[0].children[1].textContent)
+    })
+}
+
+/*
 function fnt() {
     tiresLink.forEach(it => {
         if (it.classList.contains('tiresActiv') && btnsens[0].classList.contains('actBTN')) {
@@ -254,41 +446,9 @@ function fnt() {
             it.children[1].style.background = objColor[generT(value)];
         }
     })
+ 
+}*/
 
-}
-function msgAct(arg) {
-    arg.forEach(e => e.addEventListener('click', () => {
-        counter = e;
-        p.push(e)
-        arg.forEach(el => el.classList.remove('act'))
-        e.classList.add('act')
-        const arrAct = [...e.textContent]
-        let value;
-        arrAct.forEach(el => {
-            if (el === ':') {
-                value = arrAct.splice(arrAct.indexOf(el) + 1, arrAct.length - 1).join('')
-            }
-        })
-        tiresLink.forEach(e => {
-            if (e.classList.contains('tiresActiv') && btnsens[0].classList.contains('actBTN')) {
-                value.length > 10 ?
-                    e.children[0].textContent = '-' :
-                    e.children[0].textContent = value + '\nБар'
-                e.children[0].style.background = objColor[generFront(value)];
-            }
-            if (e.classList.contains('tiresActiv') && btnsens[1].classList.contains('actBTN')) {
-                value.length > 10 ?
-                    e.children[1].textContent = '-' :
-                    e.children[1].textContent = value + '°'
-                e.children[1].style.background = objColor[generT(value)];
-            }
-        })
-    }))
-    arg.forEach(elem => {
-        if (elem.classList.contains('act') && btnsens[0].classList.contains('actBTN'))
-            fnt()
-    })
-}
 
 //условия для подсветки шин D и T
 function generFront(el) {
