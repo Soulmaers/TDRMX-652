@@ -212,7 +212,7 @@ export function view(arr, params) {
         params.forEach(item => {
             if (el.name == item.pressure) {
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
-                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(el.value)];
+                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(parapmsPress)];
             }
             if (el.name == item.temp) {
                 tiresLink[item.tyresdiv - 1].children[1].textContent = el.value + '°'
@@ -362,7 +362,7 @@ function postTyres(arr) {
 
 }
 
-
+/*
 const views = (arr) => {
     console.log('итерация')
     console.log(arr)
@@ -392,7 +392,7 @@ const views = (arr) => {
         console.log(el[0].children[0].textContent, el[0].children[1].textContent)
     })
 }
-
+*/
 //условия для подсветки шин D и T
 function generFront(el) {
     let generatedValue;

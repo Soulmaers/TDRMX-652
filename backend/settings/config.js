@@ -42,16 +42,16 @@ function getMainInfo() {
         })
         .then(function (data) {
             allParams(data)
-            //console.log(sensors)
+            //  console.log(sensors)
             //sens = JSON.stringify(sensors)
-            // console.log(sens)
+            //console.log(sens)
             const selectBase = `SELECT id FROM params WHERE 1`
             connection.query(selectBase, function (err, results) {
                 if (err) console.log(err);
                 // console.log(results);
-                //  console.log(results.length);
+                console.log(results.length);
                 if (results.length <= 1) {
-                    // console.log('старт1')
+                    console.log('старт1')
                     // const datas = [['M', 300], ['R', 200], ['P', 500]]
                     const sql = `INSERT INTO params(name,value) VALUES?`;
                     connection.query(sql, [sensors], function (err, results) {
@@ -61,7 +61,7 @@ function getMainInfo() {
                     connection.end();
                 }
                 else if (results.length > 1) {
-                    //   console.log('старт')
+                    console.log('старт')
                     let count = 0;
                     sensors.forEach(el => {
                         count++
@@ -69,7 +69,7 @@ function getMainInfo() {
                         // const data = [34, "Tom"];
                         connection.query(sql, function (err, results) {
                             if (err) console.log(err);
-                            //  console.log(results);
+                            console.log(results);
                         });
                         //  connection.end();
                     })
