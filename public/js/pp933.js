@@ -115,6 +115,7 @@ function os(arr) {
 
     linkSelectTires.forEach(e =>
         e.addEventListener('click', () => {
+
             const arrayTyres = []
             arrayTyres.push(e)
             console.log(arrayTrailer)
@@ -212,7 +213,7 @@ export function view(arr, params) {
         params.forEach(item => {
             if (el.name == item.pressure) {
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
-                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(el.value)];
+                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(parapmsPress)];
             }
             if (el.name == item.temp) {
                 tiresLink[item.tyresdiv - 1].children[1].textContent = el.value + '°'

@@ -125,7 +125,16 @@ export const paramsDelete = () => {
     })
         .then((res) => res.json())
         .then((res) => console.log(res))
-
+    const tyresD = document.querySelectorAll('.tiresD')
+    const tyresT = document.querySelectorAll('.tiresT')
+    tyresD.forEach(e => {
+        e.textContent = ''
+        e.style.background = '#fff'
+    })
+    tyresT.forEach(e => {
+        e.textContent = ''
+        e.style.background = '#fff'
+    })
 }
 
 export function postModel(arrTwo) {
