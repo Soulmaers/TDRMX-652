@@ -115,6 +115,7 @@ function os(arr) {
 
     linkSelectTires.forEach(e =>
         e.addEventListener('click', () => {
+
             const arrayTyres = []
             arrayTyres.push(e)
             console.log(arrayTrailer)
