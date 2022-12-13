@@ -34,6 +34,20 @@ export const foreachArr = (arr1, arr2, num) => {
 }
 
 
+export function alertCreate() {
+    let div = document.createElement('div');
+    div.className = "alarm";
+    const headerCar = document.querySelector('.header_car')
+    headerCar.prepend(div);
+}
+
+export function alarm() {
+    const div = document.querySelector('.alarm')
+    div.style.display = 'block'
+
+}
+
+
 export function checked() {
     const selectSpeed = document.querySelector('.select_speed');
     const inputDate = document.querySelectorAll('.input_date')

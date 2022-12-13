@@ -1,6 +1,6 @@
 
 'use strict'
-import { foreachArr, checked, speed, init, liCreate, sensor } from './modules/func.js'
+import { foreachArr, checked, speed, init, liCreate, sensor, alarm, alertCreate } from './modules/func.js'
 import { map } from './modules/osm.js'
 import { reqDelete, loadModel, postModel, paramsDelete } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
@@ -12,6 +12,7 @@ const tiresLink = document.querySelectorAll('.tires_link')
 const linkSelectOs = document.querySelectorAll('.linkSelectOs')
 const linkSelectTires = document.querySelectorAll('.linkSelectTires')
 const wrapperButton = document.querySelector('.wrapper_button')
+
 const btnsens = document.querySelectorAll('.btnsens')
 const titleSens = document.querySelector('.title_sens')
 const obo = document.querySelector('.obo')
@@ -26,6 +27,9 @@ const job = document.querySelector('.job')
 const tyresD = document.querySelectorAll('.tiresD')
 
 
+
+//создание дива для аларма
+alertCreate();
 
 //валидация токена на wialon
 init();
@@ -42,6 +46,11 @@ checked()
 speed()
 //генерация списка под параметры датчиков с базы
 liCreate()
+
+
+
+
+
 
 
 
@@ -195,9 +204,11 @@ function select() {
 select()
 
 
-
+//let div = document.createElement('div');
+//div.className = "alarm";
 export function view(arr, params) {
-    //const msg = document.querySelectorAll('.msg')
+    const alerts = [];
+    //div.style.display = 'none';
     const tiresLink = document.querySelectorAll('.tires_link')
     console.log(arr)
     console.log(params)
@@ -209,9 +220,10 @@ export function view(arr, params) {
         } else {
             parapmsPress = (el.value)
         }
-
         params.forEach(item => {
             if (el.name == item.pressure) {
+                tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress
+                alerts.push(tiresLink[item.tyresdiv - 1].children[0].textContent)
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
                 tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(parapmsPress)];
             }
@@ -221,8 +233,11 @@ export function view(arr, params) {
             }
         })
 
+        if (alerts.some(element => element < 7.5 || element > 13) == true) {
+            alarm();
+        }
     })
-    //msgAct(arg)
+
 }
 const msg = document.querySelectorAll('.msg')
 
@@ -279,6 +294,7 @@ function koleso(kol) {
                     kol[kol.length - 1].children[0].textContent = '-' :
                     kol[kol.length - 1].children[0].textContent = valJob + '\nБар'
                 kol[kol.length - 1].children[0].style.background = objColor[generFront(valJob)];
+
                 paramPress.push(el)
                 console.log(paramPress)
             }
@@ -286,7 +302,8 @@ function koleso(kol) {
                 value.length > 10 ?
                     kol[kol.length - 1].children[1].textContent = '-' :
                     kol[kol.length - 1].children[1].textContent = value + '°'
-                kol[kol.length - 1].children[1].style.background = objColor[generFront(value)];
+                kol[kol.length - 1].children[1].style.background = objColor[generT(value)];
+                // div.style.display = 'none';
                 paramTemp.push(el)
                 console.log(paramTemp)
                 valid(paramPress, paramTemp)
@@ -390,12 +407,21 @@ const views = (arr) => {
 //условия для подсветки шин D и T
 function generFront(el) {
     let generatedValue;
-    if (el >= 8 && el <= 9)
+    if (el >= 8 && el <= 9) {
         generatedValue = 3;
-    if (el >= 7.5 && el < 8 || el > 9 && el <= 13)
+        //  console.log('al')
+        //  div.style.display = 'none';
+    }
+    if (el >= 7.5 && el < 8 || el > 9 && el <= 13) {
         generatedValue = 2;
-    if (el > -100 && el < 7.5 || el > 13)
+        //  console.log('al')
+        //  div.style.display = 'none';
+    }
+    if (el > -100 && el < 7.5 || el > 13) {
         generatedValue = 1;
+        // console.log('noal')
+        // alarm()
+    }
     return generatedValue;
 };
 

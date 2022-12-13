@@ -99,6 +99,8 @@ export const loadModel = () => {
 }
 
 export const reqDelete = () => {
+    const div = document.querySelector('.alarm')
+    div.style.display = 'none'
     fetch('api/delete', {
         method: "DELETE",
         headers: {
