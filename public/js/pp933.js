@@ -263,7 +263,6 @@ function koleso(kol) {
     const paramTemp = [];
     msg.forEach(el => {
         el.addEventListener('click', () => {
-
             const arrSpreed = [...el.textContent]
             let value;
             arrSpreed.forEach(el => {
@@ -272,9 +271,7 @@ function koleso(kol) {
                 }
             })
             if (btnsens[0].classList.contains('actBTN')) {
-
                 console.log(job.value)
-
                 const valJob = (job.value.length == 0) ? value : value * job.value
                 console.log(valJob)
                 console.log('первые данные')
@@ -286,7 +283,6 @@ function koleso(kol) {
                 console.log(paramPress)
             }
             if (btnsens[1].classList.contains('actBTN')) {
-
                 value.length > 10 ?
                     kol[kol.length - 1].children[1].textContent = '-' :
                     kol[kol.length - 1].children[1].textContent = value + '°'
@@ -295,15 +291,12 @@ function koleso(kol) {
                 console.log(paramTemp)
                 valid(paramPress, paramTemp)
             }
-
         })
     })
-
 }
 
 
 const massivion = [];
-
 function valid(paramPress, paramTemp) {
     const massivionbd = [];
     const kol = kolesos[kolesos.length - 1];
