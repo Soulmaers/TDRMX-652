@@ -90,6 +90,36 @@ td {
     margin-top: 10px;
 }
 
+
+
+.tires:hover .place,
+.place:hover {
+    opacity: 1;
+}
+
+.place {
+    display: block;
+    opacity: 0;
+    color: gray;
+    font-size: 0.8rem;
+    text-align: left;
+    padding-top: 2px;
+    padding-left: 5px;
+    font-weight: bold;
+    -webkit-transition: opacity 300ms;
+    transition: opacity 300ms;
+    position: absolute;
+    height: 34px;
+    width: 75px;
+    top: 14%;
+    left: 35%;
+    background-color: #fff;
+    visibility: visible;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+
 .wrapper_left {
     width: 35%;
     min-height: 600px;
@@ -428,7 +458,7 @@ td {
     width: 255px;
     height: 400px;
     margin: 5px 5px;
-    margin-top: 30px;
+    margin-top: 50px;
 
 
 }

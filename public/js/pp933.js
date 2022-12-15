@@ -24,10 +24,10 @@ const selectSpeed = document.querySelector('.select_speed')
 const btnClear = document.querySelector('.btn_clear')
 const btnSave = document.querySelector('.btn_save')
 const job = document.querySelector('.job')
-const tyresD = document.querySelectorAll('.tiresD')
+const tyres = document.querySelectorAll('.tires')
+const place = document.querySelectorAll('.place')
 
-
-
+console.log(place)
 //создание дива для аларма
 alertCreate();
 
@@ -223,6 +223,7 @@ export function view(arr, params) {
         params.forEach(item => {
             if (el.name == item.pressure) {
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress
+                tiresLink[item.tyresdiv - 1].children[2].textContent = 'p:' + item.pressure + '\nt:' + item.temp
                 alerts.push(tiresLink[item.tyresdiv - 1].children[0].textContent)
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
                 tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(parapmsPress)];
@@ -276,6 +277,8 @@ fn()
 function koleso(kol) {
     const paramPress = [];
     const paramTemp = [];
+    let prmsD = [];
+    let prmsT = [];
     msg.forEach(el => {
         el.addEventListener('click', () => {
             const arrSpreed = [...el.textContent]
@@ -286,28 +289,36 @@ function koleso(kol) {
                 }
             })
             if (btnsens[0].classList.contains('actBTN')) {
+                arrSpreed.forEach(el => {
+                    if (el === ':') {
+                        prmsD.push(arrSpreed.splice(arrSpreed[0] + 1, arrSpreed.indexOf(el)).join(''))
+                    }
+                })
                 console.log(job.value)
                 const valJob = (job.value.length == 0) ? value : value * job.value
-                console.log(valJob)
-                console.log('первые данные')
                 valJob.length > 10 ?
                     kol[kol.length - 1].children[0].textContent = '-' :
                     kol[kol.length - 1].children[0].textContent = valJob + '\nБар'
                 kol[kol.length - 1].children[0].style.background = objColor[generFront(valJob)];
-
                 paramPress.push(el)
                 console.log(paramPress)
             }
             if (btnsens[1].classList.contains('actBTN')) {
+                arrSpreed.forEach(el => {
+                    if (el === ':') {
+                        prmsT.push(arrSpreed.splice(arrSpreed[0] + 1, arrSpreed.indexOf(el)).join(''))
+                    }
+                })
                 value.length > 10 ?
                     kol[kol.length - 1].children[1].textContent = '-' :
                     kol[kol.length - 1].children[1].textContent = value + '°'
                 kol[kol.length - 1].children[1].style.background = objColor[generT(value)];
-                // div.style.display = 'none';
                 paramTemp.push(el)
                 console.log(paramTemp)
                 valid(paramPress, paramTemp)
             }
+            kol[kol.length - 1].children[2].textContent = 'p:' + prmsD[prmsD.length - 1] + '\nt:' + prmsT[prmsT.length - 1]
+            console.log(kol[kol.length - 1].children[2].textContent)
         })
     })
 }
