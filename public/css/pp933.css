@@ -331,6 +331,8 @@ td {
 }
 
 .wrapper_containt {
+    position: fixed;
+    left: 42%;
     display: flex;
     flex-direction: column;
 
