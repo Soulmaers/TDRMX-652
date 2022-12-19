@@ -88,6 +88,20 @@ function getMainInfo() {
             oilFn(oil);
         });
 
+
+    const prms2 = {
+        "id": 25594204, //25343786,-pres //25594204 dtrmx,
+        "flags": 1025
+    };
+    const remote3 = wialon.core.Remote.getInstance();
+    remote3.remoteCall('core/search_item', prms2,
+        function (code, result) {
+            if (code) {
+                console.log(wialon.core.Errors.getErrorText(code));
+            }
+            arr3 = result
+            console.log(arr3)
+        })
 }
 
 

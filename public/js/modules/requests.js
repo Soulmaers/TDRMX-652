@@ -1,10 +1,54 @@
 import { divClear } from './func.js'
 import { view } from '../pp933.js'
+import { map } from './osm.js'
 const osi = document.querySelectorAll('.osi')
 const tires = document.querySelectorAll('.tires')
 const tiresInside = document.querySelectorAll('.tiresInside')
 const centerOs = document.querySelectorAll('.centerOs');
 
+
+
+let iss;
+export const geoPosition = () => {
+    console.log('запрос')
+    fetch('/api/datawialonGeo', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            const geo = res
+            const center = [geo.geoY, geo.geoX]
+            console.log('запрос2')
+            console.log(center)
+            map.setView([59.9386, 30.3141], 8);
+            L.marker(center).addTo(map);
+            if (!iss) {
+                iss = L.marker(center).bindPopup("I am the ISS").addTo(map);
+            }
+            iss.setLatLng(center).update();
+            setTimeout(geoPosition, 60000);
+        })
+}
+//geoPosition();
+
+
+/*
+function update_position() {
+    $.getJSON('http://open-notify-api.herokuapp.com/iss-now.json?callback=?', function (data) {
+        var latitude = data["iss_position"]["latitude"];
+        var longitude = data["iss_position"]["longitude"];
+        if (!iss) {
+            iss = L.marker([latitude, longitude]).bindPopup("I am the ISS").addTo(map);
+        }
+        iss.setLatLng([latitude, longitude]).update();
+        setTimeout(update_position, 1000);
+    });
+}
+
+update_position();*/
 
 //запрос данный с базы (параметры датчиков)
 /*

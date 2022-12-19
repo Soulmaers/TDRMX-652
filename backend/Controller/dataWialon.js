@@ -2,7 +2,7 @@ const response = require('../response')
 //const wialon = require('wialon');
 const getMainInfo = require('../settings/config')
 const connection = require('../settings/db')
-
+//const { gY, gX } = require('../settings/config')
 
 
 exports.datawialon = (req, res) => {
@@ -15,6 +15,17 @@ exports.datawialon = (req, res) => {
             // console.log(results)
             response.status(200, results, res)
         })
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
+
+exports.datawialonGeo = (req, res) => {
+    try {
+        console.log('запрос')
+        // console.log(geoY, geoX)
+        res.json({ geoY, geoX })
     }
     catch (e) {
         console.log(e)

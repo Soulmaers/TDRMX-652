@@ -2,7 +2,7 @@
 'use strict'
 import { foreachArr, checked, speed, init, liCreate, sensor, alarm, alertCreate } from './modules/func.js'
 import { map } from './modules/osm.js'
-import { reqDelete, loadModel, postModel, paramsDelete } from './modules/requests.js'
+import { reqDelete, loadModel, postModel, paramsDelete, geoPosition } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
 const linkSelect = document.querySelectorAll('.linkSelect');
@@ -28,6 +28,9 @@ const tyres = document.querySelectorAll('.tires')
 const place = document.querySelectorAll('.place')
 
 console.log(place)
+
+//setTimeout(geoPosition, 3000)
+geoPosition();
 //создание дива для аларма
 alertCreate();
 

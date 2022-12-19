@@ -23,7 +23,14 @@ const prms = {
 };
 
 
+const prms2 = {
+    "id": 25343786, //25343786,-pres //25594204 dtrmx,
+    "flags": 1025
+};
+
+
 module.exports = {
     prms1,
-    prms
+    prms,
+    prms2
 }

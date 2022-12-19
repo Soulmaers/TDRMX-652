@@ -2,9 +2,9 @@
 const wialon = require('wialon');
 const express = require('express');
 const connection = require('./db')
-const { allParams, lostSens } = require('./sort')
+const { allParams, lostSens, geo } = require('./sort')
 
-const { prms1, prms } = require('./params')
+const { prms1, prms, prms2 } = require('./params')
 const app = express();
 app.use(express.json());
 
@@ -18,6 +18,7 @@ function init() {
             console.log(err);
         })
         .then(function (data) {
+            //  console.log('обновление')
             setInterval(getMainInfo, 5000);
 
         })
@@ -25,8 +26,11 @@ function init() {
 }
 init()
 
+
+let gY;
+let gX;
 function getMainInfo() {
-    // console.log('запуск')
+    console.log('запуск')
     session.request('unit/calc_last_message', prms1)
         .catch(function (err) {
             console.log(err);
@@ -34,6 +38,23 @@ function getMainInfo() {
         .then(function (data) {
             lostSens(data)
             //  console.log(pressureSensor, temperatureSensor)
+        })
+
+    session.request('core/search_item', prms2)
+        .catch(function (err) {
+            console.log(err);
+        })
+        .then(function (data) {
+            geo(data)
+            gY = geoY;
+            gX = geoX;
+            //  console.log(geoY, geoX)
+            // console.log(gY, gX)
+            app.get('api/getPositions', (req, res) => {
+                //   console.log(geoY, geoX)
+                res.json(geoY, geoX)
+            })
+            //  геопозиция
         })
 
     session.request('core/search_items', prms)
@@ -49,7 +70,7 @@ function getMainInfo() {
             connection.query(selectBase, function (err, results) {
                 if (err) console.log(err);
                 // console.log(results);
-                console.log(results.length);
+                //  console.log(results.length);
                 if (results.length <= 1) {
                     console.log('старт1')
                     // const datas = [['M', 300], ['R', 200], ['P', 500]]
@@ -69,7 +90,7 @@ function getMainInfo() {
                         // const data = [34, "Tom"];
                         connection.query(sql, function (err, results) {
                             if (err) console.log(err);
-                            console.log(results);
+                            //y console.log(results);
                         });
                         //  connection.end();
                     })
@@ -91,7 +112,11 @@ function getMainInfo() {
 
 
 //const y = c
-module.exports = getMainInfo
+module.exports = {
+    getMainInfo,
+    gX,
+    gY
+}
 
 
 
