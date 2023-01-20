@@ -12,6 +12,13 @@ foo()
 */
 // wialon api запросы
 
+
+
+
+
+
+
+
 function init() {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
     wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
@@ -102,6 +109,21 @@ function getMainInfo() {
             arr3 = result
             console.log(arr3)
         })
+
+    /*
+const prms5 = {
+    "user": "AD_PP" //25343786,-pres //25594204 dtrmx,
+
+};
+const remote5 = wialon.core.Remote.getInstance();
+remote5.remoteCall('http://hosting.wialon.com/login.html', prms5,
+    function (code, result) {
+        if (code) {
+            console.log(wialon.core.Errors.getErrorText(code));
+        }
+        arr5 = result
+        console.log(arr5)
+    })*/
 }
 
 

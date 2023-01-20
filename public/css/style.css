@@ -20,27 +20,27 @@ td {
 
 .menu {
   display: flex;
-
-
-}
-
-.list_menu {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 10px 122.5px;
-  border-right: 20px solid lightgray;
-}
-
-.list_menu:nth-child(n+2) {
-  margin-left: 10px;
-  border: 0;
+  margin-left: 50px;
   padding: 10px 0;
 }
 
+.list_menu_left {
+  display: flex;
+  width: 35%;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 10px;
 
+}
 
+.list_menu_center {
+  display: flex;
+  width: 65%;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 122.5px;
 
+}
 
 
 
@@ -61,8 +61,6 @@ td {
 }
 
 
-
-
 .link_menu {
   text-decoration: none;
   font-family: Roboto;
@@ -70,8 +68,6 @@ td {
   font-weight: 900;
   font-size: 1rem;
 }
-
-
 
 .car {
   color: #000;

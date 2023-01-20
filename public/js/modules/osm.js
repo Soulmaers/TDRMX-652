@@ -7,3 +7,5 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 map.setView([59.9386, 30.3141], 8);
 //L.marker([59.9386, 30.3141]).addTo(map);
+
+

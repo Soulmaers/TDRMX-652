@@ -157,6 +157,7 @@ td {
 }
 
 .change {
+    display: none;
     border: 1px solid gray;
     max-width: 170px;
     margin: 5px 0;

@@ -1,8 +1,8 @@
 
 'use strict'
-import { foreachArr, checked, speed, init, liCreate, sensor, alarm, alertCreate } from './modules/func.js'
+import { foreachArr2, checked2, speed2, init, liCreate, sensor2, alarm2, alertCreate2 } from './modules/func.js'
 import { map } from './modules/osm.js'
-import { reqDelete, loadModel, postModel, paramsDelete, geoPosition } from './modules/requests.js'
+import { reqDelete2, loadModel2, postModel2, paramsDelete2, geoPosition2 } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
 const linkSelect = document.querySelectorAll('.linkSelect');
@@ -30,23 +30,23 @@ const place = document.querySelectorAll('.place')
 console.log(place)
 
 //setTimeout(geoPosition, 3000)
-geoPosition();
+geoPosition2();
 //создание дива для аларма
-alertCreate();
+alertCreate2();
 
 //валидация токена на wialon
 init();
 //запрос в базу и получение параметров датчиков
 //загрузка текущей модели конфигуратора из базы
-loadModel();
-setInterval(loadModel, 5000)
+loadModel2();
+setInterval(loadModel2, 5000)
 //очистка модели из базы и удаление отрисовки
-btnClear.addEventListener('click', reqDelete)
-btnClear.addEventListener('click', paramsDelete)
+btnClear.addEventListener('click', reqDelete2)
+btnClear.addEventListener('click', paramsDelete2)
 //обработка выбора графика скорости за интервал
-checked()
+checked2()
 //управление графиком скорости
-speed()
+speed2()
 //генерация списка под параметры датчиков с базы
 liCreate()
 
@@ -57,7 +57,7 @@ liCreate()
 
 
 
-export function dataInput() {
+export function dataInput2() {
     selectSpeed.value = 0;
     const arrDate = [];
     inputDate.forEach(e => {
@@ -72,7 +72,7 @@ export function dataInput() {
 
 let nowDate = Math.round(new Date().getTime() / 1000)
 let nDate = new Date();
-export function dataSelect() {
+export function dataSelect2() {
     switch (selectSpeed.value) {
         case '1': {
             let timeFrom = Math.round(nDate.setHours(nDate.getHours() - 24) / 1000);
@@ -101,7 +101,7 @@ car.addEventListener('click', () => {
 })
 
 const array = [];
-function modul() {
+function modul2() {
     centerOs.forEach(el => {
         el.addEventListener('click', () => {
             centerOs.forEach(el => el.classList.remove('os'));
@@ -113,7 +113,7 @@ function modul() {
     })
     os(array)
 }
-modul()
+modul2()
 
 function os(arr) {
     const arrayTrailer = [];
@@ -165,7 +165,7 @@ function validation(arrayTrailer, arrayTyres) {
 }
 
 btnSave.addEventListener('click', () => {
-    postModel(massiv)
+    postModel2(massiv)
 
 })
 
@@ -209,7 +209,7 @@ select()
 
 //let div = document.createElement('div');
 //div.className = "alarm";
-export function view(arr, params) {
+export function view2(arr, params) {
     const alerts = [];
     //div.style.display = 'none';
     const tiresLink = document.querySelectorAll('.tires_link')
@@ -238,7 +238,7 @@ export function view(arr, params) {
         })
 
         if (alerts.some(element => element < 7.5 || element > 13) == true) {
-            alarm();
+            alarm2();
         }
     })
 
@@ -257,7 +257,7 @@ function fn() {
             console.log(kolesos[kolesos.length - 1].id)
 
             speedGraf.style.display = 'none';
-            sensor()
+            sensor2()
             tiresLink.forEach(e => {
                 obo.style.display = 'none'
                 titleSens.style.display = 'none'
@@ -373,7 +373,7 @@ function valid(paramPress, paramTemp) {
 
 
 function postTyres(arr) {
-    fetch('api/tyres', {
+    fetch('api/tyres2', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

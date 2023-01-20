@@ -29,6 +29,7 @@ init()
 
 let gY;
 let gX;
+
 function getMainInfo() {
     console.log('запуск')
     session.request('unit/calc_last_message', prms1)
@@ -49,13 +50,16 @@ function getMainInfo() {
             gY = geoY;
             gX = geoX;
             //  console.log(geoY, geoX)
-            // console.log(gY, gX)
+            //console.log(gY, gX)
             app.get('api/getPositions', (req, res) => {
                 //   console.log(geoY, geoX)
                 res.json(geoY, geoX)
             })
             //  геопозиция
         })
+
+
+
 
     session.request('core/search_items', prms)
         .catch(function (err) {
@@ -111,11 +115,16 @@ function getMainInfo() {
 
 
 
+
+
+
+
 //const y = c
 module.exports = {
     getMainInfo,
     gX,
     gY
+
 }
 
 
