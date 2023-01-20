@@ -40,7 +40,7 @@ exports.datawialon2 = (req, res) => {
 exports.datawialonGeo = (req, res) => {
     try {
         console.log('запрос')
-        // console.log(geoY, geoX)
+        console.log(geoY, geoX)
         res.json({ geoY, geoX })
     }
     catch (e) {
@@ -51,7 +51,7 @@ exports.datawialonGeo = (req, res) => {
 exports.datawialonGeo2 = (req, res) => {
     try {
         console.log('запрос')
-        // console.log(geoY, geoX)
+        console.log(geoY, geoX)
         res.json({ geoY, geoX })
     }
     catch (e) {

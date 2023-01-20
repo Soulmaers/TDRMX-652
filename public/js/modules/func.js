@@ -1,4 +1,4 @@
-import { dataInput, dataSelect } from '../pp933.js'
+//import { dataInput, dataSelect } from '../pp933.js'
 //import { dataInput2, dataSelect2 } from '../kran858.js'
 
 const obo = document.querySelector('.obo')
@@ -97,31 +97,7 @@ export function checked() {
 
 
 
-export function speed() {
-    const btnForm = document.querySelectorAll('.btm_form')
-    const inputDate = document.querySelectorAll('.input_date')
-    const grafView = document.querySelector('.grafik1')
-    const selectSpeed = document.querySelector('.select_speed')
-    btnForm.forEach(el =>
-        el.addEventListener('click', () => {
-            if (el.textContent === 'Выполнить' && inputDate[0].value !== '' && inputDate[1].value !== '') {
-                grafView.style.display = 'block'
-                dataInput()
-            }
-            if (el.textContent === 'Выполнить' && inputDate[0].value == '' && inputDate[1].value == '') {
-                grafView.style.display = 'block'
-                dataSelect()
-            }
-            if (el.textContent === 'Очистить') {
-                selectSpeed.value = 0;
-                inputDate.forEach(e => {
-                    e.value = ''
-                    //  console.log('очистил')
-                    grafView.style.display = 'none'
-                })
-            }
-        }))
-}
+
 
 
 
@@ -137,9 +113,9 @@ export function liCreate() {
 }
 
 
-export function sensor() {
-    const btnsens = document.querySelectorAll('.btnsens')
-    const titleSens = document.querySelector('.title_sens')
+export function sensor(btnsens, titleSens) {
+    // const btnsens = document.querySelectorAll('.btnsens')
+    // const titleSens = document.querySelector('.title_sens')
     btnsens.forEach(e =>
         e.addEventListener('click', () => {
 

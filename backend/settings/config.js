@@ -4,7 +4,7 @@ const express = require('express');
 const connection = require('./db')
 const { allParams, lostSens, geo } = require('./sort')
 
-const { prms1, prms, prms2 } = require('./params')
+const { prms1, prms, prms2, prms22 } = require('./params')
 const app = express();
 app.use(express.json());
 
@@ -51,10 +51,7 @@ function getMainInfo() {
             gX = geoX;
             //  console.log(geoY, geoX)
             //console.log(gY, gX)
-            app.get('api/getPositions', (req, res) => {
-                //   console.log(geoY, geoX)
-                res.json(geoY, geoX)
-            })
+
             //  геопозиция
         })
 

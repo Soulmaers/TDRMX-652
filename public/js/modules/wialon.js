@@ -1,10 +1,10 @@
 import { chrt1 } from './canvas.js'
 
 //запрос на wialon за данными по скорости
-export function graf(t1, t2, int) {
-    //console.log(t1, t2, int)
+export function graf(t1, t2, int, id) {
+    console.log(t1, t2, int, id)
     const prms2 = {
-        "itemId": 25766831,   //25343786,
+        "itemId": id,   //25343786,
 
         "timeFrom": t1,//t1,//timeFrom,//1657205816,
         "timeTo": t2,//t2,//nowDate,//2757209816,
@@ -19,6 +19,7 @@ export function graf(t1, t2, int) {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             const arr2 = Object.values(result);
+            console.log(arr2)
             const arrIterTime = [];
             const arrIterTimeDate = [];
             arr2[1].forEach(el => {

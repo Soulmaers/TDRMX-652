@@ -1,7 +1,8 @@
 
 'use strict'
-import { foreachArr, checked, speed, init, liCreate, sensor, alarmMin, alarmMax, alertCreate } from './modules/func.js'
+import { foreachArr, checked, init, liCreate, sensor, alarmMin, alarmMax, alertCreate } from './modules/func.js'
 import { map } from './modules/osm.js'
+
 import { reqDelete, loadModel, postModel, paramsDelete, geoPosition } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
@@ -49,15 +50,45 @@ setInterval(loadModel, 5000)
 btnClear.addEventListener('click', reqDelete)
 btnClear.addEventListener('click', paramsDelete)
 //обработка выбора графика скорости за интервал
-checked()
+//checked()
 //управление графиком скорости
-speed()
+
+const btnForm = document.querySelectorAll('.btm_form')
+//const inputDate = document.querySelectorAll('.input_date')
+const grafView = document.querySelector('.grafik1')
+//const selectSpeed = document.querySelector('.select_speed')
+
+
+speed(btnForm, inputDate, grafView, selectSpeed)
 //генерация списка под параметры датчиков с базы
 liCreate()
 
 
 
-
+export function speed(btnForm, inputDate, grafView, selectSpeed) {
+    console.log(btnForm)
+    btnForm.forEach(el =>
+        el.addEventListener('click', () => {
+            if (el.textContent === 'Выполнить' && inputDate[0].value !== '' && inputDate[1].value !== '') {
+                grafView.style.display = 'block'
+                dataInput()
+                // dataInput2()
+            }
+            if (el.textContent === 'Выполнить' && inputDate[0].value == '' && inputDate[1].value == '') {
+                grafView.style.display = 'block'
+                dataSelect()
+                //  dataSelect2()
+            }
+            if (el.textContent === 'Очистить') {
+                selectSpeed.value = 0;
+                inputDate.forEach(e => {
+                    e.value = ''
+                    //  console.log('очистил')
+                    grafView.style.display = 'none'
+                })
+            }
+        }))
+}
 
 
 
@@ -72,7 +103,7 @@ export function dataInput() {
     let timeFrom = Math.floor(t01.setHours(t01.getHours()) / 1000)
     let t02 = new Date(arrDate[1])
     let nowDate = Math.floor(t02.setHours(t02.getHours()) / 1000)
-    graf(timeFrom, nowDate, 30)
+    graf(timeFrom, nowDate, 30, 25766831)
 }
 
 let nowDate = Math.round(new Date().getTime() / 1000)
@@ -81,17 +112,17 @@ export function dataSelect() {
     switch (selectSpeed.value) {
         case '1': {
             let timeFrom = Math.round(nDate.setHours(nDate.getHours() - 24) / 1000);
-            graf(timeFrom, nowDate, 30)
+            graf(timeFrom, nowDate, 30, 25766831)
         }
             break;
         case '2': {
             let timeFrom = Math.round(nDate.setDate(nDate.getDate() - 7) / 1000);
-            graf(timeFrom, nowDate, 100)
+            graf(timeFrom, nowDate, 100, 25766831)
         }
             break;
         case '3': {
             let timeFrom = Math.round(nDate.setMonth(nDate.getMonth() - 1) / 1000);
-            graf(timeFrom, nowDate, 300)
+            graf(timeFrom, nowDate, 300, 25766831)
         }
             break;
     }
@@ -273,7 +304,7 @@ function fn() {
             console.log(kolesos[kolesos.length - 1].id)
 
             speedGraf.style.display = 'none';
-            sensor()
+            sensor(btnsens, titleSens)
             tiresLink.forEach(e => {
                 obo.style.display = 'none'
                 titleSens.style.display = 'none'

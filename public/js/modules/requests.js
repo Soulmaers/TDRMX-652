@@ -60,10 +60,6 @@ export const geoPosition = () => {
 }
 
 
-
-
-
-
 export const loadModel = () => {
     fetch('api/model', {
         method: "GET",
