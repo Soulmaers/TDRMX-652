@@ -110,9 +110,9 @@ td {
     transition: opacity 300ms;
     position: absolute;
     height: 34px;
-    width: 75px;
+    width: 120px;
     top: 14%;
-    left: 35%;
+    left: 28%;
     background-color: #fff;
     visibility: visible;
     border-radius: 5px;
