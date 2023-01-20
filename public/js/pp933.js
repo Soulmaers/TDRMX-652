@@ -219,6 +219,7 @@ export function view(arr, params) {
     console.log(alerts)
     //div.style.display = 'none';
     const tiresLink = document.querySelectorAll('.tires_link')
+    const tiresD = document.querySelectorAll('.tiresD')
     console.log(arr)
     console.log(params)
     arr.forEach((el, index) => {
@@ -226,14 +227,22 @@ export function view(arr, params) {
         let parapmsPress;
 
         parapmsPress = (el.value)
-
+        //console.log(parapmsPress)
         params.forEach(item => {
             if (el.name == item.pressure) {
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress
+                //console.log(tiresLink[item.tyresdiv - 1].children[0].textContent)
                 tiresLink[item.tyresdiv - 1].children[2].textContent = 'p:' + item.pressure + '\nt:' + item.temp
                 alerts.push(tiresLink[item.tyresdiv - 1].children[0].textContent)
+                //  console.log(tiresLink[item.tyresdiv - 1].children[0].textContent)
+                // console.log(tiresLink[item.tyresdiv - 1].children[0])
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
+
                 tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generDav(parapmsPress)];
+                if (parapmsPress < 6 || parapmsPress > 9.9) {
+                    tiresLink[item.tyresdiv - 1].style.borderRadius = '15px'
+                    tiresLink[item.tyresdiv - 1].style.border = '3px solid red'
+                }
             }
             if (el.name == item.temp) {
                 tiresLink[item.tyresdiv - 1].children[1].textContent = el.value + '°'
