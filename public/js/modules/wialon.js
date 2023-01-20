@@ -4,7 +4,8 @@ import { chrt1 } from './canvas.js'
 export function graf(t1, t2, int) {
     //console.log(t1, t2, int)
     const prms2 = {
-        "itemId": 25343786,
+        "itemId": 25766831,   //25343786,
+
         "timeFrom": t1,//t1,//timeFrom,//1657205816,
         "timeTo": t2,//t2,//nowDate,//2757209816,
         "flags": 1,

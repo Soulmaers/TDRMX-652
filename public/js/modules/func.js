@@ -1,5 +1,5 @@
 import { dataInput, dataSelect } from '../pp933.js'
-import { dataInput2, dataSelect2 } from '../kran858.js'
+//import { dataInput2, dataSelect2 } from '../kran858.js'
 
 const obo = document.querySelector('.obo')
 
@@ -65,16 +65,24 @@ export function alertCreate2() {
     headerCar.prepend(div);
 }
 
-export function alarm() {
+export function alarmMin() {
     const div = document.querySelector('.alarm')
     div.style.display = 'block'
-
+    const alarmMinn = document.querySelector('.dav_min')
+    const info = document.querySelector('.info')
+    alarmMinn.style.display = 'flex'
+    info.style.display = 'flex'
 }
-export function alarm2() {
+
+export function alarmMax() {
     const div = document.querySelector('.alarm')
     div.style.display = 'block'
-
+    const alarmMaxx = document.querySelector('.dav_max')
+    const info = document.querySelector('.info')
+    alarmMaxx.style.display = 'flex'
+    info.style.display = 'flex'
 }
+
 
 
 export function checked() {
@@ -87,15 +95,7 @@ export function checked() {
     })
 }
 
-export function checked2() {
-    const selectSpeed = document.querySelector('.select_speed');
-    const inputDate = document.querySelectorAll('.input_date')
-    selectSpeed.addEventListener('click', () => {
-        inputDate.forEach(e => {
-            e.value = ''
-        })
-    })
-}
+
 
 export function speed() {
     const btnForm = document.querySelectorAll('.btm_form')
@@ -123,31 +123,7 @@ export function speed() {
         }))
 }
 
-export function speed2() {
-    const btnForm = document.querySelectorAll('.btm_form')
-    const inputDate = document.querySelectorAll('.input_date')
-    const grafView = document.querySelector('.grafik1')
-    const selectSpeed = document.querySelector('.select_speed')
-    btnForm.forEach(el =>
-        el.addEventListener('click', () => {
-            if (el.textContent === 'Выполнить' && inputDate[0].value !== '' && inputDate[1].value !== '') {
-                grafView.style.display = 'block'
-                dataInput2()
-            }
-            if (el.textContent === 'Выполнить' && inputDate[0].value == '' && inputDate[1].value == '') {
-                grafView.style.display = 'block'
-                dataSelect2()
-            }
-            if (el.textContent === 'Очистить') {
-                selectSpeed.value = 0;
-                inputDate.forEach(e => {
-                    e.value = ''
-                    //  console.log('очистил')
-                    grafView.style.display = 'none'
-                })
-            }
-        }))
-}
+
 
 export function liCreate() {
     const obo = document.querySelector('.obo')
@@ -162,24 +138,6 @@ export function liCreate() {
 
 
 export function sensor() {
-    const btnsens = document.querySelectorAll('.btnsens')
-    const titleSens = document.querySelector('.title_sens')
-    btnsens.forEach(e =>
-        e.addEventListener('click', () => {
-
-            btnsens.forEach(el => {
-                obo.style.display = 'none';
-                titleSens.style.display = 'none';
-                el.classList.remove('actBTN')
-            })
-            e.classList.add('actBTN')
-            // jobModal(e);
-            obo.style.display = 'flex';
-            titleSens.style.display = 'block';
-        }))
-}
-
-export function sensor2() {
     const btnsens = document.querySelectorAll('.btnsens')
     const titleSens = document.querySelector('.title_sens')
     btnsens.forEach(e =>

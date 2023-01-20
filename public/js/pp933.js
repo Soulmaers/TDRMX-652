@@ -1,10 +1,13 @@
 
 'use strict'
-import { foreachArr, checked, speed, init, liCreate, sensor, alarm, alertCreate } from './modules/func.js'
+import { foreachArr, checked, speed, init, liCreate, sensor, alarmMin, alarmMax, alertCreate } from './modules/func.js'
 import { map } from './modules/osm.js'
 import { reqDelete, loadModel, postModel, paramsDelete, geoPosition } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
+//const alarmMax = document.querySelector('.div_max')
+//const alarmMin = document.querySelector('.div_min')
+//const info = document.querySelector('.info')
 const linkSelect = document.querySelectorAll('.linkSelect');
 const centerOs = document.querySelectorAll('.centerOs');
 const moduleConfig = document.querySelector('.moduleConfig')
@@ -12,7 +15,7 @@ const tiresLink = document.querySelectorAll('.tires_link')
 const linkSelectOs = document.querySelectorAll('.linkSelectOs')
 const linkSelectTires = document.querySelectorAll('.linkSelectTires')
 const wrapperButton = document.querySelector('.wrapper_button')
-
+const tiresD = document.querySelectorAll('.tiresD')
 const btnsens = document.querySelectorAll('.btnsens')
 const titleSens = document.querySelector('.title_sens')
 const obo = document.querySelector('.obo')
@@ -27,7 +30,9 @@ const job = document.querySelector('.job')
 const tyres = document.querySelectorAll('.tires')
 const place = document.querySelectorAll('.place')
 
-console.log(place)
+console.log(tiresD)
+
+
 
 //setTimeout(geoPosition, 3000)
 geoPosition();
@@ -211,6 +216,7 @@ select()
 //div.className = "alarm";
 export function view(arr, params) {
     const alerts = [];
+    console.log(alerts)
     //div.style.display = 'none';
     const tiresLink = document.querySelectorAll('.tires_link')
     console.log(arr)
@@ -218,18 +224,16 @@ export function view(arr, params) {
     arr.forEach((el, index) => {
         msg[index].textContent = `${el.name}:${el.value}`
         let parapmsPress;
-        if (job.value !== '') {
-            parapmsPress = (el.value * job.value).toFixed(1)
-        } else {
-            parapmsPress = (el.value)
-        }
+
+        parapmsPress = (el.value)
+
         params.forEach(item => {
             if (el.name == item.pressure) {
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress
                 tiresLink[item.tyresdiv - 1].children[2].textContent = 'p:' + item.pressure + '\nt:' + item.temp
                 alerts.push(tiresLink[item.tyresdiv - 1].children[0].textContent)
                 tiresLink[item.tyresdiv - 1].children[0].textContent = parapmsPress + '\nБар'
-                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generFront(parapmsPress)];
+                tiresLink[item.tyresdiv - 1].children[0].style.background = objColor[generDav(parapmsPress)];
             }
             if (el.name == item.temp) {
                 tiresLink[item.tyresdiv - 1].children[1].textContent = el.value + '°'
@@ -237,8 +241,11 @@ export function view(arr, params) {
             }
         })
 
-        if (alerts.some(element => element < 7.5 || element > 13) == true) {
-            alarm();
+        if (alerts.some(element => element < 6) == true) {
+            alarmMin();
+        }
+        if (alerts.some(element => element > 9.9) == true) {
+            alarmMax();
         }
     })
 
@@ -301,8 +308,8 @@ function koleso(kol) {
                 const valJob = (job.value.length == 0) ? value : value * job.value
                 valJob.length > 10 ?
                     kol[kol.length - 1].children[0].textContent = '-' :
-                    kol[kol.length - 1].children[0].textContent = valJob + '\nБар'
-                kol[kol.length - 1].children[0].style.background = objColor[generFront(valJob)];
+                    kol[kol.length - 1].children[0].textContent = value + '\nБар'
+                kol[kol.length - 1].children[0].style.background = objColor[generDav(value)];
                 paramPress.push(el)
                 console.log(paramPress)
             }
@@ -419,6 +426,27 @@ const views = (arr) => {
 }
 */
 //условия для подсветки шин D и T
+
+
+function generDav(el) {
+    //  modulAlarm();
+    let generatedValue;
+    if (el >= 10) {
+        generatedValue = 1;
+
+    }
+    if (el <= 5.9) {
+        generatedValue = 1;
+    }
+    else {
+        generatedValue = 3;
+    }
+    return generatedValue;
+};
+
+
+
+
 function generFront(el) {
     let generatedValue;
     if (el >= 8 && el <= 9) {
