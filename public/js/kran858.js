@@ -2,7 +2,7 @@
 'use strict'
 import { init, foreachArr2, sensor2, liCreate2, alertCreate2 } from './modules/func2.js'
 import { map } from './modules/osm.js'
-import { loadModel2, postModel2, paramsDelete2, reqDelete2 } from './modules/requests2.js'
+import { loadModel2, postModel2, paramsDelete2, reqDelete2, geoPosition2 } from './modules/requests2.js'
 import { graf } from './modules/wialon.js'
 
 
@@ -35,7 +35,7 @@ const place2 = document.querySelectorAll('.place')
 
 
 //setTimeout(geoPosition, 3000)
-//geoPosition();
+geoPosition2();
 //создание дива для аларма
 alertCreate2();
 

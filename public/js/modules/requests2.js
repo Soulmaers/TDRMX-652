@@ -10,10 +10,10 @@ const centerOs = document.querySelectorAll('.centerOs');
 
 
 
-let iss;
+let iss2;
 export const geoPosition2 = () => {
     console.log('запрос')
-    fetch('/api/datawialonGeo', {
+    fetch('/api/datawialonGeo2', {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -23,12 +23,12 @@ export const geoPosition2 = () => {
         .then((res) => {
             const geo = res
             console.log(geo)
-            const center = [geo.geoY, geo.geoX]
+            const center = [geo.geoY2, geo.geoX2]
             console.log('запрос2')
             console.log(center)
             //map.setView([59.9386, 30.3141], 8);
             //  L.marker(center).addTo(map);
-            if (!iss) {
+            if (!iss2) {
                 var LeafIcon = L.Icon.extend({
                     options: {
                         iconSize: [28, 28],
@@ -45,17 +45,17 @@ export const geoPosition2 = () => {
                 })
 
                 // var myIcon2 = L.divIcon({ className: 'my-div-icon' });
-                iss = L.marker(center, { icon: greenIcon }).bindPopup('Кран858').addTo(map);
+                iss2 = L.marker(center, { icon: greenIcon }).bindPopup('PP933').addTo(map);
                 //marker.bindPopup("Popup content");
-                iss.on('mouseover', function (e) {
+                iss2.on('mouseover', function (e) {
                     this.openPopup();
                 });
-                iss.on('mouseout', function (e) {
+                iss2.on('mouseout', function (e) {
                     this.closePopup();
                 });
             }
-            iss.setLatLng(center, /*{ icon: greenIcon }*/).update();
-            setTimeout(geoPosition, 6000);
+            iss2.setLatLng(center, /*{ icon: greenIcon }*/).update();
+            setTimeout(geoPosition2, 6000);
         })
 }
 

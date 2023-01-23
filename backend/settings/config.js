@@ -2,7 +2,7 @@
 const wialon = require('wialon');
 const express = require('express');
 const connection = require('./db')
-const { allParams, lostSens, geo } = require('./sort')
+const { allParams, lostSens, geo, geo2 } = require('./sort')
 
 const { prms1, prms, prms2, prms22 } = require('./params')
 const app = express();
@@ -30,6 +30,9 @@ init()
 let gY;
 let gX;
 
+let gY2;
+let gX2;
+
 function getMainInfo() {
     console.log('запуск')
     session.request('unit/calc_last_message', prms1)
@@ -47,8 +50,22 @@ function getMainInfo() {
         })
         .then(function (data) {
             geo(data)
-            gY = geoY;
-            gX = geoX;
+            // gY = geoY;
+            //  gX = geoX;
+            //  console.log(geoY, geoX)
+            //console.log(gY, gX)
+
+            //  геопозиция
+        })
+
+    session.request('core/search_item', prms22)
+        .catch(function (err) {
+            console.log(err);
+        })
+        .then(function (data) {
+            geo2(data)
+            //    gY2 = geoY;
+            //  gX2 = geoX;
             //  console.log(geoY, geoX)
             //console.log(gY, gX)
 

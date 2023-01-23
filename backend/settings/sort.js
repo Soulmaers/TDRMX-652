@@ -29,7 +29,17 @@ function geo(data) {
     geoX = arr2[0].pos.x
     geoY = arr2[0].pos.y
 
-    console.log(geoY, geoX)
+    // console.log(geoY, geoX)
+}
+
+function geo2(data) {
+    const arr2 = Object.values(data);
+    // console.log(arr2)
+    // console.log(arr1[5][0].lmsg.p)
+    geoX2 = arr2[0].pos.x
+    geoY2 = arr2[0].pos.y
+
+    //console.log(geoY, geoX)
 }
 
 
@@ -39,6 +49,7 @@ module.exports = {
     lostSens,
     allParams,
     geo,
+    geo2
 
 
 
