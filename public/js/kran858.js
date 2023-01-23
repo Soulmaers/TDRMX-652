@@ -1,8 +1,8 @@
 
 'use strict'
-import { init, foreachArr, sensor } from './modules/func.js'
+import { init, foreachArr, sensor, liCreate } from './modules/func.js'
 import { map } from './modules/osm.js'
-//import { reqDelete, loadModel, postModel, paramsDelete, geoPosition } from './modules/requests.js'
+import { loadModel2, postModel2 } from './modules/requests.js'
 import { graf } from './modules/wialon.js'
 
 const linkSelect = document.querySelectorAll('.linkSelect');
@@ -41,8 +41,8 @@ console.log(place)
 init();
 //запрос в базу и получение параметров датчиков
 //загрузка текущей модели конфигуратора из базы
-//loadModel();
-//setInterval(loadModel, 5000)
+//loadModel2();
+//setInterval(loadModel2, 5000)
 //очистка модели из базы и удаление отрисовки
 //btnClear.addEventListener('click', reqDelete)
 //btnClear.addEventListener('click', paramsDelete)
@@ -58,7 +58,7 @@ const grafView = document.querySelector('.grafik1')
 
 speed(btnForm, inputDate, grafView, selectSpeed)
 //генерация списка под параметры датчиков с базы
-//liCreate()
+liCreate()
 
 
 
@@ -198,7 +198,7 @@ function validation(arrayTrailer, arrayTyres) {
 }
 
 btnSave.addEventListener('click', () => {
-    postModel(massiv)
+    postModel2(massiv)
 
 })
 
@@ -242,7 +242,8 @@ select()
 
 //let div = document.createElement('div');
 //div.className = "alarm";
-export function view(arr, params) {
+export function view2(arr, params) {
+    console.log('вью')
     const alerts = [];
     //div.style.display = 'none';
     const tiresLink = document.querySelectorAll('.tires_link')
@@ -397,7 +398,7 @@ function valid(paramPress, paramTemp) {
     console.log(massivion)
     console.log(massivionbd)
     btnSave.addEventListener('click', () => {
-        postTyres(massivionbd);
+        postTyres2(massivionbd);
     })
     //postTyres(massivionbd);
     // views(massivion)
@@ -405,8 +406,8 @@ function valid(paramPress, paramTemp) {
 }
 
 
-function postTyres(arr) {
-    fetch('api/tyres', {
+function postTyres2(arr) {
+    fetch('api/tyres2', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

@@ -86,8 +86,8 @@ exports.model2 = (req, res) => {
     console.log(req.body)
     //  console.log('запрос')
     try {
-        const postModel = `INSERT INTO model2(osi, trailer, tyres) VALUES?`
-        connection.query(postModel, [req.body], function (err, results) {
+        const postModel2 = `INSERT INTO model2(osi, trailer, tyres) VALUES?`
+        connection.query(postModel2, [req.body], function (err, results) {
             if (err) console.log(err);
             //console.log(results)
             response.status(200, results, res)

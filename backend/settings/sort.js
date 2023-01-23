@@ -3,6 +3,7 @@ function allParams(data) {
     const arr1 = Object.values(data);
     // console.log(arr1[5][0].lmsg.p)
     sensors = Object.entries(arr1[5][2].lmsg.p)
+    sensor = Object.entries(arr1[5][0].lmsg.p)
 }
 
 

@@ -1,6 +1,6 @@
 import { divClear } from './func.js'
 import { view } from '../pp933.js'
-//import { view2 } from '../kran858.js'
+import { view2 } from '../kran858.js'
 import { divClear2 } from './func.js'
 import { map } from './osm.js'
 const osi = document.querySelectorAll('.osi')
@@ -128,6 +128,74 @@ export const loadModel = () => {
 
 
 
+export const loadModel2 = () => {
+    fetch('api/model2', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then((res) => res.json())
+        .then((res) => {
+            const model = res
+            console.log(model.values)
+            if (model.values.length > 0) {
+                model.values.forEach(el => {
+                    osi[el.osi - 1].style.display = 'flex';
+                    centerOs[el.osi - 1].style.display = 'flex';
+                    el.trailer == 'Прицеп' ?
+                        centerOs[el.osi - 1].style.backgroundImage = "url('../image/line_red.png')" :
+                        centerOs[el.osi - 1].style.backgroundImage = "url('../image/line_gray.png')"
+                    if (el.tyres == 2) {
+                        centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
+                        centerOs[el.osi - 1].nextElementSibling.children[1].style.display = 'flex';
+                        centerOs[el.osi - 1].previousElementSibling.children[1].style.display = 'none';
+                        centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'none';
+                    }
+                    else {
+                        centerOs[el.osi - 1].previousElementSibling.children[0].style.display = 'flex';
+                        centerOs[el.osi - 1].previousElementSibling.children[1].style.display = 'flex';
+                        centerOs[el.osi - 1].nextElementSibling.children[0].style.display = 'flex';
+                        centerOs[el.osi - 1].nextElementSibling.children[1].style.display = 'flex';
+                    }
+                })
+            }
+            else {
+                console.log('база пустая')
+            }
+        }),
+        fetch('api/tyres2', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                const params = res
+                console.log(params.values)
+
+                fetch('api/wialon2', {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    .then((res) => res.json())
+                    .then((res) => {
+                        const data = res
+
+                        data.values.sort((prev, next) => {
+                            if (prev.name < next.name) return -1;
+                            if (prev.name < next.name) return 1;
+                        })
+                        view2(data.values, params.values)
+                    })
+            })
+}
+
+
+
 
 
 
@@ -194,7 +262,20 @@ export function postModel(arrTwo) {
 }
 
 
-
+export function postModel2(arrTwo) {
+    console.log(arrTwo)
+    // const base = [];
+    // base.push(osy, trailer, tyres)
+    //   console.log(tu)
+    fetch('api/model2', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(arrTwo),
+    })
+        .then((res) => res.json())
+}
 
 
 
