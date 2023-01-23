@@ -97,37 +97,37 @@ function getMainInfo() {
                     })
                 }
             });
-            /*
-                        const selectBase2 = `SELECT id FROM params2 WHERE 1`
-                        connection.query(selectBase2, function (err, results) {
+
+            const selectBase2 = `SELECT id FROM params2 WHERE 1`
+            connection.query(selectBase2, function (err, results) {
+                if (err) console.log(err);
+                // console.log(results);
+                //  console.log(results.length);
+                if (results.length <= 1) {
+                    console.log('старт22')
+                    // const datas = [['M', 300], ['R', 200], ['P', 500]]
+                    const sql = `INSERT INTO params2(name,value) VALUES?`;
+                    connection.query(sql, [sensor], function (err, results) {
+                        if (err) console.log(err);
+                        // console.log(results);
+                    });
+                    connection.end();
+                }
+                else if (results.length > 1) {
+                    console.log('старт2')
+                    let count = 0;
+                    sensor.forEach(el => {
+                        count++
+                        const sql = `UPDATE params2  SET name='${el[0]}', value='${el[1]}' WHERE id=${count}`;
+                        // const data = [34, "Tom"];
+                        connection.query(sql, function (err, results) {
                             if (err) console.log(err);
-                            // console.log(results);
-                            //  console.log(results.length);
-                            if (results.length <= 1) {
-                                console.log('старт1')
-                                // const datas = [['M', 300], ['R', 200], ['P', 500]]
-                                const sql = `INSERT INTO params2(name,value) VALUES?`;
-                                connection.query(sql, [sensor], function (err, results) {
-                                    if (err) console.log(err);
-                                    // console.log(results);
-                                });
-                                connection.end();
-                            }
-                            else if (results.length > 1) {
-                                console.log('старт')
-                                let count = 0;
-                                sensor.forEach(el => {
-                                    count++
-                                    const sql = `UPDATE params2  SET name='${el[0]}', value='${el[1]}' WHERE id=${count}`;
-                                    // const data = [34, "Tom"];
-                                    connection.query(sql, function (err, results) {
-                                        if (err) console.log(err);
-                                        //console.log(results);
-                                    });
-                                    //  connection.end();
-                                })
-                            }
-                        });*/
+                            //console.log(results);
+                        });
+                        //  connection.end();
+                    })
+                }
+            });
 
 
         })

@@ -66,6 +66,7 @@ liCreate()
 
 
 export function speed(btnForm, inputDate, grafView, selectSpeed) {
+
     console.log(btnForm)
     btnForm.forEach(el =>
         el.addEventListener('click', () => {

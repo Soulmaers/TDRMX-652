@@ -19,15 +19,16 @@ export function init() {
 };
 
 //обработка массива для скрытия осей и других элементов
-export const divClear = (arr) => {
+
+export const divClear2 = (arr) => {
     arr.forEach(e => {
         e.style.display = 'none';
     })
 }
 
-
 //обработка массива с отображением выбранныъ осей
-export const foreachArr = (arr1, arr2, num) => {
+
+export const foreachArr2 = (arr1, arr2, num) => {
     for (let i = 0; i < num; i++) {
         arr1[i].style.display = 'flex'
     }
@@ -41,15 +42,14 @@ export const foreachArr = (arr1, arr2, num) => {
 
 
 
-export function alertCreate() {
+export function alertCreate2() {
     let div = document.createElement('div');
     div.className = "alarm";
     const headerCar = document.querySelector('.header_car')
     headerCar.prepend(div);
 }
 
-
-export function alarmMin() {
+export function alarmMin2() {
     const div = document.querySelector('.alarm')
     div.style.display = 'block'
     const alarmMinn = document.querySelector('.dav_min')
@@ -58,7 +58,7 @@ export function alarmMin() {
     info.style.display = 'flex'
 }
 
-export function alarmMax() {
+export function alarmMax2() {
     const div = document.querySelector('.alarm')
     div.style.display = 'block'
     const alarmMaxx = document.querySelector('.dav_max')
@@ -69,7 +69,7 @@ export function alarmMax() {
 
 
 
-export function checked() {
+export function checked2() {
     const selectSpeed = document.querySelector('.select_speed');
     const inputDate = document.querySelectorAll('.input_date')
     selectSpeed.addEventListener('click', () => {
@@ -85,7 +85,7 @@ export function checked() {
 
 
 
-export function liCreate() {
+export function liCreate2() {
     const obo = document.querySelector('.obo')
     const count = 97;
     for (let i = 0; i < count; i++) {
@@ -97,7 +97,7 @@ export function liCreate() {
 }
 
 
-export function sensor(btnsens, titleSens) {
+export function sensor2(btnsens, titleSens) {
     // const btnsens = document.querySelectorAll('.btnsens')
     // const titleSens = document.querySelector('.title_sens')
     btnsens.forEach(e =>
@@ -116,7 +116,7 @@ export function sensor(btnsens, titleSens) {
 }
 
 
-const jobModal = (e) => {
+const jobModal2 = (e) => {
     let job = document.querySelector('.job')
     console.log(e)
     if (e.textContent == 'Давление') {

@@ -1,6 +1,7 @@
-import { divClear } from './func.js'
-import { view } from '../pp933.js'
+//import { divClear } from './func.js'
+import { view2 } from '../kran858.js'
 //import { view2 } from '../kran858.js'
+import { divClear2 } from './func2.js'
 import { map } from './osm.js'
 const osi = document.querySelectorAll('.osi')
 const tires = document.querySelectorAll('.tires')
@@ -10,7 +11,7 @@ const centerOs = document.querySelectorAll('.centerOs');
 
 
 let iss;
-export const geoPosition = () => {
+export const geoPosition2 = () => {
     console.log('запрос')
     fetch('/api/datawialonGeo', {
         method: "GET",
@@ -59,8 +60,13 @@ export const geoPosition = () => {
 }
 
 
-export const loadModel = () => {
-    fetch('api/model', {
+
+export const loadModel2 = () => {
+    const osi = document.querySelectorAll('.osi')
+    //const tires = document.querySelectorAll('.tires')
+    //const tiresInside = document.querySelectorAll('.tiresInside')
+    const centerOs = document.querySelectorAll('.centerOs');
+    fetch('api/model2', {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -70,6 +76,7 @@ export const loadModel = () => {
         .then((res) => {
             const model = res
             console.log(model.values)
+            console.log(osi)
             if (model.values.length > 0) {
                 model.values.forEach(el => {
                     osi[el.osi - 1].style.display = 'flex';
@@ -95,7 +102,7 @@ export const loadModel = () => {
                 console.log('база пустая')
             }
         }),
-        fetch('api/tyres', {
+        fetch('api/tyres2', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -106,7 +113,7 @@ export const loadModel = () => {
                 const params = res
                 console.log(params.values)
 
-                fetch('api/wialon', {
+                fetch('api/wialon2', {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',
@@ -120,7 +127,7 @@ export const loadModel = () => {
                             if (prev.name < next.name) return -1;
                             if (prev.name < next.name) return 1;
                         })
-                        view(data.values, params.values)
+                        view2(data.values, params.values)
                     })
             })
 }
@@ -128,10 +135,12 @@ export const loadModel = () => {
 
 
 
-export const reqDelete = () => {
-    const div = document.querySelector('.alarm')
-    div.style.display = 'none'
-    fetch('api/delete', {
+
+
+export const reqDelete2 = () => {
+    const div2 = document.querySelector('.alarm')
+    div2.style.display = 'none'
+    fetch('api/delete2', {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
@@ -139,9 +148,9 @@ export const reqDelete = () => {
     })
         .then((res) => res.json())
         .then((res) => console.log(res))
-    divClear(osi)
-    divClear(tiresInside)
-    divClear(tires)
+    divClear2(osi)
+    divClear2(tiresInside)
+    divClear2(tires)
     centerOs.forEach(e => {
         e.style.backgroundImage = "url('../image/line.png')"
     })
@@ -151,8 +160,8 @@ export const reqDelete = () => {
 
 
 
-export const paramsDelete = () => {
-    fetch('api/paramsDelete', {
+export const paramsDelete2 = () => {
+    fetch('api/paramsDelete2', {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
@@ -175,22 +184,6 @@ export const paramsDelete = () => {
 
 
 
-export function postModel(arrTwo) {
-    console.log(arrTwo)
-    // const base = [];
-    // base.push(osy, trailer, tyres)
-    //   console.log(tu)
-    fetch('api/model', {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(arrTwo),
-    })
-        .then((res) => res.json())
-}
-
-
 export function postModel2(arrTwo) {
     console.log(arrTwo)
     // const base = [];
@@ -205,6 +198,5 @@ export function postModel2(arrTwo) {
     })
         .then((res) => res.json())
 }
-
 
 
