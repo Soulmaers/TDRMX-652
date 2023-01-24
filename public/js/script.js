@@ -28,7 +28,7 @@ function init() {
             }
             getMainInfo();
             grafTwo();
-            zapros()
+            //   zapros()
             setInterval(getMainInfo, 5000);
         });
 };
