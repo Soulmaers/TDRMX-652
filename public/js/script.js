@@ -117,10 +117,10 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr1 = Object.values(result);
-            check = arr1[5][1].lmsg.p.pwr_ext;
-            odom = arr1[5][1].lmsg.p.mileage.toFixed(2);
-            oil = ((arr1[5][1].lmsg.p.rs232fuel_level) / 163.8275).toFixed(2);
-            document.querySelector('.title_two').textContent = arr1[5][1].nm;
+            check = arr1[5][2].lmsg.p.pwr_ext;
+            odom = arr1[5][2].lmsg.p.mileage.toFixed(2);
+            oil = ((arr1[5][2].lmsg.p.rs232fuel_level) / 163.8275).toFixed(2);
+            document.querySelector('.title_two').textContent = arr1[5][2].nm;
             chekOut = check.toFixed(1);
             akb(chekOut);
             odomFn(odom);
@@ -219,69 +219,6 @@ function detalyFn(e) {
 }
 
 
-
-/*
-//подсветка оси
-function tiresOs(arr) {
-    arrFront = arr.slice(0, 2);
-    arrCenter = arr.slice(2, 6);
-    arrRear1 = arr.slice(6, 8);
-    arrRear2 = arr.slice(8, 10);
-    arrRear3 = arr.slice(10, 12);
-    tiresTest(arrFront, arrCenter, arrRear1, arrRear2, arrRear3)
-}
-function tiresTest(arr1, arr2, arr3, arr4, arr5) {
-    lowDiv = document.querySelectorAll('.lowDiv ');
-    if (arr1[0] >= 8 && arr1[0] <= 9 || arr1[1] >= 8 && arr1[1] <= 9) {
-        lowDiv[0].style.backgroundColor = '#3eb051'
-    }
-    if (arr1[0] >= 7.5 && arr1[0] < 8 || arr1[0] > 9 && arr1[0] <= 13 || arr1[1] >= 7.5 && arr1[1] < 8 || arr1[1] > 9 && arr1[1] <= 13) {
-        lowDiv[0].style.backgroundColor = '#9ba805'
-    }
-    if (arr1[0] > -100 && arr1[0] < 7.5 || arr1[0] > 13 || arr1[1] > -100 && arr1[1] < 7.5 || arr1[1] > 13) {
-        lowDiv[0].style.backgroundColor = '#e03636'
-    }
-    if (arr3[0] >= 9 && arr3[0] <= 12 || arr3[1] >= 9 && arr3[1] <= 12) {
-        lowDiv[2].style.backgroundColor = '#3eb051'
-    }
-    if (arr3[0] >= 8 && arr3[0] < 9 || arr3[0] > 12 && arr3[0] <= 13 || arr3[1] >= 8 && arr3[1] < 9 || arr3[1] > 12 && arr3[1] <= 13) {
-        lowDiv[2].style.backgroundColor = '#9ba805'
-    }
-    if (arr3[0] > -100 && arr3[0] < 8 || arr3[0] > 13 || arr3[1] > -100 && arr3[1] < 8 || arr3[1] > 13) {
-        lowDiv[2].style.backgroundColor = '#e03636'
-    }
-    if (arr4[0] >= 9 && arr4[0] <= 12 || arr4[1] >= 9 && arr4[1] <= 12) {
-        lowDiv[3].style.backgroundColor = '#3eb051'
-    }
-    if (arr4[0] >= 8 && arr4[0] < 9 || arr4[0] > 12 && arr4[0] <= 13 || arr4[1] >= 8 && arr4[1] < 9 || arr4[1] > 12 && arr4[1] <= 13) {
-        lowDiv[3].style.backgroundColor = '#9ba805'
-    }
-    if (arr4[0] > -100 && arr4[0] < 8 || arr4[0] > 13 || arr4[1] > -100 && arr4[1] < 8 || arr4[1] > 13) {
-        lowDiv[3].style.backgroundColor = '#e03636'
-    }
-    if (arr5[0] >= 9 && arr5[0] <= 12 || arr5[1] >= 9 && arr5[1] <= 12) {
-        lowDiv[4].style.backgroundColor = '#3eb051'
-    }
-    if (arr5[0] >= 8 && arr5[0] < 9 || arr5[0] > 12 && arr5[0] <= 13 || arr5[1] >= 8 && arr5[1] < 9 || arr5[1] > 12 && arr5[1] <= 13) {
-        lowDiv[4].style.backgroundColor = '#9ba805'
-    }
-    if (arr5[0] > -100 && arr5[0] < 8 || arr5[0] > 13 || arr5[1] > -100 && arr5[1] < 8 || arr5[1] > 13) {
-        lowDiv[4].style.backgroundColor = '#e03636'
-    }
-    if (arr2[0] >= 8 && arr2[0] <= 9 || arr2[1] >= 8 && arr2[1] <= 9 || arr2[2] >= 8 && arr2[2] <= 9
-        || arr2[2] >= 8 && arr2[2] <= 9 || arr2[3] >= 8 && arr2[3] <= 9 || arr2[3] >= 8 && arr2[3] <= 9) {
-        lowDiv[1].style.backgroundColor = '#3eb051'
-    }
-    if (arr2[0] >= 7.5 && arr2[0] < 8 || arr2[0] > 9 && arr2[0] <= 13 || arr2[1] >= 7.5 && arr2[1] < 8 || arr2[1] > 9 && arr2[1] <= 13
-        || arr2[2] >= 7.5 && arr2[2] < 8 || arr2[2] > 9 && arr2[2] <= 13 || arr2[3] >= 7.5 && arr2[3] < 8 || arr2[3] > 9 && arr2[3] <= 13) {
-        lowDiv[1].style.backgroundColor = '#9ba805'
-    }
-    if (arr2[0] > -100 && arr2[0] < 7.5 || arr2[0] > 13 || arr2[1] > -100 && arr2[1] < 7.5 || arr2[1] > 13
-        || arr2[2] > -100 && arr2[2] < 7.5 || arr2[2] > 13 || arr2[3] > -100 && arr2[3] < 7.5 || arr2[3] > 13) {
-        lowDiv[1].style.backgroundColor = '#e03636'
-    }
-}
-*/
 //условия для подсветки шин D и T
 function generFront(el) {
     let generatedValue;
@@ -389,87 +326,6 @@ const funcRandom = (el1, el2) => {
     })
 }
 
-/*
-function math() {
-    return Math.floor(Math.random() * 5);
-}*/
-
-
-//arrtests = [[], [], [], [], [], [], [], [], [], [], [], []];
-
-
-
-//arTTT = [[2, 3, 4, 5, 5, 5], [2, 3, 5, 2], [2, 3, 5, 4], [2, 5, 5, 3], [4, 5, 6, 7], [6, 7, 5, 4]]
-/*function got(item1, item2) {
-    //arrDDD = Array(12).fill(0).map(math);
-    arrD = item1.slice(0, 6);
-    arrRear = item1.slice(6, 12)
-    // console.log(arTTT[0].lastIndexOf(!5));
-    alls.forEach(function (elem, index) {
-        if (arrD[index][arrD[index].length - 1] === -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
-            elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 2])];
-        } if (arrD[index][arrD[index].length - 1] !== -348201.3876 && arrD[index][arrD[index].length - 2] === -348201.3876) {
-            elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 1])];
-        }
-        if (arrD[index][arrD[index].length - 1] !== -348201.3876 && arrD[index][arrD[index].length - 2] !== -348201.3876) {
-            elem.style.background = objColor[generFront(arrD[index][arrD[index].length - 1])];
-        } if (arrD[index][arrD[index].length - 1] === 5 && arrD[index][arrD[index].length - 2] === 5) {
-            arrD[index].reverse();
-            arrD[index].forEach(el => {
-                if (el !== -348201.3876) {
-                    arrD[index][el] = el;
-                    r = arrD[index][el]
-                    elem.style.background = objColor[generFront(r)];
-                    //arTTT[0][el] = el;
-                    return arrD[index].reverse();
-                }
-            })
-        }
-    })
-    allsRear.forEach(function (elem, index) {
-        if (arrRear[index][arrRear[index].length - 1] === -348201.3876 && arrRear[index][arrRear[index].length - 2] !== -348201.3876) {
-            elem.style.background = objColor[generRear(arrRear[index][arrRear[index].length - 2])];
-        } if (arrRear[index][arrRear[index].length - 1] !== -348201.3876 && arrRear[index][arrRear[index].length - 2] === -348201.3876) {
-            elem.style.background = objColor[generRear(arrRear[index][arrRear[index].length - 1])];
-        }
-        if (arrRear[index][arrRear[index].length - 1] !== -348201.3876 && arrRear[index][arrRear[index].length - 2] !== -348201.3876) {
-            elem.style.background = objColor[generRear(arrD[index][arrD[index].length - 1])];
-        } if (arrRear[index][arrRear[index].length - 1] === -348201.3876 && arrRear[index][arrRear[index].length - 2] === -348201.3876) {
-            arrRear[index].reverse();
-            arrRear[index].forEach(el => {
-                if (el !== -348201.3876) {
-                    arrRear[index][el] = el;
-                    t = arrRear[index][el]
-                    elem.style.background = objColor[generRear(t)];
-                    //arTTT[0][el] = el;
-                    return arrRear[index].reverse();
-                }
-            })
-        }
-    })
-    allsT.forEach(function (elem, index) {
-        if (item2[index][item2[index].length - 1] === -348201.3876 && item2[index][item2[index].length - 2] !== -348201.3876) {
-            elem.style.background = objColor[generT(item2[index][item2[index].length - 2])];
-        } if (item2[index][item2[index].length - 1] !== -348201.3876 && item2[index][item2[index].length - 2] === -348201.3876) {
-            elem.style.background = objColor[generT(item2[index][item2[index].length - 1])];
-        }
-        if (item2[index][item2[index].length - 1] !== -348201.3876 && item2[index][item2[index].length - 2] !== -348201.3876) {
-            elem.style.background = objColor[generT(item2[index][item2[index].length - 1])];
-        } if (item2[index][item2[index].length - 1] === -348201.3876 && item2[index][item2[index].length - 2] === -348201.3876) {
-            item2[index].reverse();
-            item2[index].forEach(el => {
-                if (el !== -348201.3876) {
-                    item2[index][el] = el;
-                    temp = item2[index][el]
-                    elem.style.background = objColor[generT(temp)];
-                    //arTTT[0][el] = el;
-                    return item2[index].reverse();
-                }
-            })
-        }
-    })
-}
-*/
 
 const tires_link = document.querySelectorAll('.tires_link');
 const arrTireslink = Array.from(tires_link);
@@ -587,11 +443,13 @@ function grafTwo() {
             }
 
             arr3 = Object.values(result);
+            console.log(arr3)
             arrIter = [];
             arrIterT = [];
             //array24D = [];
             for (let subArr in arr3) {
                 arsss = Object.values(arr3[subArr]);
+                // console.log(arsss)
                 arChange = [];
                 arChangeT = [];
                 arChange.push(arsss[0]); arChange.push(arsss[2]); arChange.push(arsss[1]); arChange.push(arsss[9]);
