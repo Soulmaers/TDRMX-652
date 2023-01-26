@@ -7,7 +7,7 @@ console.log('карта')
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-map.setView([59.9386, 30.3141], 8);
+map.setView([59.9386, 30.3141], 7);
 //L.marker([59.9386, 30.3141]).addTo(map);
 //export const map2 = L.map('map')
 
